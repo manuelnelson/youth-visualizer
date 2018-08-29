@@ -1,7 +1,7 @@
 <template>
   <md-toolbar class="header">
       <h1 class="md-title">
-        <img class="logo" src="/un-youth-envoy-logo-en.png" />
+        <img class="logo" src="~/assets/images/un-youth-envoy-logo-en.png" />
       </h1>
   </md-toolbar>
 </template>

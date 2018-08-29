@@ -23,7 +23,7 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: url('/hero.jpg');
+  background-image: url('~/assets/images/hero.jpg');
   background-size: cover;
   position: relative;
   padding: 40px;
