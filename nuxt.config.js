@@ -1,7 +1,15 @@
+const base = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/youth-visualizer/' : '';
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: base
+  }
+} : {}
+
 module.exports = {
   /*
   ** Headers of the page
   */
+  ...routerBase,
   head: {
     title: 'youth indicator visualizer',
     meta: [
