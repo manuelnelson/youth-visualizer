@@ -1,0 +1,27 @@
+[
+  {
+    "language": "South Africa",
+    "value": 18.9,
+    "color": "#000000"
+  },
+  {
+    "language": "Tanzania",
+    "value": 10.1,
+    "color": "#00a2ee"
+  },
+  {
+    "language": "Burundi",
+    "value": 16.0,
+    "color": "#fbcb39"
+  },
+  {
+    "language": "Cameroon",
+    "value": 22.0,
+    "color": "#007bc8"
+  },
+  {
+    "language": "Canada",
+    "value": 23.6,
+    "color": "#65cedb"
+  }
+]
