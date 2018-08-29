@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import HeroComponent from '~/components/Option1/Hero.vue'
-import InputComponent from '~/components/Option1/InputForm.vue'
-import DataVisualizationComponent from '~/components/Option1/DataVisualization.vue'
+import HeroComponent from '~/components/Option2/Hero.vue'
+import InputComponent from '~/components/Option2/InputForm.vue'
+import DataVisualizationComponent from '~/components/Option2/DataVisualization.vue'
 
 export default {
   components: {
@@ -19,6 +19,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-</style>

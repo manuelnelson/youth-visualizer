@@ -17,6 +17,10 @@
     display: block;
     color:  white;
     text-align: left;
+    box-shadow: none;
+    // position: fixed;
+    // top: 0;
+    // left: 0;
     .logo {
       max-height: 100%;
       margin-top: 8px;
