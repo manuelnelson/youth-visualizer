@@ -13,7 +13,7 @@
         <md-autocomplete class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="selectedGoal" :md-options="goalList">
           <label>Goals and Targets</label>
         </md-autocomplete>
-        <md-button class="md-display-1 form-area__btn">View <md-icon>arrow_forward</md-icon></md-button>
+        <md-button class="md-display-1 form-area__btn" @click="viewData">View <md-icon>arrow_forward</md-icon></md-button>
       </div>
     </div>
   </section>
@@ -29,6 +29,13 @@ export default {
     selectedGeography: '',
     selectedGoal: ''
   }),
+  props: {
+    nextClicked: {
+      type: Function,
+      required: true
+    }
+  },
+
   components: {
   },
   methods: {
@@ -47,6 +54,9 @@ export default {
     goalOpened () {
       this.selectedGoal += ' '
       this.selectedGoal = this.selectedGoal.substring(0, this.selectedGoal.length - 1)
+    },
+    viewData () {
+      this.nextClicked()
     }
   }
 }
@@ -56,6 +66,10 @@ export default {
 .intro {
   min-height: calc(70vh - 40px);
   display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   &__content {
     background-color: #0099d6;
     display: flex;
@@ -101,8 +115,8 @@ export default {
   &__btn {
     width: 30vw;
     .md-ripple {
-      border: solid 1px #0099d6;     
-      background-color: #0099d6;
+      border: solid 1px #f6931e;     
+      background-color: #f6931e;
     }
     .md-button-content, i {
       color: white !important;     

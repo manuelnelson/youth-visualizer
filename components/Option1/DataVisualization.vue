@@ -2,6 +2,7 @@
   <section class="data-visualization">
     <div class="data-visualization__content">
       <div class="data-visualization__left">
+        <md-button class="md-display-1 data-visualization__btn" @click="returnBack"><md-icon>arrow_back</md-icon> Back</md-button>
         <h3 class="md-display-1">South Africa, Tanzania, Burundi, Cameroon, Canada</h3>        
       </div>
       <div class="data-visualization__right">        
@@ -119,6 +120,12 @@ export default {
     selectedYear: '',
     yearList
   }),
+  props: {
+    prevClicked: {
+      type: Function,
+      required: true
+    }
+  },
   components: {
     GraphComponent
   },
@@ -133,8 +140,10 @@ export default {
     yearOpened () {
       this.selectedYear += ' '
       this.selectedYear = this.selectedYear.substring(0, this.selectedYear.length - 1)
+    },
+    returnBack () {
+      this.prevClicked()
     }
-
   }
 }
 </script>
@@ -143,9 +152,13 @@ export default {
 .data-visualization {
   min-height: calc(100vh - 40px);
   background-color: #efefef;
-  padding: 80px 40px;
-  position: relative;
-
+  padding: 160px 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  
   &__content {
     position: relative;
     z-index: 2;
@@ -154,11 +167,23 @@ export default {
     margin-bottom: 30px;
     justify-content: space-between;
   }
+  &__btn {
+    position: relative;
+    top: -40px;
+    left: -20px;
+    .md-ripple {
+      //border: solid 1px #0099d6;     
+    }
+    .md-button-content, i {
+      color: #0099d6 !important;     
+    }
+  }
+
   &__left {
     width: 40%;
     text-align: left;
     h3.md-display-1 {
-      color: #0099d6;
+      color: #f6931e;
       margin-bottom: 20px;
     }
   }

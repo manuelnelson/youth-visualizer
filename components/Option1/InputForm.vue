@@ -7,7 +7,7 @@
       <md-autocomplete class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="selectedGoal" :md-options="goalList">
         <label>Goals and Targets</label>
       </md-autocomplete>
-      <md-button class="md-display-1 form-area__btn">View <md-icon>arrow_forward</md-icon></md-button>
+      <md-button class="md-display-1 form-area__btn" @click="runSearch">View <md-icon>arrow_forward</md-icon></md-button>
     </div>
   </section>
 </template>
@@ -22,6 +22,13 @@ export default {
     selectedGeography: '',
     selectedGoal: ''
   }),
+  props: {
+    startClicked: {
+      type: Function,
+      required: true
+    }
+  },
+
   components: {
   },
   methods: {
@@ -40,6 +47,9 @@ export default {
     goalOpened () {
       this.selectedGoal += ' '
       this.selectedGoal = this.selectedGoal.substring(0, this.selectedGoal.length - 1)
+    },
+    runSearch () {
+      this.startClicked()
     }
   }
 }
@@ -54,8 +64,11 @@ export default {
   text-align: center;
   background-color: #0099d6;
   padding: 40px;
-  // margin-top: -80px;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 
   &__content {
     position: relative;

@@ -139,7 +139,10 @@ export default {
   min-height: calc(100vh - 40px);
   background-color: #efefef;
   padding: 80px 40px;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 
   &__content {
     position: relative;

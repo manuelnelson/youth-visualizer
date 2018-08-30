@@ -1,10 +1,5 @@
 <template>
   <section class="intro">
-    <div class="intro__content">
-      <p class="md-display-1 hero-intro">
-        A tool to facilitate the preparation of regular reports on the progress in youth development and well-being in the SDGs. Supporting policy makers to make timely adjustments where needed as well as advocacy efforts where progress needs to be stepped up in order to ensure that no young person will be left behind.        
-      </p>
-    </div>
     <div class="form-area md-accent">
       <div class="form-area__content">
         <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList">
@@ -13,7 +8,7 @@
         <md-autocomplete class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="selectedGoal" :md-options="goalList">
           <label>Goals and Targets</label>
         </md-autocomplete>
-        <md-button class="md-display-1 form-area__btn">View <md-icon>arrow_forward</md-icon></md-button>
+        <md-button class="md-display-1 form-area__btn" @click="runSearch">View <md-icon>arrow_forward</md-icon></md-button>
       </div>
     </div>
   </section>
@@ -29,6 +24,12 @@ export default {
     selectedGeography: '',
     selectedGoal: ''
   }),
+  props: {
+    viewClicked: {
+      type: Function,
+      required: true
+    }
+  },
   components: {
   },
   methods: {
@@ -47,6 +48,10 @@ export default {
     goalOpened () {
       this.selectedGoal += ' '
       this.selectedGoal = this.selectedGoal.substring(0, this.selectedGoal.length - 1)
+    },
+    runSearch () {
+      console.log('click')
+      this.viewClicked()
     }
   }
 }
@@ -56,21 +61,7 @@ export default {
 .intro {
   min-height: calc(70vh - 40px);
   display: flex;
-  &__content {
-    background-color: #0099d6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 80px;
-    width: 50%;
-    position: relative;
-  }
-  .hero-intro {
-    font-size: 30px;
-    color: white;
-    line-height: 1.4;
-  }
+  // width: 100%;
 }
 .form-area {
   display: flex;
@@ -78,10 +69,9 @@ export default {
   align-items: center;
   text-align: center;
   padding: 40px;
-  width: 50%;
   position: relative;
   background-color: #ededed;
-
+  width: 100%;
   &__content {
     position: relative;
     z-index: 2;
@@ -90,7 +80,7 @@ export default {
   h1 {
     display: block;
     margin-bottom: 40px;
-    color: #ededed !important; 
+    color: #973737 !important; 
   }
   &__input {
     margin-bottom: 80px;
