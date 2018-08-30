@@ -1,5 +1,6 @@
 country,id,name,code,startDate,endDate,year,Requirements,Funding,Percent Funded
-Yemen,657,Yemen 2018,HYEM18,2018-01-01,2018-12-31,2018,2959049419,1904795388,64
+#country+name,#activity+appeal+id+fts_internal,#activity+appeal+name,#activity+appeal+id+external,#date+start,#date+end,#date+year,#value+funding+required+usd,#value+funding+total+usd,#value+funding+pct
+Yemen,657,Yemen 2018,HYEM18,2018-01-01,2018-12-31,2018,2959049419,1915081102,64
 Yemen,542,Yemen Humanitarian Response Plan 2017,HYEM17,2017-01-01,2017-12-31,2017,2338796140,1666539486,71
 Yemen,513,Yemen Humanitarian Response Plan 2016,HYEM16,2016-01-01,2016-12-31,2016,1632652363,1021097493,62
 Yemen,477,Yemen 2015,HYEM15,2015-01-01,2015-12-31,2015,1600821448,868340837,54
@@ -10,3 +11,4 @@ Yemen,355,Yemen Humanitarian Response Plan 2011,CYEM11,2011-01-01,2011-12-31,201
 Yemen,314,Yemen Humanitarian Response Plan 2010,CYEM10,2010-01-01,2010-12-31,2010,186121370,111066777,59
 Yemen,317,Yemen Flash Appeal (Revised) (September - December 2009),FYEM09,2009-08-01,2009-12-31,2009,22668500,19892511,87
 Yemen,306,Yemen Floods Response Plan (November - April) 2008 [unrevised as of April 2008; appeal closed at 45% funding and unmet requirements reduced to zero] ,FYEM0809,2008-11-01,2009-04-30,2008,5113261,5113261,100
+Yemen,,Not specified,,,,,,3526013705,
