@@ -2,7 +2,7 @@
   <section class="intro">
     <div class="intro__content">
       <p class="md-display-1 hero-intro">
-        A tool to facilitate the preparation of regular reports on the progress in youth development and well-being in the SDGs. Supporting policy makers to make timely adjustments where needed as well as advocacy efforts where progress needs to be stepped up in order to ensure that no young person will be left behind.        
+        This application serves as a tool to facilitate the preparation of regular reports on the progress in youth development and well-being in the SDGs.  It has the aim of supporting policy makers to make timely adjustments where needed as well as advocacy efforts where progress needs to be stepped up in order to ensure that no young person will be left behind.        
       </p>
     </div>
     <div class="form-area md-accent">
@@ -10,9 +10,15 @@
         <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList">
           <label>Country or Region</label>
         </md-autocomplete>
+        <div class="selected-tags">
+          <span class="selected-tags__item" @click="removeCountry(country)" v-for="country in selectedCountries" :key="country">{{country}} <md-icon>close</md-icon></span>
+        </div>
         <md-autocomplete class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="selectedGoal" :md-options="goalList">
           <label>Goals and Targets</label>
         </md-autocomplete>
+        <div class="selected-tags">
+          <span class="selected-tags__item" @click="removeGoal(goal)" v-for="goal in selectedGoals" :key="goal">{{goal}} <md-icon>close</md-icon></span>
+        </div>
         <md-button class="md-display-1 form-area__btn" @click="viewData">View <md-icon>arrow_forward</md-icon></md-button>
       </div>
     </div>
@@ -27,7 +33,9 @@ export default {
     geoList: geolist.map(x => x.geoAreaName),
     goalList: goalList.map(x => x.code + ': ' + x.title),
     selectedGeography: '',
-    selectedGoal: ''
+    selectedGoal: '',
+    selectedCountries: [],
+    selectedGoals: []
   }),
   props: {
     nextClicked: {
@@ -40,21 +48,34 @@ export default {
   },
   methods: {
     countrySelected (val) {
-      console.log(val)
-      this.selectedGeography = val
+      this.selectedCountries.push(val);
+      let that = this;
+      setTimeout(() => {
+        that.selectedGeography = ''
+      }, 20)
     },
     opened () {
       this.selectedGeography += ' '
       this.selectedGeography = this.selectedGeography.substring(0, this.selectedGeography.length - 1)
     },
     goalSelected (val) {
-      console.log(val)
-      this.selectedGoal = val
+      this.selectedGoals.push(val);
+      let that = this;
+      setTimeout(() => {
+        this.selectedGoal = ''
+      }, 20)
     },
     goalOpened () {
       this.selectedGoal += ' '
       this.selectedGoal = this.selectedGoal.substring(0, this.selectedGoal.length - 1)
     },
+    removeCountry (country) {
+      this.selectedCountries = this.selectedCountries.filter(x => x != country);
+    },
+    removeGoal (goal) {
+      this.selectedGoals = this.selectedGoals.filter(x => x != goal);
+    },
+
     viewData () {
       this.nextClicked()
     }
@@ -107,7 +128,7 @@ export default {
     color: #ededed !important; 
   }
   &__input {
-    margin-bottom: 80px;
+    margin-bottom: 20px;
     input {
       color: #ededed !important; 
     }
@@ -131,6 +152,25 @@ export default {
   }
   .md-field.md-theme-default.md-has-value .md-input {
 
+  }
+}
+.selected-tags {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 60px;
+  &__item {
+    background-color: #f6931e;
+    padding: 8px;
+    color: white;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: darken(#f6931e, 10%);
+    }
+  }
+  i {
+    color: white !important;
   }
 }
 

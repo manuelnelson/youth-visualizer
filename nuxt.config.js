@@ -20,6 +20,9 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,400italic|Material+Icons' }
+    ],
+    script: [
+      { src:'https://d3js.org/d3-selection-multi.v0.4.min.js'}
     ]
   },
   /*
@@ -42,14 +45,14 @@ module.exports = {
     */
     vendor: ['vue-material'],
     extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
+      // if (isDev && isClient) {
+      //   config.module.rules.push({
+      //     enforce: 'pre',
+      //     test: /\.(js|vue)$/,
+      //     loader: 'eslint-loader',
+      //     exclude: /(node_modules)/
+      //   })
+      // }
     }
   }
 }

@@ -11,12 +11,12 @@
         <span class="md-title">8. Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all</span>
         <div class="dimensions">
           <div class="dimensions-item">
-            <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedAge" :md-options="ageOptions">
+            <md-autocomplete class="form-area__input" @md-selected="ageSelected" @md-opened="ageOpened" v-model="selectedAge" :md-options="ageOptions">
               <label>Age</label>
             </md-autocomplete>
           </div>          
           <div class="dimensions-item">
-            <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedSex" :md-options="sexOptions">
+            <md-autocomplete class="form-area__input" @md-selected="sexSelected" @md-opened="sexOpened" v-model="selectedSex" :md-options="sexOptions">
               <label>Sex</label>
             </md-autocomplete>
           </div>          
@@ -33,12 +33,12 @@
         <span class="md-title">8.5.2 Unemployment rate, by sex, age and persons with disabilities</span>
         <div class="dimensions">
           <div class="dimensions-item">
-            <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedAge" :md-options="ageOptions">
+            <md-autocomplete class="form-area__input" @md-selected="ageSelected" @md-opened="ageOpened" v-model="selectedAge" :md-options="ageOptions">
               <label>Age</label>
             </md-autocomplete>
           </div>          
           <div class="dimensions-item">
-            <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedSex" :md-options="sexOptions">
+            <md-autocomplete class="form-area__input" @md-selected="sexSelected" @md-opened="sexOpened" v-model="selectedSex" :md-options="sexOptions">
               <label>Sex</label>
             </md-autocomplete>
           </div>          
@@ -61,12 +61,12 @@
         <span class="md-title">8.6.1 Proportion of youth (aged 15-24 years) not in education, employment or training</span>
         <div class="dimensions">
           <div class="dimensions-item">
-            <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedAge" :md-options="ageOptions">
+            <md-autocomplete class="form-area__input" @md-selected="ageSelected" @md-opened="ageOpened" v-model="selectedAge" :md-options="ageOptions">
               <label>Age</label>
             </md-autocomplete>
           </div>          
           <div class="dimensions-item">
-            <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedSex" :md-options="sexOptions">
+            <md-autocomplete class="form-area__input" @md-selected="sexSelected" @md-opened="sexOpened" v-model="selectedSex" :md-options="sexOptions">
               <label>Sex</label>
             </md-autocomplete>
           </div>          
@@ -83,6 +83,7 @@
 
 <script>
 import GraphComponent from '~/components/Graph.vue'
+import GraphCircleComponent from '~/components/GraphCircle.vue'
 const yearList = [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017]
 const ageOptions = ['10-24', '14-24', '15-29', '18-35']
 const sexOptions = ['Male', 'Female', 'Both Sexes']
@@ -99,7 +100,8 @@ export default {
     yearList
   }),
   components: {
-    GraphComponent
+    GraphComponent,
+    GraphCircleComponent
   },
   methods: {
     fake () {

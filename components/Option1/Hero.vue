@@ -3,7 +3,7 @@
     <div class="hero-content">
       <h1 class="md-display-3">The State Of The Youth: Visualized</h1>
       <p class="md-display-1 hero-intro">
-        A tool to facilitate the preparation of regular reports on the progress in youth development and well-being in the SDGs. Supporting policy makers to make timely adjustments where needed as well as advocacy efforts where progress needs to be stepped up in order to ensure that no young person will be left behind.        
+        This application serves as a tool to facilitate the preparation of regular reports on the progress in youth development and well-being in the SDGs.  It has the aim of supporting policy makers to make timely adjustments where needed as well as advocacy efforts where progress needs to be stepped up in order to ensure that no young person will be left behind.        
       </p>
       <md-button class="md-display-1 hero__btn" @click="viewForm">Start <md-icon>arrow_forward</md-icon></md-button>
     </div>
