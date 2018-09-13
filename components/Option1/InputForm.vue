@@ -8,7 +8,7 @@
           <span class="selected-tags__item" @click="removeCountry(country)" v-for="country in selectedCountries" :key="country">{{country}} <md-icon>close</md-icon></span>
         </div>
         <md-autocomplete class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="selectedGoal" :md-options="goalList">
-          <label>Goals and Targets</label>
+          <label>Indicators</label>
         </md-autocomplete>
         <div class="selected-tags">
           <span class="selected-tags__item" @click="removeGoal(goal)" v-for="goal in selectedGoals" :key="goal">{{goal}} <md-icon>close</md-icon></span>
@@ -20,11 +20,15 @@
 
 <script>
 import geolist from '~/assets/json/geolist.json'
-import goalList from '~/assets/json/goallist.json'
+// import goalList from '~/assets/json/goallist.json'
+import goalsAndIndicators from '~/assets/json/YouthGoalsAndndicators.json'
+
+const fullIndicatorList = goalsAndIndicators.reduce((acc, x) => {acc.push(...x.targets); return acc;}, [] ).reduce( (acc, y) => {acc.push(...y.indicators);return acc},[]);
+
 export default {
   data: () => ({
     geoList: geolist.map(x => x.geoAreaName),
-    goalList: goalList.map(x => x.code + ': ' + x.title),
+    goalList: fullIndicatorList.map(x => x.code + ': ' + x.description),
     selectedGeography: '',
     selectedGoal: '',
     selectedCountries: [],
@@ -70,6 +74,9 @@ export default {
     },
 
     runSearch () {
+      //add codes
+      let goals = this.selectedGoals.map(x => x.split(':')[0]);
+      this.$router.push({path: this.$route.path, query: { countries: this.selectedCountries, selectedGoals: goals, view: 'visualization'}})
       this.startClicked()
     }
   }
@@ -77,6 +84,8 @@ export default {
 </script>
 
 <style lang="scss" >
+@import '~assets/breakpoints';
+
 .form-area {
   min-height: calc(100vh - 40px);
   display: flex;
@@ -95,6 +104,9 @@ export default {
     position: relative;
     z-index: 2;
     width: 60vw;
+    @include bp-max($bp-between) {
+      width: 90vw;
+    }
   }
   h1 {
     display: block;

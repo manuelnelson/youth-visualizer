@@ -28,6 +28,18 @@ export default {
     InputComponent,
     DataVisualizationComponent
   },
+  mounted() {
+    switch(this.$route.query.view) {
+      case 'input':
+        this.activeSlide = 1;
+        break;
+      case 'visualization':
+        this.activeSlide = 2;
+        break;
+      default:
+        this.activeSlide = 0;
+    }
+  },
   methods: {
     nextSlide () {
       if (this.activeSlide === 2) {

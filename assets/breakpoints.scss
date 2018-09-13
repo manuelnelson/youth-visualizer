@@ -1,0 +1,38 @@
+$bp-medium:1440px;
+$bp-tablet: 1024px;
+$bp-between: 767px;
+$bp-mobile: 414px;
+$bp-mobile-medium: 375px;
+//Breakpoints
+@mixin bp-max($custom-px) {
+    // @media screen and (max-width: px-to-rem($custom-px, $base-font-size)){
+    //   @content;
+    // }
+    @media screen and (max-width: $custom-px) {
+        @content;
+    }
+}
+
+@mixin bp-min($custom-px) {
+    @media screen and (min-width: px-to-rem($custom-px, $base-font-size)) {
+        @content;
+    }
+}
+
+@mixin bp-max-height($custom-px) {
+    @media screen and (max-height: px-to-rem($custom-px, $base-font-size)) {
+        @content;
+    }
+}
+
+@mixin bp-min-height($custom-px) {
+    @media screen and (min-height: px-to-rem($custom-px, $base-font-size)) {
+        @content;
+    }
+}
+
+@mixin bp-max-landscape($custom-px) {
+    @media screen and (max-width: $custom-px) and (orientation: landscape) {
+        @content;
+    }
+}

@@ -1,0 +1,16 @@
+@import '~assets/vars';
+@import '~assets/breakpoints';
+@import '~assets/functions';
+//@import '~assets/theme';
+
+
+html.md-theme-default {
+  font-size: $base-font-size;
+  @include bp-max($bp-tablet) {
+    font-size: $base-font-size*.95;
+  }
+  @include bp-max($bp-mobile) {
+    font-size: $base-font-size*.9;
+  }
+
+}

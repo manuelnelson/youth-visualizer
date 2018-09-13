@@ -1,125 +1,50 @@
 <template>
   <section class="data-visualization">
     <div class="data-visualization__content">
-      <div class="data-visualization__left">
-        <md-button class="md-display-1 data-visualization__btn" @click="returnBack"><md-icon>arrow_back</md-icon> Back</md-button>
-        <h3 class="md-display-1">South Africa, Tanzania, Burundi, Cameroon, Canada</h3>        
-      </div>
-      <div class="data-visualization__right">        
-        <md-list>
-          <md-list-item @click="fake">
-            <md-icon>clear</md-icon>
-            <span class="md-list-item-text">8. Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all</span>
-          </md-list-item>
-          <md-list-item @click="fake">
-            <md-icon>clear</md-icon>
-            <span class="md-list-item-text">8.5.2 Unemployment rate, by sex, age and persons with disabilities</span>
-          </md-list-item>
-          <md-list-item @click="fake">
-            <md-icon>clear</md-icon>
-            <span class="md-list-item-text">8.6.1 Proportion of youth (aged 15-24 years) not in education, employment or training</span>
-          </md-list-item>
-        </md-list>
+      <md-button class="md-display-1 data-visualization__btn" @click="returnBack"><md-icon>arrow_back</md-icon> Back</md-button>
+      <div class="data-visualization__content">
+        <h3 class="md-display-1">{{countryList}}</h3>        
       </div>
     </div>
-    <div class="data-visualization__content">
-      <div class="data-visualization__left">
-        <span class="md-title">Additional Dimensions To Add</span>
-        <div class="dimensions">
-          <div class="dimensions-item">
-            <span class="md-subheading">Age</span>
-            <md-switch v-model="ageArray" value="1">10-24</md-switch>
-            <md-switch v-model="ageArray" value="2">14-24</md-switch>
-            <md-switch v-model="ageArray" value="3">15-29</md-switch>
-            <md-switch v-model="ageArray" value="4">18-35</md-switch>
-          </div>          
-          <div class="dimensions-item">
-            <span class="md-subheading">Sex</span>
-            <md-switch v-model="sexArray" value="1">Male</md-switch>
-            <md-switch v-model="sexArray" value="2">Female</md-switch>
-            <md-switch v-model="sexArray" value="3">Both Sexes</md-switch>
-          </div>          
-          <div class="dimensions-item">
-            <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedYear" :md-options="yearList">
-              <label>Year</label>
-            </md-autocomplete>
-          </div>          
-        </div>
-      </div>
-      <div class="data-visualization__right">      
-        <graph-component container-id="container1"></graph-component>  
-      </div>
-    </div>
-    <div class="data-visualization__content">
-      <div class="data-visualization__left">
-        <span class="md-title">Additional Dimensions To Add</span>
-        <div class="dimensions">
-          <div class="dimensions-item">
-            <span class="md-subheading">Age</span>
-            <md-switch v-model="ageArray" value="1">10-24</md-switch>
-            <md-switch v-model="ageArray" value="2">14-24</md-switch>
-            <md-switch v-model="ageArray" value="3">15-29</md-switch>
-            <md-switch v-model="ageArray" value="4">18-35</md-switch>
-          </div>          
-          <div class="dimensions-item">
-            <span class="md-subheading">Sex</span>
-            <md-switch v-model="sexArray" value="1">Male</md-switch>
-            <md-switch v-model="sexArray" value="2">Female</md-switch>
-            <md-switch v-model="sexArray" value="3">Both Sexes</md-switch>
-          </div>          
-          <div class="dimensions-item">
-            <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedYear" :md-options="yearList">
-              <label>Year</label>
-            </md-autocomplete>
-          </div>          
-        </div>
-      </div>
-      <div class="data-visualization__right">      
-        <graph-component container-id="container2"></graph-component>  
-      </div>
-    </div>
-    <div class="data-visualization__content">
-      <div class="data-visualization__left">
-        <span class="md-title">Additional Dimensions To Add</span>
-        <div class="dimensions">
-          <div class="dimensions-item">
-            <span class="md-subheading">Age</span>
-            <md-switch v-model="ageArray" value="1">10-24</md-switch>
-            <md-switch v-model="ageArray" value="2">14-24</md-switch>
-            <md-switch v-model="ageArray" value="3">15-29</md-switch>
-            <md-switch v-model="ageArray" value="4">18-35</md-switch>
-          </div>          
-          <div class="dimensions-item">
-            <span class="md-subheading">Sex</span>
-            <md-switch v-model="sexArray" value="1">Male</md-switch>
-            <md-switch v-model="sexArray" value="2">Female</md-switch>
-            <md-switch v-model="sexArray" value="3">Both Sexes</md-switch>
-          </div>          
-          <div class="dimensions-item">
-            <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedYear" :md-options="yearList">
-              <label>Year</label>
-            </md-autocomplete>
-          </div>          
-        </div>
-      </div>
-      <div class="data-visualization__right">      
-        <graph-component container-id="container3"></graph-component>  
-      </div>
-    </div>
+    <visualization-component v-for="(indicator,ndx) in indicators" :ref="getReference(ndx)"  :key="ndx" :index="ndx" :indicator="indicator"></visualization-component>
+    <md-button class="md-primary md-raised configure-trigger" @click="generateStory">Generate Story</md-button>            
   </section>
 </template>
 
 <script>
-import GraphComponent from '~/components/Graph.vue'
-const yearList = [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017]
+import VisualizationComponent from '~/components/Visualization.vue'
+import geolist from '~/assets/json/geolist.json'
+import goalsAndIndicators from '~/assets/json/YouthGoalsAndndicators.json'
+
+import {mapMutations,mapGetters,mapActions} from 'vuex';
+
+const targetList = goalsAndIndicators.reduce((acc, x) => {acc.push(...x.targets); return acc;}, [] )
+const fullIndicatorList = targetList.reduce( (acc, y) => {acc.push(...y.indicators);return acc},[]);
 
 export default {
   data: () => ({
-    ageArray: [],
-    sexArray: [],
-    selectedYear: '',
-    yearList
+    countries: [],
+    codes: [],
+    indicators: [],
+    dimensions: [{name:'Freq', values:['Annual']}],
+    slides: []
   }),
+
+  async mounted() {
+    this.countries = this.$route.query.countries.map(x => geolist.find(y => y.geoAreaName === x));
+    this.codes = this.$route.query.selectedGoals;
+    if(this.codes) {
+      let indicators = fullIndicatorList.filter(x => this.codes.indexOf(x.code) > -1);
+      this.indicators = indicators.map( x=> Object.assign(x, {
+        infoOpened: false,
+        goal: x.code.split('.')[0],
+        goalDescription: goalsAndIndicators.find(goal => goal.code === x.code.split('.')[0]).description,
+        target: `${x.code.split('.')[0]}.${x.code.split('.')[1]}`,
+        targetDescription: targetList.find(goal => goal.code === `${x.code.split('.')[0]}.${x.code.split('.')[1]}`).description,
+      }))
+    }
+    
+  },
   props: {
     prevClicked: {
       type: Function,
@@ -127,28 +52,41 @@ export default {
     }
   },
   components: {
-    GraphComponent
+    VisualizationComponent
+  },
+  computed: {
+    countryList() {
+      return this.countries.map(x => x.geoAreaName).join(', ')
+    },
+
   },
   methods: {
-    fake () {
-      console.log(yearList)
-    },
-    yearSelected (val) {
-      console.log(val)
-      this.selectedYear = val
-    },
-    yearOpened () {
-      this.selectedYear += ' '
-      this.selectedYear = this.selectedYear.substring(0, this.selectedYear.length - 1)
-    },
+    ...mapMutations({
+      setStory: 'story/setStory'
+    }),
+
     returnBack () {
       this.prevClicked()
+    }, 
+    generateStory() {
+      Object.keys(this.$refs).forEach(component => {
+        this.slides.push(this.$refs[component][0].exportData());
+      });
+      this.setStory({
+        slides: this.slides
+      })
+      this.$router.push('/story')
+    },
+    getReference(index) {
+      return `visual${index}`
     }
   }
 }
 </script>
 
 <style lang="scss" >
+@import '~assets/breakpoints';
+
 .data-visualization {
   min-height: calc(100vh - 40px);
   background-color: #efefef;
@@ -158,7 +96,15 @@ export default {
   left: 0;
   width: 100%;
   min-height: 100%;
-  
+  h3.md-display-1 {
+    color: #f6931e;
+    margin-bottom: 20px;
+    text-align: center;
+    display: block;
+    width: 100%;
+    font-weight: bold;
+  }
+
   &__content {
     position: relative;
     z-index: 2;
@@ -213,5 +159,31 @@ export default {
       }
     }
   }
+
 }
+@include bp-max($bp-between) {
+  .data-visualization {
+    &__content {
+      flex-wrap: wrap;
+      &__left {
+        width: 100%;
+      }
+      &__right {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.indicator-description-info {
+  padding: 40px;
+  h4 {
+    margin-bottom: 12px;
+    font-size: 22px;
+  }
+  li {
+    margin-bottom: 8px;
+  }
+}
+
 </style>

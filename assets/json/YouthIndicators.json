@@ -1,0 +1,3568 @@
+[
+    {
+      "goal": null,
+      "target": null,
+      "code": "1.1.1",
+      "description": "Proportion of population below the international poverty line, by sex, age, employment status and geographical location (urban/rural)",
+      "tier": "1",
+      "uri": "/v1/Indicator/1.1.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SI_POV_DAY1",
+          "description": "Proportion of population below international poverty line (%)",
+          "uri": "/v1/sdg/Series/SI_POV_DAY1"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SI_POV_DAY1",
+          "description": "Proportion of population below international poverty line (%)",
+          "uri": "/v1/sdg/Series/SI_POV_DAY1"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SI_POV_DAY1",
+          "description": "Proportion of population below international poverty line (%)",
+          "uri": "/v1/sdg/Series/SI_POV_DAY1"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SI_POV_DAY1",
+          "description": "Proportion of population below international poverty line (%)",
+          "uri": "/v1/sdg/Series/SI_POV_DAY1"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SI_POV_EMP1",
+          "description": "Employed population below international poverty line, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SI_POV_EMP1"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SI_POV_EMP1",
+          "description": "Employed population below international poverty line, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SI_POV_EMP1"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SI_POV_EMP1",
+          "description": "Employed population below international poverty line, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SI_POV_EMP1"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SI_POV_EMP1",
+          "description": "Employed population below international poverty line, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SI_POV_EMP1"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "1.2.1",
+      "description": "Proportion of population living below the national poverty line, by sex and age",
+      "tier": "1",
+      "uri": "/v1/Indicator/1.2.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SI_POV_NAHC",
+          "description": "Proportion of population living below the national poverty line (%)",
+          "uri": "/v1/sdg/Series/SI_POV_NAHC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SI_POV_NAHC",
+          "description": "Proportion of population living below the national poverty line (%)",
+          "uri": "/v1/sdg/Series/SI_POV_NAHC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SI_POV_NAHC",
+          "description": "Proportion of population living below the national poverty line (%)",
+          "uri": "/v1/sdg/Series/SI_POV_NAHC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SI_POV_NAHC",
+          "description": "Proportion of population living below the national poverty line (%)",
+          "uri": "/v1/sdg/Series/SI_POV_NAHC"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "1.a.2",
+      "description": "Proportion of total government spending on essential services (education, health and social protection)",
+      "tier": "2",
+      "uri": "/v1/Indicator/1.a.2",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SD_XPD_ESED",
+          "description": "Proportion of total government spending on essential services, education (%)",
+          "uri": "/v1/sdg/Series/SD_XPD_ESED"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SD_XPD_ESED",
+          "description": "Proportion of total government spending on essential services, education (%)",
+          "uri": "/v1/sdg/Series/SD_XPD_ESED"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "3.1.1",
+      "description": "Maternal mortality ratio",
+      "tier": "1",
+      "uri": "/v1/Indicator/3.1.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SH_STA_MORT",
+          "description": "Maternal mortality ratio",
+          "uri": "/v1/sdg/Series/SH_STA_MORT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SH_STA_MMR",
+          "description": "Maternal mortality ratio",
+          "uri": "/v1/sdg/Series/SH_STA_MMR"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SH_STA_MMR",
+          "description": "Maternal mortality ratio",
+          "uri": "/v1/sdg/Series/SH_STA_MMR"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SH_STA_MMR",
+          "description": "Maternal mortality ratio",
+          "uri": "/v1/sdg/Series/SH_STA_MMR"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "3.1.2",
+      "description": "Proportion of births attended by skilled health personnel",
+      "tier": "1",
+      "uri": "/v1/Indicator/3.1.2",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SH_STA_BRTC",
+          "description": "Proportion of births attended by skilled health personnel (%)",
+          "uri": "/v1/sdg/Series/SH_STA_BRTC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SH_STA_BRTC",
+          "description": "Proportion of births attended by skilled health personnel (%)",
+          "uri": "/v1/sdg/Series/SH_STA_BRTC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SH_STA_BRTC",
+          "description": "Proportion of births attended by skilled health personnel (%)",
+          "uri": "/v1/sdg/Series/SH_STA_BRTC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SH_STA_BRTC",
+          "description": "Proportion of births attended by skilled health personnel (%)",
+          "uri": "/v1/sdg/Series/SH_STA_BRTC"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "3.3.1",
+      "description": "Number of new HIV infections per 1,000 uninfected population, by sex, age and key populations",
+      "tier": "1",
+      "uri": "/v1/Indicator/3.3.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SH_HIV_INCD",
+          "description": "Number of new HIV infections per 1,000 uninfected population, by sex and age (per 1,000 uninfected population)",
+          "uri": "/v1/sdg/Series/SH_HIV_INCD"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SH_HIV_INCD",
+          "description": "Number of new HIV infections per 1,000 uninfected population, by sex and age (per 1,000 uninfected population)",
+          "uri": "/v1/sdg/Series/SH_HIV_INCD"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SH_HIV_INCD",
+          "description": "Number of new HIV infections per 1,000 uninfected population, by sex and age (per 1,000 uninfected population)",
+          "uri": "/v1/sdg/Series/SH_HIV_INCD"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SH_HIV_INCD",
+          "description": "Number of new HIV infections per 1,000 uninfected population, by sex and age (per 1,000 uninfected population)",
+          "uri": "/v1/sdg/Series/SH_HIV_INCD"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "3.4.2",
+      "description": "Suicide mortality rate",
+      "tier": "1",
+      "uri": "/v1/Indicator/3.4.2",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SH_STA_SCIDE",
+          "description": "Suicide mortality rate, by sex (deaths per 100,000 population)",
+          "uri": "/v1/sdg/Series/SH_STA_SCIDE"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SH_STA_SCIDE",
+          "description": "Suicide mortality rate, by sex (deaths per 100,000 population)",
+          "uri": "/v1/sdg/Series/SH_STA_SCIDE"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SH_STA_SCIDE",
+          "description": "Suicide mortality rate, by sex (deaths per 100,000 population)",
+          "uri": "/v1/sdg/Series/SH_STA_SCIDE"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SH_STA_SCIDE",
+          "description": "Suicide mortality rate, by sex (deaths per 100,000 population)",
+          "uri": "/v1/sdg/Series/SH_STA_SCIDE"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SH_STA_SCIDEN",
+          "description": "Number of deaths attributed to suicide, by sex (number)",
+          "uri": "/v1/sdg/Series/SH_STA_SCIDEN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SH_STA_SCIDEN",
+          "description": "Number of deaths attributed to suicide, by sex (number)",
+          "uri": "/v1/sdg/Series/SH_STA_SCIDEN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SH_STA_SCIDEN",
+          "description": "Number of deaths attributed to suicide, by sex (number)",
+          "uri": "/v1/sdg/Series/SH_STA_SCIDEN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SH_STA_SCIDEN",
+          "description": "Number of deaths attributed to suicide, by sex (number)",
+          "uri": "/v1/sdg/Series/SH_STA_SCIDEN"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "3.5.2",
+      "description": "Harmful use of alcohol, defined according to the national context as alcohol per capita consumption (aged 15 years and older) within a calendar year in litres of pure alcohol",
+      "tier": "1",
+      "uri": "/v1/Indicator/3.5.2",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SH_ALC_CONSPT",
+          "description": "Alcohol consumption per capita (aged 15 years and older) within a calendar year (litres of pure alcohol)",
+          "uri": "/v1/sdg/Series/SH_ALC_CONSPT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SH_ALC_CONSPT",
+          "description": "Alcohol consumption per capita (aged 15 years and older) within a calendar year (litres of pure alcohol)",
+          "uri": "/v1/sdg/Series/SH_ALC_CONSPT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SH_ALC_CONSPT",
+          "description": "Alcohol consumption per capita (aged 15 years and older) within a calendar year (litres of pure alcohol)",
+          "uri": "/v1/sdg/Series/SH_ALC_CONSPT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SH_ALC_CONSPT",
+          "description": "Alcohol consumption per capita (aged 15 years and older) within a calendar year (litres of pure alcohol)",
+          "uri": "/v1/sdg/Series/SH_ALC_CONSPT"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "3.6.1",
+      "description": "Death rate due to road traffic injuries",
+      "tier": "1",
+      "uri": "/v1/Indicator/3.6.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SH_STA_TRAF",
+          "description": "Death rate due to road traffic injuries (per 100,000 population)",
+          "uri": "/v1/sdg/Series/SH_STA_TRAF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SH_STA_TRAF",
+          "description": "Death rate due to road traffic injuries (per 100,000 population)",
+          "uri": "/v1/sdg/Series/SH_STA_TRAF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SH_STA_TRAF",
+          "description": "Death rate due to road traffic injuries (per 100,000 population)",
+          "uri": "/v1/sdg/Series/SH_STA_TRAF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SH_STA_TRAF",
+          "description": "Death rate due to road traffic injuries (per 100,000 population)",
+          "uri": "/v1/sdg/Series/SH_STA_TRAF"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "3.7.1",
+      "description": "Proportion of women of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods",
+      "tier": "1",
+      "uri": "/v1/Indicator/3.7.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SH_FPL_MTMM",
+          "description": "Proportion of women married or in a union of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years)",
+          "uri": "/v1/sdg/Series/SH_FPL_MTMM"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SH_FPL_MTMM",
+          "description": "Proportion of women married or in a union of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years)",
+          "uri": "/v1/sdg/Series/SH_FPL_MTMM"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SH_FPL_MTMM",
+          "description": "Proportion of women married or in a union of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years)",
+          "uri": "/v1/sdg/Series/SH_FPL_MTMM"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SH_FPL_MTMM",
+          "description": "Proportion of women married or in a union of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years)",
+          "uri": "/v1/sdg/Series/SH_FPL_MTMM"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "3.7.2",
+      "description": "Adolescent birth rate (aged 10-14 years; aged 15-19 years) per 1,000 women in that age group",
+      "tier": "1",
+      "uri": "/v1/Indicator/3.7.2",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SP_DYN_ADKL",
+          "description": "Adolescent birth rate (per 1,000 women aged 15-19 years)",
+          "uri": "/v1/sdg/Series/SP_DYN_ADKL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SP_DYN_ADKL",
+          "description": "Adolescent birth rate (per 1,000 women aged 15-19 years)",
+          "uri": "/v1/sdg/Series/SP_DYN_ADKL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SP_DYN_ADKL",
+          "description": "Adolescent birth rate (per 1,000 women aged 15-19 years)",
+          "uri": "/v1/sdg/Series/SP_DYN_ADKL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SP_DYN_ADKL",
+          "description": "Adolescent birth rate (per 1,000 women aged 15-19 years)",
+          "uri": "/v1/sdg/Series/SP_DYN_ADKL"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "3.a.1",
+      "description": "Age-standardized prevalence of current tobacco use among persons aged 15 years and older",
+      "tier": "1",
+      "uri": "/v1/Indicator/3.a.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SH_PRV_SMOK",
+          "description": "Age-standardized prevalence of current tobacco use among persons aged 15 years and older, by sex (%)",
+          "uri": "/v1/sdg/Series/SH_PRV_SMOK"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SH_PRV_SMOK",
+          "description": "Age-standardized prevalence of current tobacco use among persons aged 15 years and older, by sex (%)",
+          "uri": "/v1/sdg/Series/SH_PRV_SMOK"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SH_PRV_SMOK",
+          "description": "Age-standardized prevalence of current tobacco use among persons aged 15 years and older, by sex (%)",
+          "uri": "/v1/sdg/Series/SH_PRV_SMOK"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SH_PRV_SMOK",
+          "description": "Age-standardized prevalence of current tobacco use among persons aged 15 years and older, by sex (%)",
+          "uri": "/v1/sdg/Series/SH_PRV_SMOK"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "4.1.1",
+      "description": "Proportion of children and young people: (a) in grades 2/3; (b) at the end of primary; and (c) at the end of lower secondary achieving at least a minimum proficiency level in (i) reading and (ii) mathematics, by sex",
+      "tier": "1",
+      "uri": "/v1/Indicator/4.1.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_RDNG",
+          "description": "Proportion of children atÂ the end of lower secondary achieving at least a minimum proficiency level in reading",
+          "uri": "/v1/sdg/Series/SE_LSC_RDNG"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_MATH",
+          "description": "Proportion of children at the end of primary achieving at least a minimum proficiency level in mathematics",
+          "uri": "/v1/sdg/Series/SE_PRM_MATH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_RDNG",
+          "description": "Proportion of children at the end of primary achieving at least a minimum proficiency level in reading",
+          "uri": "/v1/sdg/Series/SE_PRM_RDNG"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_G23_MATH",
+          "description": "Proportion of childrenÂ inÂ grades 2/3 achieving at least a minimum proficiency level in mathematics",
+          "uri": "/v1/sdg/Series/SE_G23_MATH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_G23_RDG",
+          "description": "Proportion of children inÂ grades 2/3 achieving at least a minimum proficiency level in reading",
+          "uri": "/v1/sdg/Series/SE_G23_RDG"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_MATH",
+          "description": "Proportion of children atÂ the end of lower secondary achieving at least a minimum proficiency level in mathematics",
+          "uri": "/v1/sdg/Series/SE_LSC_MATH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_MAT_PROF",
+          "description": "Minimum proficiency in mathematics, by education level and sex (%)",
+          "uri": "/v1/sdg/Series/SE_MAT_PROF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_MAT_PROF",
+          "description": "Minimum proficiency in mathematics, by education level and sex (%)",
+          "uri": "/v1/sdg/Series/SE_MAT_PROF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_MAT_PROF",
+          "description": "Minimum proficiency in mathematics, by education level and sex (%)",
+          "uri": "/v1/sdg/Series/SE_MAT_PROF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_REA_PROF",
+          "description": "Minimum proficiency in reading, by education level and sex (%)",
+          "uri": "/v1/sdg/Series/SE_REA_PROF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_REA_PROF",
+          "description": "Minimum proficiency in reading, by education level and sex (%)",
+          "uri": "/v1/sdg/Series/SE_REA_PROF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_REA_PROF",
+          "description": "Minimum proficiency in reading, by education level and sex (%)",
+          "uri": "/v1/sdg/Series/SE_REA_PROF"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "4.3.1",
+      "description": "Participation rate of youth and adults in formal and non-formal education and training in the previous 12 months, by sex",
+      "tier": "1",
+      "uri": "/v1/Indicator/4.3.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_EDUCTRN",
+          "description": "Participation rate in formal and non-formal education and training, by sex (%)",
+          "uri": "/v1/sdg/Series/SE_ADT_EDUCTRN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_ADT_EDUCTRN",
+          "description": "Participation rate in formal and non-formal education and training, by sex (%)",
+          "uri": "/v1/sdg/Series/SE_ADT_EDUCTRN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_ADT_EDUCTRN",
+          "description": "Participation rate in formal and non-formal education and training, by sex (%)",
+          "uri": "/v1/sdg/Series/SE_ADT_EDUCTRN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_ADT_EDUCTRN",
+          "description": "Participation rate in formal and non-formal education and training, by sex (%)",
+          "uri": "/v1/sdg/Series/SE_ADT_EDUCTRN"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "4.4.1",
+      "description": "Proportion of youth and adults with information and communications technology (ICT) skills, by type of skill",
+      "tier": "1",
+      "uri": "/v1/Indicator/4.4.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_ICTPRGM",
+          "description": "Proportion of youth and adults with information and communications technology (ICT) skill, writing a computer program using a specialized programming language",
+          "uri": "/v1/sdg/Series/SE_ADT_ICTPRGM"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_ICTTRFF",
+          "description": "Proportion of youth and adults with information and communications technology (ICT) skill, transferring files between a computer and other devices",
+          "uri": "/v1/sdg/Series/SE_ADT_ICTTRFF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_ICTATCH",
+          "description": "Proportion of youth and adults with information and communications technology (ICT) skill, sending e-mails with attached files",
+          "uri": "/v1/sdg/Series/SE_ADT_ICTATCH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_ICTSFWR",
+          "description": "Proportion of youth and adults with information and communications technology (ICT) skill, finding, downloading, installing and configuring software",
+          "uri": "/v1/sdg/Series/SE_ADT_ICTSFWR"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_ICTCTDV",
+          "description": "Proportion of youth and adults with information and communications technology (ICT) skill, connecting and installing new devices",
+          "uri": "/v1/sdg/Series/SE_ADT_ICTCTDV"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_ICTPST",
+          "description": "Proportion of youth and adults with information and communications technology (ICT) skill, creating electronic presentations with presentation software",
+          "uri": "/v1/sdg/Series/SE_ADT_ICTPST"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_ICTCPPT",
+          "description": "Proportion of youth and adults with information and communications technology (ICT) skill, using copy and paste tools to duplicate or move information within a document",
+          "uri": "/v1/sdg/Series/SE_ADT_ICTCPPT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_ICTINSTL",
+          "description": "Proportion of youth and adults with information and communications technology (ICT) skill, using basic arithmetic formula in a spreadsheet",
+          "uri": "/v1/sdg/Series/SE_ADT_ICTINSTL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_ADT_ACTS",
+          "description": "Proportion of youth and adults with information and communications technology (ICT) skills, by type of skill and sex (%)",
+          "uri": "/v1/sdg/Series/SE_ADT_ACTS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_ADT_ACTS",
+          "description": "Proportion of youth and adults with information and communications technology (ICT) skills, by type of skill and sex (%)",
+          "uri": "/v1/sdg/Series/SE_ADT_ACTS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_ADT_ACTS",
+          "description": "Proportion of youth and adults with information and communications technology (ICT) skills, by type of skill and sex (%)",
+          "uri": "/v1/sdg/Series/SE_ADT_ACTS"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "4.5.1",
+      "description": "Parity indices (female/male, rural/urban, bottom/top wealth quintile and others such as disability status, indigenous peoples and conflict-affected, as data become available) for all education indicators on this list that can be disaggregated",
+      "tier": "1",
+      "uri": "/v1/Indicator/4.5.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_G23_SESPIMATH",
+          "description": "Low to high socio-economic parity status index for achievement in mathematics in grades 2/3",
+          "uri": "/v1/sdg/Series/SE_G23_SESPIMATH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_GPIMATH",
+          "description": "Gender parity index for achievement in mathematics by the end of lower secondary",
+          "uri": "/v1/sdg/Series/SE_LSC_GPIMATH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_GPITCH",
+          "description": "Gender parity index of teachers in lower secondary education who are trained",
+          "uri": "/v1/sdg/Series/SE_LSC_GPITCH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_GPITCH",
+          "description": "Gender parity index of teachers in primary education who are trained",
+          "uri": "/v1/sdg/Series/SE_PRM_GPITCH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_RUPIMATH",
+          "description": "Rural to urban parity index for achievement in mathematics by the end of primary",
+          "uri": "/v1/sdg/Series/SE_PRM_RUPIMATH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_SESPINMRCY",
+          "description": "Low to high socio-economic parity status index in a given age group achieving at least a fixed level of proficiency in functional literacy skills",
+          "uri": "/v1/sdg/Series/SE_ADT_SESPINMRCY"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_G23_GPIRDG",
+          "description": "Gender parity index for achievement in reading in grades 2/3",
+          "uri": "/v1/sdg/Series/SE_G23_GPIRDG"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_G23_RUPIRDG",
+          "description": "Rural to urban parity index for achievement in reading in grades 2/3",
+          "uri": "/v1/sdg/Series/SE_G23_RUPIRDG"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_G23_SESPIRDG",
+          "description": "Low to high socio-economic parity status index for achievement in reading in grades 2/3",
+          "uri": "/v1/sdg/Series/SE_G23_SESPIRDG"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRE_GPITCH",
+          "description": "Gender parity index of teachers in pre-primary education who are trained",
+          "uri": "/v1/sdg/Series/SE_PRE_GPITCH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_GPIMATH",
+          "description": "Gender parity index for achievement in mathematics by the end of primary",
+          "uri": "/v1/sdg/Series/SE_PRM_GPIMATH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_SEC_GPITCH",
+          "description": "Gender parity index of teachers in secondary education who are trained",
+          "uri": "/v1/sdg/Series/SE_SEC_GPITCH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_USC_GPITCH",
+          "description": "Gender parity index of teachers in upper secondary education who are trained",
+          "uri": "/v1/sdg/Series/SE_USC_GPITCH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_GPINMRCY",
+          "description": "Gender parity index in a given age group achieving at least a fixed level of proficiency in functional literacy skills",
+          "uri": "/v1/sdg/Series/SE_ADT_GPINMRCY"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_G23_GPIMATH",
+          "description": "Gender parity index for achievement in mathematics in grades 2/3",
+          "uri": "/v1/sdg/Series/SE_G23_GPIMATH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_GPIRDNG",
+          "description": "Gender parity index for achievement in reading by the end of lower secondary",
+          "uri": "/v1/sdg/Series/SE_LSC_GPIRDNG"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_RUPIMATH",
+          "description": "Rural to urban parity index for achievement in mathematics by the end of lower secondary",
+          "uri": "/v1/sdg/Series/SE_LSC_RUPIMATH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_SESPIRDNG",
+          "description": "Low to high socio-economic parity status index for achievement in reading by the end of lower secondary",
+          "uri": "/v1/sdg/Series/SE_LSC_SESPIRDNG"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_GPIRDNG",
+          "description": "Gender parity index for achievement in reading by the end of primary",
+          "uri": "/v1/sdg/Series/SE_PRM_GPIRDNG"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_RUPIRDNG",
+          "description": "Rural to urban parity index for achievement in reading by the end of primary",
+          "uri": "/v1/sdg/Series/SE_PRM_RUPIRDNG"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_SESPIMATH",
+          "description": "Low to high socio-economic parity status index for achievement in mathematics by the end of primary",
+          "uri": "/v1/sdg/Series/SE_PRM_SESPIMATH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_SESPIRDNG",
+          "description": "Low to high socio-economic parity status index for achievement in reading by the end of primary",
+          "uri": "/v1/sdg/Series/SE_PRM_SESPIRDNG"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_GPILTRCY",
+          "description": "Gender parity index in a given age group achieving at least a fixed level of proficiency in functional numeracy skills",
+          "uri": "/v1/sdg/Series/SE_ADT_GPILTRCY"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_SESPILTRCY",
+          "description": "Low to high socio-economic parity status index in a given age group achieving at least a fixed level of proficiency in functional numeracy skills",
+          "uri": "/v1/sdg/Series/SE_ADT_SESPILTRCY"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_G23_RUPIMATH",
+          "description": "Rural to urban parity index for achievement in mathematics in grades 2/3",
+          "uri": "/v1/sdg/Series/SE_G23_RUPIMATH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_RUPIRDNG",
+          "description": "Rural to urban parity index for achievement in reading by the end of lower secondary",
+          "uri": "/v1/sdg/Series/SE_LSC_RUPIRDNG"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_SESPIMATH",
+          "description": "Low to high socio-economic parity status index for achievement in mathematics by the end of lower secondary",
+          "uri": "/v1/sdg/Series/SE_LSC_SESPIMATH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRE_GPIPARTN",
+          "description": "Gender parity index for participation rate in organized learning (one year before the official primary entry age), (ratio)",
+          "uri": "/v1/sdg/Series/SE_PRE_GPIPARTN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_PRE_GPIPARTN",
+          "description": "Gender parity index for participation rate in organized learning (one year before the official primary entry age), (ratio)",
+          "uri": "/v1/sdg/Series/SE_PRE_GPIPARTN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_PRE_GPIPARTN",
+          "description": "Gender parity index for participation rate in organized learning (one year before the official primary entry age), (ratio)",
+          "uri": "/v1/sdg/Series/SE_PRE_GPIPARTN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_GPI_FUNPROF",
+          "description": "Gender parity index achieving at least a fixed level of proficiency in functional literacy skills (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_FUNPROF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_GPI_FUNPROF",
+          "description": "Gender parity index achieving at least a fixed level of proficiency in functional literacy skills (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_FUNPROF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_GPI_FUNPROF",
+          "description": "Gender parity index achieving at least a fixed level of proficiency in functional literacy skills (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_FUNPROF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_GPI_MATACH",
+          "description": "Gender parity index for achievement in mathematics, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_MATACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_GPI_MATACH",
+          "description": "Gender parity index for achievement in mathematics, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_MATACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_GPI_MATACH",
+          "description": "Gender parity index for achievement in mathematics, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_MATACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_GPI_REAACH",
+          "description": "Gender parity index for achievement in reading, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_REAACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_GPI_REAACH",
+          "description": "Gender parity index for achievement in reading, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_REAACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_GPI_REAACH",
+          "description": "Gender parity index for achievement in reading, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_REAACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_GPI_TRATEA",
+          "description": "Gender parity index of trained teachers, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_TRATEA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_GPI_TRATEA",
+          "description": "Gender parity index of trained teachers, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_TRATEA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_GPI_TRATEA",
+          "description": "Gender parity index of trained teachers, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_TRATEA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_SEP_FUNPROF",
+          "description": "Low to high socio-economic parity status index achieving at least a fixed level of proficiency in functional numeracy skills  (ratio)",
+          "uri": "/v1/sdg/Series/SE_SEP_FUNPROF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_SEP_FUNPROF",
+          "description": "Low to high socio-economic parity status index achieving at least a fixed level of proficiency in functional numeracy skills  (ratio)",
+          "uri": "/v1/sdg/Series/SE_SEP_FUNPROF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_SEP_FUNPROF",
+          "description": "Low to high socio-economic parity status index achieving at least a fixed level of proficiency in functional numeracy skills  (ratio)",
+          "uri": "/v1/sdg/Series/SE_SEP_FUNPROF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_SEP_MATACH",
+          "description": "Low to high socio-economic parity status index for achievement in mathematics, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_SEP_MATACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_SEP_MATACH",
+          "description": "Low to high socio-economic parity status index for achievement in mathematics, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_SEP_MATACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_SEP_MATACH",
+          "description": "Low to high socio-economic parity status index for achievement in mathematics, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_SEP_MATACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_SEP_REAACH",
+          "description": "Low to high socio-economic parity status index for achievement in reading, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_SEP_REAACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_SEP_REAACH",
+          "description": "Low to high socio-economic parity status index for achievement in reading, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_SEP_REAACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_SEP_REAACH",
+          "description": "Low to high socio-economic parity status index for achievement in reading, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_SEP_REAACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_URP_MATACH",
+          "description": "Rural to urban parity index for achievement in mathematics, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_URP_MATACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_URP_MATACH",
+          "description": "Rural to urban parity index for achievement in mathematics, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_URP_MATACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_URP_MATACH",
+          "description": "Rural to urban parity index for achievement in mathematics, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_URP_MATACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_URP_REAACH",
+          "description": "Rural to urban parity index for achievement in reading, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_URP_REAACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_URP_REAACH",
+          "description": "Rural to urban parity index for achievement in reading, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_URP_REAACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_URP_REAACH",
+          "description": "Rural to urban parity index for achievement in reading, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_URP_REAACH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_GPI_PART",
+          "description": "Gender parity index for participation rate in formal and non-formal education and training (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_PART"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_GPI_PART",
+          "description": "Gender parity index for participation rate in formal and non-formal education and training (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_PART"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_GPI_ICTS",
+          "description": "Gender parity index for youth/adults with information and communications technology (ICT) skills, by type of skill (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_ICTS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_GPI_ICTS",
+          "description": "Gender parity index for youth/adults with information and communications technology (ICT) skills, by type of skill (ratio)",
+          "uri": "/v1/sdg/Series/SE_GPI_ICTS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_NAP_ACHIRE",
+          "description": "Native parity index for achievement in reading, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_NAP_ACHIRE"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_NAP_ACHIRE",
+          "description": "Native parity index for achievement in reading, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_NAP_ACHIRE"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_NAP_ACHIMA",
+          "description": "Native parity index for achievement in mathematics, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_NAP_ACHIMA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_NAP_ACHIMA",
+          "description": "Native parity index for achievement in mathematics, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_NAP_ACHIMA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_LGP_ACHIRE",
+          "description": "Language test parity index for achievement in reading, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_LGP_ACHIRE"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_LGP_ACHIRE",
+          "description": "Language test parity index for achievement in reading, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_LGP_ACHIRE"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_LGP_ACHIMA",
+          "description": "Language test parity index for achievement in mathematics, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_LGP_ACHIMA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_LGP_ACHIMA",
+          "description": "Language test parity index for achievement in mathematics, by education level (ratio)",
+          "uri": "/v1/sdg/Series/SE_LGP_ACHIMA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_IMP_FPOF",
+          "description": "Immigration status parity index for achieving at least a fixed level of proficiency in functional skills, by numeracy/literacy skills (ratio)",
+          "uri": "/v1/sdg/Series/SE_IMP_FPOF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_IMP_FPOF",
+          "description": "Immigration status parity index for achieving at least a fixed level of proficiency in functional skills, by numeracy/literacy skills (ratio)",
+          "uri": "/v1/sdg/Series/SE_IMP_FPOF"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "4.6.1",
+      "description": "Proportion of population in a given age group achieving at least a fixed level of proficiency in functional (a) literacy and (b) numeracy skills, by sex",
+      "tier": "1",
+      "uri": "/v1/Indicator/4.6.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_LTRCY",
+          "description": "Proportion of population in a given age group achieving at least a fixed level of proficiency in functional numeracy skills",
+          "uri": "/v1/sdg/Series/SE_ADT_LTRCY"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_ADT_LTRCY",
+          "description": "Proportion of population in a given age group achieving at least a fixed level of proficiency in functional numeracy skills",
+          "uri": "/v1/sdg/Series/SE_ADT_LTRCY"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_ADT_NMRCY",
+          "description": "Proportion of population in a given age group achieving at least a fixed level of proficiency in functional literacy skills",
+          "uri": "/v1/sdg/Series/SE_ADT_NMRCY"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_ADT_NMRCY",
+          "description": "Proportion of population in a given age group achieving at least a fixed level of proficiency in functional literacy skills",
+          "uri": "/v1/sdg/Series/SE_ADT_NMRCY"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_ADT_FUNS",
+          "description": "Proportion of population achieving at least a fixed level of proficiency in functional skills, by sex, age and type of skill (%)",
+          "uri": "/v1/sdg/Series/SE_ADT_FUNS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_ADT_FUNS",
+          "description": "Proportion of population achieving at least a fixed level of proficiency in functional skills, by sex, age and type of skill (%)",
+          "uri": "/v1/sdg/Series/SE_ADT_FUNS"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "4.a.1",
+      "description": "Proportion of schools with access to: (a) electricity; (b) the Internet for pedagogical purposes; (c) computers for pedagogical purposes; (d) adapted infrastructure and materials for students with disabilities; (e) basic drinking water; (f) single-sex basic sanitation facilities; and (g) basic handwashing facilities (as per the WASH indicator definitions)",
+      "tier": "1",
+      "uri": "/v1/Indicator/4.a.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_ELECT",
+          "description": "Proportion of schools with access to electricity, lower secondary level",
+          "uri": "/v1/sdg/Series/SE_LSC_ELECT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_ELECT",
+          "description": "Proportion of schools with access to electricity, primary level",
+          "uri": "/v1/sdg/Series/SE_PRM_ELECT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_SEC_CMPTR",
+          "description": "Proportion of schools with access to computers for pedagogical purposes, secondary combined level",
+          "uri": "/v1/sdg/Series/SE_SEC_CMPTR"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_USC_CMPTR",
+          "description": "Proportion of schools with access to computers for pedagogical purposes, upper secondary level",
+          "uri": "/v1/sdg/Series/SE_USC_CMPTR"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_USC_H2O",
+          "description": "Proportion of schools with access to basic drinking water, lower secondary level",
+          "uri": "/v1/sdg/Series/SE_USC_H2O"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_USC_SANIT",
+          "description": "Proportion of schools with access to access to single-sex basic sanitation, upper secondary level",
+          "uri": "/v1/sdg/Series/SE_USC_SANIT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_HNDWSH",
+          "description": "Proportion of schools with basic handwashing facilities (as per the WASH indicator definitions), primary level",
+          "uri": "/v1/sdg/Series/SE_LSC_HNDWSH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_INTNT",
+          "description": "Proportion of schools with access to the internet for pedagogical purposes, lower secondary level",
+          "uri": "/v1/sdg/Series/SE_LSC_INTNT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_H2O",
+          "description": "Proportion of schools with access to basic drinking water, primary level",
+          "uri": "/v1/sdg/Series/SE_PRM_H2O"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_INTNT",
+          "description": "Proportion of schools with access to the internet for pedagogical purposes, primary level",
+          "uri": "/v1/sdg/Series/SE_PRM_INTNT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_CMPTR",
+          "description": "Proportion of schools with access to computers for pedagogical purposes, lower secondary level",
+          "uri": "/v1/sdg/Series/SE_LSC_CMPTR"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_SANIT",
+          "description": "Proportion of schools with access to single-sex basic sanitation, primary level",
+          "uri": "/v1/sdg/Series/SE_LSC_SANIT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_SANIT",
+          "description": "Proportion of schools with access to single-sex basic sanitation",
+          "uri": "/v1/sdg/Series/SE_PRM_SANIT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_USC_ELECT",
+          "description": "Proportion of schools with access to electricity, upper secondary level",
+          "uri": "/v1/sdg/Series/SE_USC_ELECT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_H2O",
+          "description": "Proportion of schools with access to basic drinking water, lower secondary level",
+          "uri": "/v1/sdg/Series/SE_LSC_H2O"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_CMPTR",
+          "description": "Proportion of schools with access to computers for pedagogical purposes, primary level",
+          "uri": "/v1/sdg/Series/SE_PRM_CMPTR"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_HNDWSH",
+          "description": "Proportion of schools with basic handwashing facilities, primary level",
+          "uri": "/v1/sdg/Series/SE_PRM_HNDWSH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_SEC_INTNT",
+          "description": "Proportion of schools with access to the internet for pedagogical purposes, secondary combined level",
+          "uri": "/v1/sdg/Series/SE_SEC_INTNT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_USC_HNDWSH",
+          "description": "Proportion of schools with basic handwashing facilities (as per the WASH indicator definitions), upper secondary level",
+          "uri": "/v1/sdg/Series/SE_USC_HNDWSH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_USC_INTNT",
+          "description": "Proportion of schools with access to the internet for pedagogical purposes, upper secondary level",
+          "uri": "/v1/sdg/Series/SE_USC_INTNT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_ACC_COMP",
+          "description": "Schools with access to computers for pedagogical purposes, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_COMP"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_ACC_COMP",
+          "description": "Schools with access to computers for pedagogical purposes, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_COMP"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_ACC_COMP",
+          "description": "Schools with access to computers for pedagogical purposes, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_COMP"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_ACC_DWAT",
+          "description": "Schools with access to basic drinking water, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_DWAT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_ACC_DWAT",
+          "description": "Schools with access to basic drinking water, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_DWAT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_ACC_DWAT",
+          "description": "Schools with access to basic drinking water, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_DWAT"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_ACC_ELEC",
+          "description": "Schools with access to electricity, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_ELEC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_ACC_ELEC",
+          "description": "Schools with access to electricity, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_ELEC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_ACC_ELEC",
+          "description": "Schools with access to electricity, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_ELEC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_ACC_HNWA",
+          "description": "Schools with basic handwashing facilities, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_HNWA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_ACC_HNWA",
+          "description": "Schools with basic handwashing facilities, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_HNWA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_ACC_HNWA",
+          "description": "Schools with basic handwashing facilities, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_HNWA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_ACC_INTN",
+          "description": "Schools with access to the internet for pedagogical purposes, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_INTN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_ACC_INTN",
+          "description": "Schools with access to the internet for pedagogical purposes, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_INTN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_ACC_INTN",
+          "description": "Schools with access to the internet for pedagogical purposes, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_INTN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_ACC_SANI",
+          "description": "Schools with access to access to single-sex basic sanitation, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_SANI"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_ACC_SANI",
+          "description": "Schools with access to access to single-sex basic sanitation, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_SANI"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_ACC_SANI",
+          "description": "Schools with access to access to single-sex basic sanitation, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_ACC_SANI"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_INF_DSBL",
+          "description": "Proportion of schools with access to adapted infrastructure and materials for students with disabilities, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_INF_DSBL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_INF_DSBL",
+          "description": "Proportion of schools with access to adapted infrastructure and materials for students with disabilities, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_INF_DSBL"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "4.b.1",
+      "description": "Volume of official development assistance flows for scholarships by sector and type of study",
+      "tier": "1",
+      "uri": "/v1/Indicator/4.b.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "DC_TOF_SCHIPSL",
+          "description": "Total official flows for scholarships, by recipient countries (millions of constant 2016 United States dollars)",
+          "uri": "/v1/sdg/Series/DC_TOF_SCHIPSL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "DC_TOF_SCHIPSL",
+          "description": "Total official flows for scholarships, by recipient countries (millions of constant 2016 United States dollars)",
+          "uri": "/v1/sdg/Series/DC_TOF_SCHIPSL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "DC_TOF_SCHIPSL",
+          "description": "Total official flows for scholarships, by recipient countries (millions of constant 2016 United States dollars)",
+          "uri": "/v1/sdg/Series/DC_TOF_SCHIPSL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "DC_TOF_SCHIPSL",
+          "description": "Total official flows for scholarships, by recipient countries (millions of constant 2016 United States dollars)",
+          "uri": "/v1/sdg/Series/DC_TOF_SCHIPSL"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "4.c.1",
+      "description": "Proportion of teachers in: (a) pre-primary; (b) primary; (c) lower secondary; and (d) upper secondary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country",
+      "tier": "1",
+      "uri": "/v1/Indicator/4.c.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRE_TRTCHRTCH",
+          "description": "Proportion of teachers in pre-primary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country",
+          "uri": "/v1/sdg/Series/SE_PRE_TRTCHRTCH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_PRM_TRTCHRTCH",
+          "description": "Proportion of teachers in primary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country",
+          "uri": "/v1/sdg/Series/SE_PRM_TRTCHRTCH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_SEC_TRTCHRTCH",
+          "description": "Proportion of teachers in secondary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country",
+          "uri": "/v1/sdg/Series/SE_SEC_TRTCHRTCH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_LSC_TRTCHRTCH",
+          "description": "Proportion of teachers in lower secondary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country",
+          "uri": "/v1/sdg/Series/SE_LSC_TRTCHRTCH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SE_USC_TRTCHRTCH",
+          "description": "Proportion of teachers in upper secondary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country",
+          "uri": "/v1/sdg/Series/SE_USC_TRTCHRTCH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SE_TRA_GRDL",
+          "description": "Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_TRA_GRDL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SE_TRA_GRDL",
+          "description": "Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_TRA_GRDL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SE_TRA_GRDL",
+          "description": "Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country, by education level (%)",
+          "uri": "/v1/sdg/Series/SE_TRA_GRDL"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "5.2.1",
+      "description": "Proportion of ever-partnered women and girls aged 15 years and older subjected to physical, sexual or psychological violence by a current or former intimate partner in the previous 12 months, by form of violence and by age",
+      "tier": "1",
+      "uri": "/v1/Indicator/5.2.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "VC_VAW_MARR",
+          "description": "Proportion of ever-partnered women and girls subjected to physical and sexual violence by a current or former intimate partner in the previous 12 months, by age (%)",
+          "uri": "/v1/sdg/Series/VC_VAW_MARR"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "VC_VAW_MARR",
+          "description": "Proportion of ever-partnered women and girls subjected to physical and sexual violence by a current or former intimate partner in the previous 12 months, by age (%)",
+          "uri": "/v1/sdg/Series/VC_VAW_MARR"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "VC_VAW_MARR",
+          "description": "Proportion of ever-partnered women and girls subjected to physical and sexual violence by a current or former intimate partner in the previous 12 months, by age (%)",
+          "uri": "/v1/sdg/Series/VC_VAW_MARR"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "VC_VAW_MARR",
+          "description": "Proportion of ever-partnered women and girls subjected to physical and sexual violence by a current or former intimate partner in the previous 12 months, by age (%)",
+          "uri": "/v1/sdg/Series/VC_VAW_MARR"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "5.3.1",
+      "description": "Proportion of women aged 20-24 years who were married or in a union before age 15 and before age 18",
+      "tier": "1",
+      "uri": "/v1/Indicator/5.3.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SP_DYN_MRBF18",
+          "description": "Proportion of women aged 20-24 years who were married or in a union before age 18 (%)",
+          "uri": "/v1/sdg/Series/SP_DYN_MRBF18"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SP_DYN_MRBF18",
+          "description": "Proportion of women aged 20-24 years who were married or in a union before age 18 (%)",
+          "uri": "/v1/sdg/Series/SP_DYN_MRBF18"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SP_DYN_MRBF18",
+          "description": "Proportion of women aged 20-24 years who were married or in a union before age 18 (%)",
+          "uri": "/v1/sdg/Series/SP_DYN_MRBF18"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SP_DYN_MRBF18",
+          "description": "Proportion of women aged 20-24 years who were married or in a union before age 18 (%)",
+          "uri": "/v1/sdg/Series/SP_DYN_MRBF18"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SP_DYN_MRBF15",
+          "description": "Proportion of women aged 20-24 years who were married or in a union before age 15 (%)",
+          "uri": "/v1/sdg/Series/SP_DYN_MRBF15"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SP_DYN_MRBF15",
+          "description": "Proportion of women aged 20-24 years who were married or in a union before age 15 (%)",
+          "uri": "/v1/sdg/Series/SP_DYN_MRBF15"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SP_DYN_MRBF15",
+          "description": "Proportion of women aged 20-24 years who were married or in a union before age 15 (%)",
+          "uri": "/v1/sdg/Series/SP_DYN_MRBF15"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SP_DYN_MRBF15",
+          "description": "Proportion of women aged 20-24 years who were married or in a union before age 15 (%)",
+          "uri": "/v1/sdg/Series/SP_DYN_MRBF15"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "5.3.2",
+      "description": "Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting, by age",
+      "tier": "1",
+      "uri": "/v1/Indicator/5.3.2",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SH_STA_FGMS",
+          "description": "Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting, by age (%)",
+          "uri": "/v1/sdg/Series/SH_STA_FGMS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SH_STA_FGMS",
+          "description": "Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting, by age (%)",
+          "uri": "/v1/sdg/Series/SH_STA_FGMS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SH_STA_FGMS",
+          "description": "Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting, by age (%)",
+          "uri": "/v1/sdg/Series/SH_STA_FGMS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SH_STA_FGMS",
+          "description": "Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting, by age (%)",
+          "uri": "/v1/sdg/Series/SH_STA_FGMS"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "5.4.1",
+      "description": "Proportion of time spent on unpaid domestic and care work, by sex, age and location",
+      "tier": "1",
+      "uri": "/v1/Indicator/5.4.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_DOM_TSPDCW",
+          "description": "Proportion of time spent on unpaid care work, by sex, age and location (%)",
+          "uri": "/v1/sdg/Series/SL_DOM_TSPDCW"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SL_DOM_TSPDCW",
+          "description": "Proportion of time spent on unpaid care work, by sex, age and location (%)",
+          "uri": "/v1/sdg/Series/SL_DOM_TSPDCW"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SL_DOM_TSPDCW",
+          "description": "Proportion of time spent on unpaid care work, by sex, age and location (%)",
+          "uri": "/v1/sdg/Series/SL_DOM_TSPDCW"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SL_DOM_TSPDCW",
+          "description": "Proportion of time spent on unpaid care work, by sex, age and location (%)",
+          "uri": "/v1/sdg/Series/SL_DOM_TSPDCW"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_DOM_TSPDDC",
+          "description": "Proportion of time spent on unpaid domestic chores, by sex, age and location (%)",
+          "uri": "/v1/sdg/Series/SL_DOM_TSPDDC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SL_DOM_TSPDDC",
+          "description": "Proportion of time spent on unpaid domestic chores, by sex, age and location (%)",
+          "uri": "/v1/sdg/Series/SL_DOM_TSPDDC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SL_DOM_TSPDDC",
+          "description": "Proportion of time spent on unpaid domestic chores, by sex, age and location (%)",
+          "uri": "/v1/sdg/Series/SL_DOM_TSPDDC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SL_DOM_TSPDDC",
+          "description": "Proportion of time spent on unpaid domestic chores, by sex, age and location (%)",
+          "uri": "/v1/sdg/Series/SL_DOM_TSPDDC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_DOM_TSPD",
+          "description": "Proportion of time spent on unpaid domestic chores and care work, by sex, age and location (%)",
+          "uri": "/v1/sdg/Series/SL_DOM_TSPD"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SL_DOM_TSPD",
+          "description": "Proportion of time spent on unpaid domestic chores and care work, by sex, age and location (%)",
+          "uri": "/v1/sdg/Series/SL_DOM_TSPD"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SL_DOM_TSPD",
+          "description": "Proportion of time spent on unpaid domestic chores and care work, by sex, age and location (%)",
+          "uri": "/v1/sdg/Series/SL_DOM_TSPD"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SL_DOM_TSPD",
+          "description": "Proportion of time spent on unpaid domestic chores and care work, by sex, age and location (%)",
+          "uri": "/v1/sdg/Series/SL_DOM_TSPD"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "5.6.1",
+      "description": "Proportion of women aged 15-49 years who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care",
+      "tier": "1",
+      "uri": "/v1/Indicator/5.6.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SH_FPL_INFM",
+          "description": "Proportion of women who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care (% of women aged 15-49 years)",
+          "uri": "/v1/sdg/Series/SH_FPL_INFM"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SH_FPL_INFM",
+          "description": "Proportion of women who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care (% of women aged 15-49 years)",
+          "uri": "/v1/sdg/Series/SH_FPL_INFM"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SH_FPL_INFM",
+          "description": "Proportion of women who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care (% of women aged 15-49 years)",
+          "uri": "/v1/sdg/Series/SH_FPL_INFM"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SH_FPL_INFM",
+          "description": "Proportion of women who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care (% of women aged 15-49 years)",
+          "uri": "/v1/sdg/Series/SH_FPL_INFM"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "8.5.1",
+      "description": "Average hourly earnings of female and male employees, by occupation, age and persons with disabilities",
+      "tier": "1",
+      "uri": "/v1/Indicator/8.5.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN08_1",
+          "description": "Average hourly earnings of managers (ISCO-08)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN08_1"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN08_10",
+          "description": "Average hourly earnings of managers (ISCO-08)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN08_10"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN08_2",
+          "description": "Average hourly earnings of professionals (ISCO-08)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN08_2"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN08_4",
+          "description": "Average hourly earnings of clerical support workers (ISCO-08)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN08_4"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN08_7",
+          "description": "Average hourly earnings of craft and related trades workers (ISCO-08)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN08_7"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN08_8",
+          "description": "Average hourly earnings of plant and machine operators, and assemblers (ISCO-08)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN08_8"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN08_9",
+          "description": "Average hourly earnings of elementary occupations (ISCO-08)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN08_9"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN88_X",
+          "description": "Average hourly earnings, not elsewhere classified (ISCO-88)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN88_X"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN08_3",
+          "description": "Average hourly earnings of technicians and associate professionals (ISCO-08)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN08_3"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN88_4",
+          "description": "Average hourly earnings of clerks (ISCO-88)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN88_4"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN88_5",
+          "description": "Average hourly earnings of service workers and shop and market sales workers (ISCO-88)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN88_5"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN88_8",
+          "description": "Average hourly earnings of plant and machine operators and assemblers (ISCO-88)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN88_8"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN88_9",
+          "description": "Average hourly earnings of elementary occupations (ISCO-88)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN88_9"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN08",
+          "description": "Average hourly earnings (ISCO-08)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN08"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN08_X",
+          "description": "Average hourly earnings, not elsewhere classified (ISCO-08)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN08_X"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN88",
+          "description": "Average hourly earnings (ISCO-88)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN88"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN88_0",
+          "description": "Average hourly earnings of armed forces (ISCO-88)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN88_0"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN88_1",
+          "description": "Average hourly earnings of legislators, senior officials and managers (ISCO-88)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN88_1"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN88_6",
+          "description": "Average hourly earnings of skilled agricultural and fishery workers (ISCO-88)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN88_6"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN88_7",
+          "description": "Average hourly earnings of craft and related trades workers (ISCO-88)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN88_7"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN08_0",
+          "description": "Average hourly earnings of armed forces occupations (ISCO-08)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN08_0"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN08_5",
+          "description": "Average hourly earnings of service and sales workers (ISCO-08)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN08_5"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN08_6",
+          "description": "Average hourly earnings of skilled agricultural, forestry and fishery workers (ISCO-08)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN08_6"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN88_2",
+          "description": "Average hourly earnings of professionals (ISCO-88)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN88_2"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_EMP_EARN88_3",
+          "description": "Average hourly earnings of technicians and associate professionals (ISCO-88)",
+          "uri": "/v1/sdg/Series/SL_EMP_EARN88_3"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SL_EMP_AEARN",
+          "description": "Average hourly earnings of managers (ISCO-08) (local currency)",
+          "uri": "/v1/sdg/Series/SL_EMP_AEARN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SL_EMP_AEARN",
+          "description": "Average hourly earnings of managers (ISCO-08) (local currency)",
+          "uri": "/v1/sdg/Series/SL_EMP_AEARN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SL_EMP_AEARN",
+          "description": "Average hourly earnings of managers (ISCO-08) (local currency)",
+          "uri": "/v1/sdg/Series/SL_EMP_AEARN"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "8.5.2",
+      "description": "Unemployment rate, by sex, age and persons with disabilities",
+      "tier": "1",
+      "uri": "/v1/Indicator/8.5.2",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_TLF_UEM",
+          "description": "Unemployment rate, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_UEM"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SL_TLF_UEM",
+          "description": "Unemployment rate, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_UEM"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SL_TLF_UEM",
+          "description": "Unemployment rate, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_UEM"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SL_TLF_UEM",
+          "description": "Unemployment rate, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_UEM"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "8.6.1",
+      "description": "Proportion of youth (aged 15-24 years) not in education, employment or training",
+      "tier": "1",
+      "uri": "/v1/Indicator/8.6.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_TLF_NEET",
+          "description": "Proportion of youth not in education, employment or training, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_NEET"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SL_TLF_NEET",
+          "description": "Proportion of youth not in education, employment or training, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_NEET"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SL_TLF_NEET",
+          "description": "Proportion of youth not in education, employment or training, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_NEET"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SL_TLF_NEET",
+          "description": "Proportion of youth not in education, employment or training, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_NEET"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "8.7.1",
+      "description": "Proportion and number of children aged 5‑17 years engaged in child labour, by sex and age",
+      "tier": "1",
+      "uri": "/v1/Indicator/8.7.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_TLF_CHD",
+          "description": "Proportion of children in employment (% of children aged 5-17 years)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHD"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SL_TLF_CHD",
+          "description": "Proportion of children in employment (% of children aged 5-17 years)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHD"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_TLF_CHDN",
+          "description": "Number of children in employment (number of children aged 5-17 years)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHDN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SL_TLF_CHDN",
+          "description": "Number of children in employment (number of children aged 5-17 years)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHDN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_TLF_CHDHAZN",
+          "description": "Number of children engaged in hazardous work (number of children aged 5-17 years)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHDHAZN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SL_TLF_CHDHAZN",
+          "description": "Number of children engaged in hazardous work (number of children aged 5-17 years)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHDHAZN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_TLF_CHDLBRN",
+          "description": "Number of children engaged in labour, by sex and age (number)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHDLBRN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SL_TLF_CHDLBRN",
+          "description": "Number of children engaged in labour, by sex and age (number)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHDLBRN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_TLF_CHDHAZ",
+          "description": "Proportion of children engaged in hazardous work (% of children aged 5-17 years)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHDHAZ"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SL_TLF_CHDHAZ",
+          "description": "Proportion of children engaged in hazardous work (% of children aged 5-17 years)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHDHAZ"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SL_TLF_CHDLBR",
+          "description": "Proportion of children engaged in labour, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHDLBR"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SL_TLF_CHDLBR",
+          "description": "Proportion of children engaged in labour, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHDLBR"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SL_TLF_CHLDEC",
+          "description": "Proportion of children engaged in economic activity and household chores, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHLDEC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SL_TLF_CHLDEC",
+          "description": "Proportion of children engaged in economic activity and household chores, by sex and age (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHLDEC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SL_TLF_CHLDEA",
+          "description": "Proportion of children engaged in economic activity, by sex and age  (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHLDEA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SL_TLF_CHLDEA",
+          "description": "Proportion of children engaged in economic activity, by sex and age  (%)",
+          "uri": "/v1/sdg/Series/SL_TLF_CHLDEA"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "8.10.2",
+      "description": "Proportion of adults (15 years and older) with an account at a bank or other financial institution or with a mobile-money-service provider",
+      "tier": "1",
+      "uri": "/v1/Indicator/8.10.2",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "FB_BNK_ACCSS",
+          "description": "Proportion of adults (15 years and older) with an account at a financial institution or mobile-money-service provider (% of adults aged 15 years and older)",
+          "uri": "/v1/sdg/Series/FB_BNK_ACCSS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "FB_BNK_ACCSS",
+          "description": "Proportion of adults (15 years and older) with an account at a financial institution or mobile-money-service provider (% of adults aged 15 years and older)",
+          "uri": "/v1/sdg/Series/FB_BNK_ACCSS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "FB_BNK_ACCSS",
+          "description": "Proportion of adults (15 years and older) with an account at a financial institution or mobile-money-service provider (% of adults aged 15 years and older)",
+          "uri": "/v1/sdg/Series/FB_BNK_ACCSS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "FB_BNK_ACCSS",
+          "description": "Proportion of adults (15 years and older) with an account at a financial institution or mobile-money-service provider (% of adults aged 15 years and older)",
+          "uri": "/v1/sdg/Series/FB_BNK_ACCSS"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "16.1.1",
+      "description": "Number of victims of intentional homicide per 100,000 population, by sex and age",
+      "tier": "1",
+      "uri": "/v1/Indicator/16.1.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "VC_IHR_PSRC",
+          "description": "Number of victims of intentional homicide per 100,000 population (victims per 100,000 population)",
+          "uri": "/v1/sdg/Series/VC_IHR_PSRC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "VC_IHR_PSRC",
+          "description": "Number of victims of intentional homicide per 100,000 population (victims per 100,000 population)",
+          "uri": "/v1/sdg/Series/VC_IHR_PSRC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "VC_IHR_PSRC",
+          "description": "Number of victims of intentional homicide per 100,000 population (victims per 100,000 population)",
+          "uri": "/v1/sdg/Series/VC_IHR_PSRC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "VC_IHR_PSRC",
+          "description": "Number of victims of intentional homicide per 100,000 population (victims per 100,000 population)",
+          "uri": "/v1/sdg/Series/VC_IHR_PSRC"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "VC_IHR_PSRCN",
+          "description": "Number of victims of intentional homicide (number)",
+          "uri": "/v1/sdg/Series/VC_IHR_PSRCN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "VC_IHR_PSRCN",
+          "description": "Number of victims of intentional homicide (number)",
+          "uri": "/v1/sdg/Series/VC_IHR_PSRCN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "VC_IHR_PSRCN",
+          "description": "Number of victims of intentional homicide (number)",
+          "uri": "/v1/sdg/Series/VC_IHR_PSRCN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "VC_IHR_PSRCN",
+          "description": "Number of victims of intentional homicide (number)",
+          "uri": "/v1/sdg/Series/VC_IHR_PSRCN"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "16.2.1",
+      "description": "Proportion of children aged 1-17 years who experienced any physical punishment and/or psychological aggression by caregivers in the past month",
+      "tier": "1",
+      "uri": "/v1/Indicator/16.2.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "VC_VAW_PHYPYV",
+          "description": "Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month (% of children aged 1-14 years)",
+          "uri": "/v1/sdg/Series/VC_VAW_PHYPYV"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "VC_VAW_PHYPYV",
+          "description": "Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month (% of children aged 1-14 years)",
+          "uri": "/v1/sdg/Series/VC_VAW_PHYPYV"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "VC_VAW_PHYPYV",
+          "description": "Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month (% of children aged 1-14 years)",
+          "uri": "/v1/sdg/Series/VC_VAW_PHYPYV"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "VC_VAW_PHYPYV",
+          "description": "Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month (% of children aged 1-14 years)",
+          "uri": "/v1/sdg/Series/VC_VAW_PHYPYV"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "16.2.2",
+      "description": "Number of victims of human trafficking per 100,000 population, by sex, age and form of exploitation",
+      "tier": "1",
+      "uri": "/v1/Indicator/16.2.2",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "VC_VAW_HMTRAF",
+          "description": "Number of victims of human trafficking per 100,000 population, by sex and age (victims per 100,000 population)",
+          "uri": "/v1/sdg/Series/VC_VAW_HMTRAF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "VC_VAW_HMTRAF",
+          "description": "Number of victims of human trafficking per 100,000 population, by sex and age (victims per 100,000 population)",
+          "uri": "/v1/sdg/Series/VC_VAW_HMTRAF"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "VC_VAW_DIST",
+          "description": "Age and sex distribution of detected victims of trafficking in persons (%)",
+          "uri": "/v1/sdg/Series/VC_VAW_DIST"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "VC_VAW_DIST",
+          "description": "Age and sex distribution of detected victims of trafficking in persons (%)",
+          "uri": "/v1/sdg/Series/VC_VAW_DIST"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "16.2.3",
+      "description": "Proportion of young women and men aged 18‑29 years who experienced sexual violence by age 18",
+      "tier": "1",
+      "uri": "/v1/Indicator/16.2.3",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "VC_VAW_SXVLN",
+          "description": "Proportion of population aged 18-29 years who experienced sexual violence by age 18, by sex (% of population aged 18-29)",
+          "uri": "/v1/sdg/Series/VC_VAW_SXVLN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "VC_VAW_SXVLN",
+          "description": "Proportion of population aged 18-29 years who experienced sexual violence by age 18, by sex (% of population aged 18-29)",
+          "uri": "/v1/sdg/Series/VC_VAW_SXVLN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "VC_VAW_SXVLN",
+          "description": "Proportion of population aged 18-29 years who experienced sexual violence by age 18, by sex (% of population aged 18-29)",
+          "uri": "/v1/sdg/Series/VC_VAW_SXVLN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "VC_VAW_SXVLN",
+          "description": "Proportion of population aged 18-29 years who experienced sexual violence by age 18, by sex (% of population aged 18-29)",
+          "uri": "/v1/sdg/Series/VC_VAW_SXVLN"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "16.9.1",
+      "description": "Proportion of children under 5 years of age whose births have been registered with a civil authority, by age",
+      "tier": "1",
+      "uri": "/v1/Indicator/16.9.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SG_REG_BRTH",
+          "description": "Proportion of children under 5 years of age whose births have been registered with a civil authority (% of children under 5 years of age)",
+          "uri": "/v1/sdg/Series/SG_REG_BRTH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SG_REG_BRTH",
+          "description": "Proportion of children under 5 years of age whose births have been registered with a civil authority (% of children under 5 years of age)",
+          "uri": "/v1/sdg/Series/SG_REG_BRTH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SG_REG_BRTH",
+          "description": "Proportion of children under 5 years of age whose births have been registered with a civil authority (% of children under 5 years of age)",
+          "uri": "/v1/sdg/Series/SG_REG_BRTH"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SG_REG_BRTH",
+          "description": "Proportion of children under 5 years of age whose births have been registered with a civil authority (% of children under 5 years of age)",
+          "uri": "/v1/sdg/Series/SG_REG_BRTH"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "16.10.1",
+      "description": "Number of verified cases of killing, kidnapping, enforced disappearance, arbitrary detention and torture of journalists, associated media personnel, trade unionists and human rights advocates in the previous 12 months",
+      "tier": "1",
+      "uri": "/v1/Indicator/16.10.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "VC_VAW_MTUHRA",
+          "description": "Number of cases of killings of human rights defenders, journalists and trade unionists",
+          "uri": "/v1/sdg/Series/VC_VAW_MTUHRA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "VC_VAW_MTUHRA",
+          "description": "Number of cases of killings of human rights defenders, journalists and trade unionists",
+          "uri": "/v1/sdg/Series/VC_VAW_MTUHRA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "VC_VAW_MTUHRA",
+          "description": "Number of cases of killings of human rights defenders, journalists and trade unionists",
+          "uri": "/v1/sdg/Series/VC_VAW_MTUHRA"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "VC_VAW_MTUHRA",
+          "description": "Number of cases of killings of human rights defenders, journalists and trade unionists",
+          "uri": "/v1/sdg/Series/VC_VAW_MTUHRA"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "16.10.2",
+      "description": "Number of countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information",
+      "tier": "1",
+      "uri": "/v1/Indicator/16.10.2",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SG_INF_ACCSS",
+          "description": "Countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information",
+          "uri": "/v1/sdg/Series/SG_INF_ACCSS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SG_INF_ACCSS",
+          "description": "Countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information",
+          "uri": "/v1/sdg/Series/SG_INF_ACCSS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SG_INF_ACCSS",
+          "description": "Countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information",
+          "uri": "/v1/sdg/Series/SG_INF_ACCSS"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SG_INF_ACCSS",
+          "description": "Countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information",
+          "uri": "/v1/sdg/Series/SG_INF_ACCSS"
+        }
+      ]
+    },
+    {
+      "goal": null,
+      "target": null,
+      "code": "16.a.1",
+      "description": "Existence of independent national human rights institutions in compliance with the Paris Principles",
+      "tier": "1",
+      "uri": "/v1/Indicator/16.a.1",
+      "series": [
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SG_NHR_IMPL",
+          "description": "Proportion of countries with independent National Human Rights Institutions in compliance with the Paris Principles (%)",
+          "uri": "/v1/sdg/Series/SG_NHR_IMPL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SG_NHR_IMPL",
+          "description": "Proportion of countries with independent National Human Rights Institutions in compliance with the Paris Principles (%)",
+          "uri": "/v1/sdg/Series/SG_NHR_IMPL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SG_NHR_IMPL",
+          "description": "Proportion of countries with independent National Human Rights Institutions in compliance with the Paris Principles (%)",
+          "uri": "/v1/sdg/Series/SG_NHR_IMPL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SG_NHR_IMPL",
+          "description": "Proportion of countries with independent National Human Rights Institutions in compliance with the Paris Principles (%)",
+          "uri": "/v1/sdg/Series/SG_NHR_IMPL"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SG_NHR_IMPLN",
+          "description": "Countries with National Human Rights Institutions in compliance with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_IMPLN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SG_NHR_IMPLN",
+          "description": "Countries with National Human Rights Institutions in compliance with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_IMPLN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SG_NHR_IMPLN",
+          "description": "Countries with National Human Rights Institutions in compliance with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_IMPLN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SG_NHR_IMPLN",
+          "description": "Countries with National Human Rights Institutions in compliance with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_IMPLN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SG_NHR_INTEXST",
+          "description": "Proportion of countries that applied for accreditation as independent National Human Rights Institutions in compliance with the Paris Principles (%)",
+          "uri": "/v1/sdg/Series/SG_NHR_INTEXST"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SG_NHR_INTEXST",
+          "description": "Proportion of countries that applied for accreditation as independent National Human Rights Institutions in compliance with the Paris Principles (%)",
+          "uri": "/v1/sdg/Series/SG_NHR_INTEXST"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SG_NHR_INTEXST",
+          "description": "Proportion of countries that applied for accreditation as independent National Human Rights Institutions in compliance with the Paris Principles (%)",
+          "uri": "/v1/sdg/Series/SG_NHR_INTEXST"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SG_NHR_INTEXST",
+          "description": "Proportion of countries that applied for accreditation as independent National Human Rights Institutions in compliance with the Paris Principles (%)",
+          "uri": "/v1/sdg/Series/SG_NHR_INTEXST"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SG_NHR_NOSTUSN",
+          "description": "Countries with National Human Rights Institutions and no status with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_NOSTUSN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SG_NHR_NOSTUSN",
+          "description": "Countries with National Human Rights Institutions and no status with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_NOSTUSN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SG_NHR_NOSTUSN",
+          "description": "Countries with National Human Rights Institutions and no status with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_NOSTUSN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SG_NHR_NOSTUSN",
+          "description": "Countries with National Human Rights Institutions and no status with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_NOSTUSN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SG_NHR_INTEXSTN",
+          "description": "Countries with National Human Rights Institutions not fully compliant with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_INTEXSTN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SG_NHR_INTEXSTN",
+          "description": "Countries with National Human Rights Institutions not fully compliant with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_INTEXSTN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SG_NHR_INTEXSTN",
+          "description": "Countries with National Human Rights Institutions not fully compliant with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_INTEXSTN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SG_NHR_INTEXSTN",
+          "description": "Countries with National Human Rights Institutions not fully compliant with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_INTEXSTN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2017.Q2.G.01",
+          "code": "SG_NHR_NOAPPLN",
+          "description": "Countries with National Human Rights Institutions and no application for accreditation with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_NOAPPLN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q1.G.01",
+          "code": "SG_NHR_NOAPPLN",
+          "description": "Countries with National Human Rights Institutions and no application for accreditation with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_NOAPPLN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q2.G.01",
+          "code": "SG_NHR_NOAPPLN",
+          "description": "Countries with National Human Rights Institutions and no application for accreditation with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_NOAPPLN"
+        },
+        {
+          "goal": null,
+          "target": null,
+          "indicator": null,
+          "release": "2018.Q4.G.01",
+          "code": "SG_NHR_NOAPPLN",
+          "description": "Countries with National Human Rights Institutions and no application for accreditation with the Paris Principles (1 = YES; 0 = NO)",
+          "uri": "/v1/sdg/Series/SG_NHR_NOAPPLN"
+        }
+      ]
+    }
+  ]

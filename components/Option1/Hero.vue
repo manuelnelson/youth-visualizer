@@ -22,6 +22,7 @@ export default {
   },
   methods: {
     viewForm () {
+      this.$router.push({path: this.$route.path, query: { view: 'input'}})
       this.startClicked()
     }
   }
@@ -29,6 +30,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~assets/functions';
 .hero {
   min-height: calc(100vh - 40px);
   display: flex;
@@ -51,12 +53,14 @@ export default {
     display: block;
     margin-bottom: 40px;
     color: #ededed !important; 
+    font-size: px-to-rem(50px);
   }
   &-intro {
     max-width: 60ch;
     line-height: 1.4;
     color: #ededed !important; 
     margin-bottom: 40px;
+    font-size: px-to-rem(24px)
   }
   
   &__btn {
