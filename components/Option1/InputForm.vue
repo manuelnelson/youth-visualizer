@@ -1,9 +1,10 @@
 <template>
   <section class="form-area md-accent">
     <div class="form-area__content">
-      <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList">
-        <label>Country or Region</label>
-      </md-autocomplete>
+      <div class="transition-up" v-delay="{delay:800,cssClass:'up'}">
+        <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList">
+          <label>Country or Region</label>
+        </md-autocomplete>
         <div class="selected-tags">
           <span class="selected-tags__item" @click="removeCountry(country)" v-for="country in selectedCountries" :key="country">{{country}} <md-icon>close</md-icon></span>
         </div>
@@ -13,7 +14,8 @@
         <div class="selected-tags">
           <span class="selected-tags__item" @click="removeGoal(goal)" v-for="goal in selectedGoals" :key="goal">{{goal}} <md-icon>close</md-icon></span>
         </div>
-      <md-button class="md-display-1 form-area__btn" @click="runSearch">View <md-icon>arrow_forward</md-icon></md-button>
+      </div>
+      <md-button class="md-display-1 form-area__btn transition-up" v-delay="{delay:3800,cssClass:'up'}" @click="runSearch">View <md-icon>arrow_forward</md-icon></md-button>
     </div>
   </section>
 </template>

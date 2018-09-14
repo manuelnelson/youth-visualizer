@@ -82,7 +82,7 @@ export default {
     drawGraph() {
       const data = this.graphifyEChartData(this.graphData);
       let ndx = 0;
-      const graphType = this.graphOptions.selectedGraph || 'scatter'
+      const graphType = this.graphOptions.graphType || 'scatter'
       //console.log(data[0].map(x => [x[0], 1*x[1]]));
 
       this.options.series = [];

@@ -89,13 +89,11 @@ export default {
   methods: {
     async drawGraph() {
       let rawData = await this.$axios.$get(this.url)
-      console.l
       //let areaCodes = this.countries.map(x => x.geoAreaCode).join('&areaCode=')
       this.graphData = this.graphifyData(rawData.data, this.countries);  
-      
       const data = this.graphifyEChartData(this.graphData);
       let ndx = 0;
-      const graphType = this.graphType || 'scatter'
+      const graphType = this.slide.graphType || 'scatter'
 
       this.options.series = [];
       data.map(z => {
@@ -166,6 +164,7 @@ export default {
     .echarts {
       width: 100%;
       min-height: 500px;
+      margin-top: -20px;
     }
   }
   

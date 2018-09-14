@@ -3,8 +3,12 @@ import * as ecStat from 'echarts-stat';
 let DataMixin = {
   methods: {
     graphifyData(data, countries) {
-      //parse year data to JSON
+      //parse year data to JSON 
       let countryData = countries.map(x => data.find(resultData => resultData.geoAreaCode === x.geoAreaCode)).filter(z => typeof z != 'undefined');
+      console.log('data')
+      console.log(data)
+      console.log('countries')
+      console.log(countries)
       let years = countryData.map(y => JSON.parse(y.years.replace(/\"\[|\]\"/g,'')).filter(year => year.value > 0).map(z => Object.assign(z,{geoAreaCode: y.geoAreaCode, geoAreaName: y.geoAreaName})));
       return years;
       // return below code for d3js
