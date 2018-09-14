@@ -32,7 +32,7 @@
           </div>          
         </div>
         <div v-show="graphOptionsOpened" class="configure-graph__content"> 
-          <md-autocomplete class="form-area__input" @md-selected="graphSelected" @md-opened="graphOpened" v-model="graphOptions.selectedGraph" :md-options="chartTypes">
+          <md-autocomplete class="form-area__input" @md-selected="graphSelected" @md-opened="graphOpened" v-model="graphOptions.graphType" :md-options="chartTypes">
             <label>Graph Type</label>
           </md-autocomplete>
           <md-field>
@@ -48,14 +48,18 @@
         <md-button class="md-accent md-raised configure-trigger" @click="configureGraph">{{configureButtonText}}</md-button>            
         <div v-show="storyOpened" class="configure-graph__content"> 
           <md-field>
+            <label>Story Title</label>
+            <md-input v-model="storyOptions.title"></md-input>
+          </md-field>
+          <md-field>
             <label>Story Text</label>
-            <md-textarea v-model="story.text"></md-textarea>
+            <md-textarea v-model="storyOptions.text"></md-textarea>
           </md-field>
         </div>
         <md-button class="md-accent md-raised configure-trigger" @click="storyOpened = true">Story Text</md-button>            
       </div>
       <div class="data-visualization__right" v-if="!isLoading">      
-        <e-chart-component ref="chartComponent" :countries="countries" :graph-data="graphData" :graph-options="graphOptions" :graph-type="graphOptions.selectedGraph" :container-id="index"></e-chart-component>  
+        <e-chart-component ref="chartComponent" :countries="countries" :graph-data="graphData" :graph-options="graphOptions" :graph-type="graphOptions.graphType" :container-id="index"></e-chart-component>  
       </div>
       <div v-if="isLoading"  class="data-visualization__loading">
           <span class="data-visualization__loading-text">Fetching data...</span>
@@ -76,6 +80,7 @@ const baseAPIUrl = 'https://unstats.un.org/SDGAPI/v1/'
 import Vue from 'vue';
 const targetList = goalsAndIndicators.reduce((acc, x) => {acc.push(...x.targets); return acc;}, [] )
 const fullIndicatorList = targetList.reduce( (acc, y) => {acc.push(...y.indicators);return acc},[]);
+import {mapMutations,mapGetters,mapActions} from 'vuex';
 
 export default {
   props: ['indicator', 'index'],
@@ -97,10 +102,10 @@ export default {
       graphType: 'scatter',
       xAxisLabel: 'Year',
       yAxisLabel: '',
-      selectedGraph: 'scatter',
       showLinearRegression: false
     },
-    story: {
+    storyOptions: {
+      title: '',
       text: ''
     },
     graphOptionsOpened: false,
@@ -169,12 +174,12 @@ export default {
       this.selectedYear = this.selectedYear.substring(0, this.selectedYear.length - 1)
     },
     graphSelected (val) {
-      this.graphOptions.selectedGraph = val;
+      this.graphOptions.graphType = val;
       this.$refs.chartComponent.drawGraph();
     },
     graphOpened () {
-      this.graphOptions.selectedGraph = ' '
-      this.graphOptions.selectedGraph = this.graphOptions.selectedGraph.substring(0, this.graphOptions.selectedGraph.length - 1)
+      this.graphOptions.graphType = ' '
+      this.graphOptions.graphType = this.graphOptions.graphType.substring(0, this.graphOptions.graphType.length - 1)
     },
     configureGraph() {
       this.graphOptionsOpened = !this.graphOptionsOpened; 
@@ -189,7 +194,7 @@ export default {
       return {
         url: this.url,
         graphOptions: this.graphOptions,
-        story: this.story,
+        storyOptions: this.storyOptions,
         countries: this.countries,
         //determines if slide is active in story mode
         active: false

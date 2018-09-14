@@ -4,11 +4,11 @@
       <transition-group name="fade">
         <div class="story-container__slide" v-for="(slide,ndx) in story.slides" :key="ndx" v-show="slide.active">        
           <div class="story-container__slide-text">
-            <h2>{{slide.story.title}}</h2>
-            <p v-html="slide.story.text"></p>
+            <h2>{{slide.title}}</h2>
+            <p v-html="slide.text"></p>
           </div>
           <div class="story-container__slide-graph" v-if="slide.url">
-            <e-chart-component title="title" :graph-options="slide.graphOptions" :url="slide.url" :countries="slide.countries"></e-chart-component>
+            <e-chart-component title="title" :slide="slide" :url="slide.url" :countries="slide.countries"></e-chart-component>
           </div>
           <div class="story-container__actions">
             <md-button class="md-primary md-raised" @click="nextSlide">
@@ -25,10 +25,11 @@
 <script>
 import {mapMutations,mapGetters,mapActions} from 'vuex';
 import EChartComponent from '~/components/EChartStory.vue'
+import geolist from '~/assets/json/geolist.json'
 
 export default {
   data: () => ({
-    slideIndex: 0
+    slideIndex: 0,
   }),
   layout: 'story-layout',
   components: {
@@ -39,7 +40,8 @@ export default {
       story:'story/story'
     })
   },
-  mounted() {
+  async created() {
+    await this.getStory({id:this.$route.params.id, geolist})
     if(this.story && this.story.slides && this.story.slides.length > 0){
       this.setSlideActive(this.slideIndex)
     } else {
@@ -48,6 +50,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      getStory:'story/getStory'
+    }),
     ...mapMutations({
       setSlideActive:'story/setSlideActive'
     }),

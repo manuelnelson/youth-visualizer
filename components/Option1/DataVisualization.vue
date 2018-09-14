@@ -55,27 +55,29 @@ export default {
     VisualizationComponent
   },
   computed: {
+    ...mapGetters({
+      story: 'story/story'
+    }),
     countryList() {
       return this.countries.map(x => x.geoAreaName).join(', ')
-    },
-
+    }
   },
   methods: {
-    ...mapMutations({
-      setStory: 'story/setStory'
+    ...mapActions({
+      saveStory: 'story/saveStory'
     }),
 
     returnBack () {
       this.prevClicked()
     }, 
-    generateStory() {
+    async generateStory() {
       Object.keys(this.$refs).forEach(component => {
         this.slides.push(this.$refs[component][0].exportData());
       });
-      this.setStory({
+      await this.saveStory({
         slides: this.slides
       })
-      this.$router.push('/story')
+      this.$router.push(`/story/${this.story._id}`)
     },
     getReference(index) {
       return `visual${index}`

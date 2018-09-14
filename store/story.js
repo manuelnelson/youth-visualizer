@@ -1,4 +1,51 @@
+
+function flattenSlide(slide) {
+    Object.assign(slide, slide.graphOptions);
+    delete slide.graphOptions;
+    Object.assign(slide, slide.storyOptions);   
+    delete slide.storyOptions;
+    slide.countries = slide.countries.map(x => x.geoAreaCode);
+    return slide;
+}
+const apiUrl = 'http://localhost:4000/api'
+function addSlide(axios, slide) {
+    return new Promise(async (resolve,reject) => {
+        let data = await axios.$post(`${apiUrl}/slides`,slide)
+        resolve(data)
+    })
+}
+
 export const actions = {
+    async getStory({commit},payload) {
+        let data = await this.$axios.$get(`${apiUrl}/stories/${payload.id}`) 
+        data.slides.forEach(slide => {
+            if(slide.countries)
+                slide.countries = slide.countries.split(',').map(x => payload.geolist.find(y => y.geoAreaCode === x))
+            console.log(slide.countries)
+        });
+        commit('setStory', data);
+        return data;            
+    },
+    async saveStory({commit}, story){
+        //first post slides
+        //let slides = []
+        let slidePromises = []
+        story.slides.forEach(slide => {
+            let flatSlide = flattenSlide(slide);
+            slidePromises.push(addSlide(this.$axios,flatSlide))
+        })
+        let dbSlides = await Promise.all(slidePromises)
+        console.log(dbSlides)
+        //then post story with reference to slides
+
+        //commit
+        let data = await this.$axios.$post(`${apiUrl}/stories`,{
+            slides: dbSlides.map(x=>x._id)
+        })  
+        commit('setStory', data);
+        return data;            
+    },
+
 }
 
 export const getters = {
@@ -31,7 +78,7 @@ export const state = () => ({
               "selectedGraph": "scatter",
               "showLinearRegression": false
             },
-            "story": {
+            "storyOptions": {
               "title": "Examing population beneath the poverty line",
               "text": "As you can see, there's varios things we can draw from this data (despite it being somewhat incomplete)"
             },
@@ -60,7 +107,7 @@ export const state = () => ({
               "selectedGraph": "line",
               "showLinearRegression": true
             },
-            "story": {
+            "storyOptions": {
               "title": "Examing total government spending on essential services",
               "text": "As you can see, there's varios things we can draw from this data (despite it being somewhat incomplete)"
             },

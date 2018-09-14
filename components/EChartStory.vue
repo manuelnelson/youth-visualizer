@@ -7,7 +7,7 @@
 import DataMixin from '~/mixins/dataMethods.mixin.js';
 
 export default {
-  props: ['title', 'url', 'graphOptions', 'countries'],
+  props: ['title', 'url', 'slide', 'countries'],
   data() {
     return {
       autoResize:true,
@@ -27,7 +27,7 @@ export default {
         },
         xAxis: {
             type: 'value',
-            name: this.graphOptions.xAxisLabel,
+            name: this.slide.xAxisLabel,
             nameLocation: 'center',
             nameGap: 40,
             nameTextStyle: {
@@ -46,7 +46,7 @@ export default {
         },
         yAxis: {
             type: 'value',
-            name: this.graphOptions.yAxisLabel,
+            name: this.slide.yAxisLabel,
             nameLocation: 'center',
             nameGap: 40,
             nameTextStyle: {
@@ -89,14 +89,13 @@ export default {
   methods: {
     async drawGraph() {
       let rawData = await this.$axios.$get(this.url)
-      let areaCodes = this.countries.map(x => x.geoAreaCode).join('&areaCode=')
+      console.l
+      //let areaCodes = this.countries.map(x => x.geoAreaCode).join('&areaCode=')
       this.graphData = this.graphifyData(rawData.data, this.countries);  
       
       const data = this.graphifyEChartData(this.graphData);
       let ndx = 0;
-      console.log('graph options')
-      console.log(this.graphOptions)
-      const graphType = this.graphOptions.selectedGraph || 'scatter'
+      const graphType = this.graphType || 'scatter'
 
       this.options.series = [];
       data.map(z => {
@@ -115,7 +114,7 @@ export default {
         })
         ndx++;
       });
-      if(this.graphOptions.showLinearRegression) {
+      if(this.slide.showLinearRegression) {
         let myRegression = this.getLinearRegressionData(data);
         this.options.series.push({
           name: 'line',
@@ -146,9 +145,9 @@ export default {
         });
       }
 
-      this.options.xAxis.name = this.graphOptions.xAxisLabel;
+      this.options.xAxis.name = this.slide.xAxisLabel;
       this.options.xAxis.min = this.findXMin(data);
-      this.options.yAxis.name = this.graphOptions.yAxisLabel;
+      this.options.yAxis.name = this.slide.yAxisLabel;
       this.showChart = true;
     }
   }
