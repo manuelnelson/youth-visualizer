@@ -68,6 +68,11 @@ export default {
     }),
 
     returnBack () {
+      // let query = Object.assign({},this.$route.query)
+      // query.view = 'input'
+      this.$router.push({path: this.$route.path, query: { view: 'input', countries: this.$route.query.countries, selectedGoals: this.$route.query.selectedGoals}})
+
+      // this.$router.push({path: this.$route.path, query})
       this.prevClicked()
     }, 
     async generateStory() {

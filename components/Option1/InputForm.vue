@@ -45,6 +45,16 @@ export default {
 
   components: {
   },
+  mounted () {
+    if(this.$route.query.countries) {
+      this.selectedCountries = this.$route.query.countries;
+    }
+    if(this.$route.query.selectedGoals) {
+      if(!Array.isArray(this.$route.query.selectedGoals))
+        this.$route.query.selectedGoals = [this.$route.query.selectedGoals];
+      this.selectedGoals = this.$route.query.selectedGoals.map(x => fullIndicatorList.find(y => y.code == x)).map(x => x.code + ': ' + x.description);
+    }
+  },
   methods: {
     countrySelected (val) {
       this.selectedCountries.push(val);

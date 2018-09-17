@@ -16,20 +16,25 @@
             </div>
           </md-dialog>
         </span>
-        <div class="dimensions">
-          <div class="dimensions-item" v-if="ages.length > 0">
+        <div class="data-visualization__buttons">
+          <md-button class="md-accent md-raised configure-trigger" v-if="showDimensionsButton" @click="toggleDimensions">Dimensions</md-button>            
+          <md-button class="md-accent md-raised configure-trigger" @click="configureGraph">Configure Graph</md-button>            
+          <md-button class="md-accent md-raised configure-trigger" @click="toggleStory">Story Text</md-button>            
+        </div>
+        <div class="dimensions" v-show="showDimensions">
+          <div class="dimensions-item" v-if="ages.length > 1">
             <span class="md-subheading">Age</span>
             <md-switch v-model="ageArray" v-for="age in ages" :value="age" :key="age">{{age}}</md-switch>
           </div>          
-          <div class="dimensions-item" v-if="sexes.length > 0">
+          <div class="dimensions-item" v-if="sexes.length > 1">
             <span class="md-subheading">Sex</span>
             <md-switch v-model="sexArray" v-for="sex in sexes" :key="sex" :value="sex">{{sex}}</md-switch>
           </div>          
-          <div class="dimensions-item">
+          <!-- <div class="dimensions-item">
             <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedYear" :md-options="yearList">
               <label>Year</label>
             </md-autocomplete>
-          </div>          
+          </div>           -->
         </div>
         <div v-show="graphOptionsOpened" class="configure-graph__content"> 
           <md-autocomplete class="form-area__input" @md-selected="graphSelected" @md-opened="graphOpened" v-model="graphOptions.graphType" :md-options="chartTypes">
@@ -43,9 +48,12 @@
             <label>Y-Axis Label</label>
             <md-input v-model="graphOptions.yAxisLabel"></md-input>
           </md-field>
+          <md-autocomplete class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="graphOptions.selectedGoal" :md-options="goalList">
+            <label>Compare Indicator</label>
+          </md-autocomplete>
           <md-switch v-model="graphOptions.showLinearRegression">Add Linear Regression Line</md-switch>
+          <md-button class="md-accent md-raised configure-trigger" @click="configureGraph">Update</md-button>            
         </div>
-        <md-button class="md-accent md-raised configure-trigger" @click="configureGraph">{{configureButtonText}}</md-button>            
         <div v-show="storyOpened" class="configure-graph__content"> 
           <md-field>
             <label>Story Title</label>
@@ -56,7 +64,6 @@
             <md-textarea v-model="storyOptions.text"></md-textarea>
           </md-field>
         </div>
-        <md-button class="md-accent md-raised configure-trigger" @click="storyOpened = true">Story Text</md-button>            
       </div>
       <div class="data-visualization__right" v-if="!isLoading">      
         <e-chart-component ref="chartComponent" :countries="countries" :graph-data="graphData" :graph-options="graphOptions" :graph-type="graphOptions.graphType" :container-id="index"></e-chart-component>  
@@ -90,18 +97,21 @@ export default {
     indicators: [],
     ageArray: [],
     sexArray: [],
+    goalList: fullIndicatorList.map(x => x.code + ': ' + x.description),
     ages: [],
     sexes: [],
     selectedYear: '',
     yearList: [],
     first: false,
     dimensions: [],
+    showDimensions: false,
     chartTypes: ['bar', 'scatter', 'line', 'map'],
     graphData: [],
     graphOptions: {
       graphType: 'scatter',
       xAxisLabel: 'Year',
       yAxisLabel: '',
+      selectedGoal: '',
       showLinearRegression: false
     },
     storyOptions: {
@@ -163,6 +173,9 @@ export default {
       let dimensionsString = encodeURIComponent(JSON.stringify(this.dimensions))
       let areaCodes = this.countries.map(x => x.geoAreaCode).join('&areaCode=')
       return `${baseAPIUrl}/sdg/Indicator/PivotData?indicator=${this.indicator.code}&areaCode=${areaCodes}&dimensions=${dimensionsString}&pageSize=500`
+    },
+    showDimensionsButton() {
+      return this.ages.length > 1 || this.sexes.length > 1
     }
   },
   methods: {
@@ -185,8 +198,38 @@ export default {
       this.graphOptionsOpened = !this.graphOptionsOpened; 
       if(!this.graphOptionsOpened) {
         this.$refs.chartComponent.drawGraph();
-      }     
+      } else {
+        this.showDimensions = false;
+        this.storyOpened = false;
+      }
     },
+    toggleDimensions() {
+      this.showDimensions = !this.showDimensions;
+      console.log(this.showDimensions)
+      if(this.showDimensions){
+        this.graphOptionsOpened = false;
+        this.storyOpened = false;
+      }
+    },
+    toggleStory() {
+      this.storyOpened = !this.storyOpened;
+      if(this.storyOpened){
+        this.graphOptionsOpened = false;
+        this.showDimensions = false;
+      }
+    },
+    goalSelected (val) {
+      // this.selectedGoals.push(val);
+      // let that = this;
+      // setTimeout(() => {
+      //   this.selectedGoal = ''
+      // }, 20)
+    },
+    goalOpened () {
+      this.graphOptions.selectedGoal += ' '
+      this.graphOptions.selectedGoal = this.graphOptions.selectedGoal.substring(0, this.graphOptions.selectedGoal.length - 1)
+    },
+
     openIndicator(indicator) {
       indicator.infoOpened = true;
     },
@@ -256,6 +299,9 @@ export default {
       //color: #f6931e;
     }
   }
+  &__buttons {
+    margin-bottom: 20px;
+  }
   &__content {
     position: relative;
     z-index: 2;
@@ -308,6 +354,7 @@ export default {
       justify-content: center;
       align-content: center;
       flex-grow: 1;
+      max-width: 33.333%;
       span {
         display: block;
         text-align: center;
@@ -319,6 +366,9 @@ export default {
       }
     }
   }
+}
+.md-menu-content-bottom-start {
+  min-width: 600px;
 }
 @include bp-max($bp-between) {
   .data-visualization {

@@ -5,11 +5,7 @@ let DataMixin = {
     graphifyData(data, countries) {
       //parse year data to JSON 
       let countryData = countries.map(x => data.find(resultData => resultData.geoAreaCode === x.geoAreaCode)).filter(z => typeof z != 'undefined');
-      console.log('data')
-      console.log(data)
-      console.log('countries')
-      console.log(countries)
-      let years = countryData.map(y => JSON.parse(y.years.replace(/\"\[|\]\"/g,'')).filter(year => year.value > 0).map(z => Object.assign(z,{geoAreaCode: y.geoAreaCode, geoAreaName: y.geoAreaName})));
+      let years = countryData.map(y => JSON.parse(y.years.replace(/\"\[|\]\"/g,'')).filter(year => year.value > 0).map(z => Object.assign(z,{geoAreaCode: y.geoAreaCode, geoAreaName: y.geoAreaName, age: y.age, sex: y.sex})));
       return years;
       // return below code for d3js
       // let final = years.reduce((agg,x) => {agg = agg.concat(...x); return agg}, [])
@@ -19,7 +15,7 @@ let DataMixin = {
     graphifyEChartData(graphData) {
       const eChartData = graphData.map(x=> {
         return x.map(y => {
-          return [y.year,y.value,y.geoAreaName,y.geoAreaCode]
+          return [y.year,y.value,y.geoAreaName,y.geoAreaCode, y.age, y.sex]
         })
       })
       return eChartData;
