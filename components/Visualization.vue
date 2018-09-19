@@ -66,7 +66,8 @@
         </div>
       </div>
       <div class="data-visualization__right" v-if="!isLoading">      
-        <e-chart-component ref="chartComponent" :countries="countries" :graph-data="graphData" :graph-options="graphOptions" :graph-type="graphOptions.graphType" :container-id="index"></e-chart-component>  
+        <e-chart-component ref="chartComponent" v-if="!showTimelineChart" :isComparison="graphOptions.selectedGoal.length > 0" :countries="countries" :graph-data="graphData" :graph-options="graphOptions" :graph-type="graphOptions.graphType" :container-id="index"></e-chart-component>  
+        <e-timeline-chart ref="timelineComponent" v-if="showTimelineChart" :countries="countries" :graph-data="graphData" :graph-options="graphOptions" :container-id="index"></e-timeline-chart>
       </div>
       <div v-if="isLoading"  class="data-visualization__loading">
           <span class="data-visualization__loading-text">Fetching data...</span>
@@ -79,6 +80,7 @@
 <script>
 import GraphComponent from '~/components/Graph.vue'
 import EChartComponent from '~/components/EChart.vue'
+import ETimelineChart from '~/components/ETimelineChart.vue'
 import geolist from '~/assets/json/geolist.json'
 // import goalList from '~/assets/json/goallist.json'
 import goalsAndIndicators from '~/assets/json/YouthGoalsAndndicators.json'
@@ -107,6 +109,8 @@ export default {
     showDimensions: false,
     chartTypes: ['bar', 'scatter', 'line', 'map'],
     graphData: [],
+    oldGraphData: [], //used if new comparison indicator is added
+    comparisonGraphData: [],
     graphOptions: {
       graphType: 'scatter',
       xAxisLabel: 'Year',
@@ -122,6 +126,7 @@ export default {
     storyOpened: false,
     isLoading: true,
     graphType: '',
+    useAverages: false
   }),
   mixins: [DataMixin],
 
@@ -133,7 +138,7 @@ export default {
     this.runSearch(true);
   },
   components: {
-    GraphComponent, EChartComponent
+    GraphComponent, EChartComponent, ETimelineChart
   },
   watch: {
     sexArray: function(newValue) {
@@ -176,6 +181,9 @@ export default {
     },
     showDimensionsButton() {
       return this.ages.length > 1 || this.sexes.length > 1
+    },
+    showTimelineChart() {
+      return this.graphOptions.graphType === 'timeline'
     }
   },
   methods: {
@@ -218,16 +226,37 @@ export default {
         this.showDimensions = false;
       }
     },
-    goalSelected (val) {
-      // this.selectedGoals.push(val);
-      // let that = this;
-      // setTimeout(() => {
-      //   this.selectedGoal = ''
-      // }, 20)
+    async goalSelected (val) {
+      this.graphOptions.selectedGoal = val;
+      if(val.length > 0)
+      {
+        // 1. let's store the old data - this can later be used if we do the timeline option
+        this.oldGraphData = this.graphData;
+        // 2. let's make the old data 1 dimension either by
+        //  a) taking the latest year that has a value?
+        //  b) averaging the data over the years and using that value
+        let compareData = this.graphData;
+        if(this.useAverages)
+          compareData = this.averageYearData(this.graphData);
+        // 3. make a call to get the new indicators data - repeat step two with that data
+        //this.getIndicatorData(this.graphOptions.selectedGoal.split(':')[0])
+        let secondCompareData = await this.getIndicatorData(val.split(':')[0])
+        if(this.useAverages)
+          secondCompareData = this.averageYearData(compareIndicatorData);
+        // 4. Combine data by grouping over country.  X-value will be new indicator data
+        // 5. Apply to graph!
+        this.graphData = this.combineIndicators(compareData, secondCompareData); 
+
+        //update chart types
+        this.chartTypes.push('timeline');
+      } else {
+        this.chartTypes.pop();
+      }
     },
     goalOpened () {
       this.graphOptions.selectedGoal += ' '
-      this.graphOptions.selectedGoal = this.graphOptions.selectedGoal.substring(0, this.graphOptions.selectedGoal.length - 1)
+      this.graphOptions.selectedGoal = this.graphOptions.selectedGoal.substring(0, this.graphOptions.selectedGoal.length - 1);
+      console.log('selected goal', this.graphOptions.selectedGoal)
     },
 
     openIndicator(indicator) {
@@ -245,17 +274,27 @@ export default {
     },
     async runSearch (init) {
       this.isLoading = true;
-      let dimensionsString = encodeURIComponent(JSON.stringify(this.dimensions))
-      let areaCodes = this.countries.map(x => x.geoAreaCode).join('&areaCode=')
       let data = await this.$axios.$get(this.url)
       this.graphData = this.graphifyData(data.data, this.countries);   ///JSON.parse(data.data[0].years).filter(y => y.value.length > 0);
-      this.graphOptions.yAxisLabel = data.data[0].seriesDescription;
+      if(data.data[0])
+        this.graphOptions.yAxisLabel = data.data[0].seriesDescription;
+
       if(init){
         this.ages = this.getDimensionList(data.data, 'age');
         this.sexes = this.getDimensionList(data.data, 'sex');
         this.yearList = this.getDimensionList(this.graphData, 'year').sort();
       }
       this.isLoading = false;
+    },
+    async getIndicatorData(indicatorCode) {
+      const dimensionsString = encodeURIComponent(JSON.stringify(this.dimensions))
+      const areaCodes = this.countries.map(x => x.geoAreaCode).join('&areaCode=')
+      const url = `${baseAPIUrl}/sdg/Indicator/PivotData?indicator=${indicatorCode}&areaCode=${areaCodes}&dimensions=${dimensionsString}&pageSize=500`
+
+      let data = await this.$axios.$get(url);
+      if(data.data[0])
+        this.graphOptions.xAxisLabel = data.data[0].seriesDescription;
+      return this.graphifyData(data.data, this.countries);  
     }
   }
 }

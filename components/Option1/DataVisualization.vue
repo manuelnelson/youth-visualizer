@@ -2,8 +2,9 @@
   <section class="data-visualization">
     <div class="data-visualization__content">
       <md-button class="md-display-1 data-visualization__btn" @click="returnBack"><md-icon>arrow_back</md-icon> Back</md-button>
-      <div class="data-visualization__content">
-        <h3 class="md-display-1">{{countryList}}</h3>        
+      <div class="data-visualization__content transition-up" v-delay="{delay:800,cssClass:'up'}" >
+        <h3 class="md-display-2">Create Your Story</h3>        
+        <h4 class="md-headline">Regions: {{countryList}}</h4>        
       </div>
     </div>
     <visualization-component v-for="(indicator,ndx) in indicators" :ref="getReference(ndx)"  :key="ndx" :index="ndx" :indicator="indicator"></visualization-component>
@@ -103,13 +104,21 @@ export default {
   left: 0;
   width: 100%;
   min-height: 100%;
-  h3.md-display-1 {
+  h3.md-display-2 {
     color: #f6931e;
-    margin-bottom: 20px;
     text-align: center;
     display: block;
     width: 100%;
     font-weight: bold;
+    display: block;
+  }
+  h4.md-headline {
+    //color: #f6931e;
+    text-align: center;
+    margin-bottom: 20px;
+    text-align: center;
+    display: block;
+    width: 100%;
   }
 
   &__content {
@@ -119,6 +128,7 @@ export default {
     width: 100%;
     margin-bottom: 30px;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   &__btn {
     position: relative;
@@ -192,5 +202,15 @@ export default {
     margin-bottom: 8px;
   }
 }
+.transition-up {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 1.4s, transform 1.4s;
+  &.up {
+    opacity: 1;
+    transform: translateY(0)  
+  }
+}
+
 
 </style>

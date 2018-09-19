@@ -42,6 +42,7 @@ module.exports = {
   plugins: [
     { src: '~/plugins/vue-material' },
     { src: '~/plugins/directives' },
+    { src: '~/plugins/vue-clipboard' },
     { src: '~/plugins/vue-echart' }
   ],
   modules: [

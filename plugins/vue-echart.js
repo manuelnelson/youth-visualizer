@@ -6,6 +6,7 @@ import storyTheme from '~/assets/json/story-theme.json';
 // import ECharts modules manually to reduce bundle size
 import 'echarts/lib/chart/bar'
 import 'echarts/lib/chart/scatter'
+import 'echarts/lib/component/timeline'
 import 'echarts/lib/chart/line'
 import 'echarts/lib/component/tooltip'
 

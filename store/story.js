@@ -22,6 +22,12 @@ export const actions = {
             if(slide.countries)
                 slide.countries = slide.countries.split(',').map(x => payload.geolist.find(y => y.geoAreaCode === x))
         });
+        //add shareable slide
+        data.slides.push({
+            title: 'Thanks for viewing!',
+            text: `If you'd like to share this story with others, use the button below to copy the link`,
+            showCopy: true
+        })
         commit('setStory', data);
         return data;            
     },
@@ -34,8 +40,6 @@ export const actions = {
             slidePromises.push(addSlide(this.$axios,flatSlide))
         })
         let dbSlides = await Promise.all(slidePromises)
-        console.log(dbSlides)
-        //then post story with reference to slides
 
         //commit
         let data = await this.$axios.$post(`${apiUrl}/stories`,{
