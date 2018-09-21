@@ -11,6 +11,7 @@
 </template>
 <script>
 import DataMixin from '~/mixins/dataMethods.mixin.js';
+const apiUrl = 'https://youthindicator.herokuapp.com/api'
 
 export default {
   props: ['title', 'url', 'slide', 'countries'],
@@ -150,7 +151,7 @@ export default {
     },
     exportData() {
       console.log('exportt')
-      fetch(`http://localhost:4000/api/csv`, {
+      fetch(`${apiUrl}/csv`, {
         method: "POST",
         mode: "cors",
         headers: {
@@ -158,7 +159,7 @@ export default {
         },
         body: JSON.stringify({csvData:this.graphData})
       }).then(()=> {
-        window.open('http://localhost:4000/api/csv')
+        window.open(`${apiUrl}/csv`)
       })
     }
   }

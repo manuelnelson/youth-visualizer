@@ -36,7 +36,6 @@
 import {mapMutations,mapGetters,mapActions} from 'vuex';
 import EChartComponent from '~/components/EChartStory.vue'
 import geolist from '~/assets/json/geolist.json'
-
 export default {
   data: () => ({
     slideIndex: 0,
