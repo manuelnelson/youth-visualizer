@@ -1,3 +1,4 @@
+import Vue from 'vue';
 
 function flattenSlide(slide) {
     Object.assign(slide, slide.graphOptions);

@@ -31,6 +31,8 @@ export default {
 
 <style lang="scss">
 @import '~assets/functions';
+@import '~assets/breakpoints';
+
 .hero {
   min-height: calc(100vh - 40px);
   display: flex;
@@ -73,6 +75,7 @@ export default {
       color: white !important;     
     }
   }
+
   // .md-field.md-theme-default:before, .md-field.md-theme-default:after{
   //   background-color: #0099d6;
   // }
@@ -80,6 +83,20 @@ export default {
   //   color: #0099d6;
   //   -webkit-text-fill-color: #0099d6;
   // }
+  @include bp-max($bp-between) {
+    top: 40px;
+    align-items: flex-start;
+    position: relative;
+    h1 {
+      margin-bottom: 20px;
+      font-size: px-to-rem(40px);
+      line-height: 1.2;
+    }
+    &-content {
+      padding-bottom: 20px;
+    }
+
+  }
 
 }
 

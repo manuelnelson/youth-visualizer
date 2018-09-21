@@ -19,8 +19,19 @@ import goalsAndIndicators from '~/assets/json/YouthGoalsAndndicators.json'
 
 import {mapMutations,mapGetters,mapActions} from 'vuex';
 
-const targetList = goalsAndIndicators.reduce((acc, x) => {acc.push(...x.targets); return acc;}, [] )
-const fullIndicatorList = targetList.reduce( (acc, y) => {acc.push(...y.indicators);return acc},[]);
+let flatGoalIndicatorList = [];
+goalsAndIndicators.forEach(goal => {
+  flatGoalIndicatorList.push(goal);
+  goal.targets.forEach(target => {
+    flatGoalIndicatorList.push(target);
+    target.indicators.forEach(indicator => {
+      flatGoalIndicatorList.push(indicator);
+    });
+  });
+});
+
+// const targetList = goalsAndIndicators.reduce((acc, x) => {acc.push(...x.targets); return acc;}, [] )
+// const fullIndicatorList = targetList.reduce( (acc, y) => {acc.push(...y.indicators);return acc},[]);
 
 export default {
   data: () => ({
@@ -35,13 +46,13 @@ export default {
     this.countries = this.$route.query.countries.map(x => geolist.find(y => y.geoAreaName === x));
     this.codes = this.$route.query.selectedGoals;
     if(this.codes) {
-      let indicators = fullIndicatorList.filter(x => this.codes.indexOf(x.code) > -1);
+      let indicators = flatGoalIndicatorList.filter(x => this.codes.indexOf(x.code) > -1);
       this.indicators = indicators.map( x=> Object.assign(x, {
         infoOpened: false,
         goal: x.code.split('.')[0],
         goalDescription: goalsAndIndicators.find(goal => goal.code === x.code.split('.')[0]).description,
-        target: `${x.code.split('.')[0]}.${x.code.split('.')[1]}`,
-        targetDescription: targetList.find(goal => goal.code === `${x.code.split('.')[0]}.${x.code.split('.')[1]}`).description,
+        target: this.getTargetCode(x),
+        targetDescription: flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(x)) ? flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(x)).description : '',
       }))
     }
     
@@ -67,7 +78,11 @@ export default {
     ...mapActions({
       saveStory: 'story/saveStory'
     }),
-
+    getTargetCode(indicator) {
+      if(indicator.code.split('.').length > 0)
+        return `${indicator.code.split('.')[0]}.${indicator.code.split('.')[1]}`
+      return '';
+    },
     returnBack () {
       // let query = Object.assign({},this.$route.query)
       // query.view = 'input'

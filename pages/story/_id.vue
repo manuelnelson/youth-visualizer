@@ -98,11 +98,11 @@ export default {
 
   .story-container {
     background-color: rgba(0,0,0,0.8);
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     color: white;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
     .rotate {
       transform: rotate(180deg);
     }
@@ -125,6 +125,9 @@ export default {
     &__actions {
       display: flex;
       justify-content: flex-end;
+      width: 50%;
+      position: relative;
+      left: 50%;
     }
     p {
       max-width: 80ch;

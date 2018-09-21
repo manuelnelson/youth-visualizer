@@ -30,11 +30,6 @@
             <span class="md-subheading">Sex</span>
             <md-switch v-model="sexArray" v-for="sex in sexes" :key="sex" :value="sex">{{sex}}</md-switch>
           </div>          
-          <!-- <div class="dimensions-item">
-            <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedYear" :md-options="yearList">
-              <label>Year</label>
-            </md-autocomplete>
-          </div>           -->
         </div>
         <div v-show="graphOptionsOpened" class="configure-graph__content"> 
           <md-autocomplete class="form-area__input" @md-selected="graphSelected" @md-opened="graphOpened" v-model="graphOptions.graphType" :md-options="chartTypes">
@@ -66,8 +61,9 @@
         </div>
       </div>
       <div class="data-visualization__right" v-if="!isLoading">      
-        <e-chart-component ref="chartComponent" v-if="!showTimelineChart" :isComparison="graphOptions.selectedGoal.length > 0" :countries="countries" :graph-data="graphData" :graph-options="graphOptions" :graph-type="graphOptions.graphType" :container-id="index"></e-chart-component>  
+        <e-chart-component ref="chartComponent" v-if="showEChart" :isComparison="graphOptions.selectedGoal.length > 0" :countries="countries" :graph-data="graphData" :graph-options="graphOptions" :graph-type="graphOptions.graphType" :container-id="index"></e-chart-component>  
         <e-timeline-chart ref="timelineComponent" v-if="showTimelineChart" :countries="countries" :graph-data="graphData" :graph-options="graphOptions" :container-id="index"></e-timeline-chart>
+        <e-map-component ref="mapComponent" v-if="showMap" :countries="countries" :graph-data="graphData" :graph-options="graphOptions" :container-id="index"></e-map-component>
       </div>
       <div v-if="isLoading"  class="data-visualization__loading">
           <span class="data-visualization__loading-text">Fetching data...</span>
@@ -81,14 +77,24 @@
 import GraphComponent from '~/components/Graph.vue'
 import EChartComponent from '~/components/EChart.vue'
 import ETimelineChart from '~/components/ETimelineChart.vue'
+import EMapComponent from '~/components/Map.vue'
 import geolist from '~/assets/json/geolist.json'
 // import goalList from '~/assets/json/goallist.json'
 import goalsAndIndicators from '~/assets/json/YouthGoalsAndndicators.json'
 import DataMixin from '~/mixins/dataMethods.mixin.js';
 const baseAPIUrl = 'https://unstats.un.org/SDGAPI/v1/'
 import Vue from 'vue';
-const targetList = goalsAndIndicators.reduce((acc, x) => {acc.push(...x.targets); return acc;}, [] )
-const fullIndicatorList = targetList.reduce( (acc, y) => {acc.push(...y.indicators);return acc},[]);
+let flatGoalIndicatorList = [];
+goalsAndIndicators.forEach(goal => {
+  flatGoalIndicatorList.push(goal);
+  goal.targets.forEach(target => {
+    flatGoalIndicatorList.push(target);
+    target.indicators.forEach(indicator => {
+      flatGoalIndicatorList.push(indicator);
+    });
+  });
+});
+
 import {mapMutations,mapGetters,mapActions} from 'vuex';
 
 export default {
@@ -99,7 +105,7 @@ export default {
     indicators: [],
     ageArray: [],
     sexArray: [],
-    goalList: fullIndicatorList.map(x => x.code + ': ' + x.description),
+    goalList: flatGoalIndicatorList.map(x => x.code + ': ' + x.description),
     ages: [],
     sexes: [],
     selectedYear: '',
@@ -138,7 +144,7 @@ export default {
     this.runSearch(true);
   },
   components: {
-    GraphComponent, EChartComponent, ETimelineChart
+    GraphComponent, EChartComponent, ETimelineChart, EMapComponent
   },
   watch: {
     sexArray: function(newValue) {
@@ -177,16 +183,33 @@ export default {
     url() {
       let dimensionsString = encodeURIComponent(JSON.stringify(this.dimensions))
       let areaCodes = this.countries.map(x => x.geoAreaCode).join('&areaCode=')
-      return `${baseAPIUrl}/sdg/Indicator/PivotData?indicator=${this.indicator.code}&areaCode=${areaCodes}&dimensions=${dimensionsString}&pageSize=500`
+      let dataType = this.getIndicatorType(this.indicator.code);
+      return `${baseAPIUrl}/sdg/${dataType}/PivotData?${dataType}=${this.indicator.code}&areaCode=${areaCodes}&dimensions=${dimensionsString}&pageSize=500`
     },
     showDimensionsButton() {
       return this.ages.length > 1 || this.sexes.length > 1
     },
     showTimelineChart() {
       return this.graphOptions.graphType === 'timeline'
+    },
+    showMap() {
+      return this.graphOptions.graphType === 'map'
+    },
+    showEChart() {
+      return !this.showMap && !this.showTimelineChart
     }
   },
   methods: {
+    getIndicatorType(indicatorCode) {
+      switch(indicatorCode.split('.').length){
+        case 1:
+          return 'Goal';
+        case 2: 
+          return 'Target';
+        case 3:
+          return 'Indicator';
+      }
+    },
     yearSelected (val) {
       this.selectedYear = val
     },
@@ -196,7 +219,15 @@ export default {
     },
     graphSelected (val) {
       this.graphOptions.graphType = val;
-      this.$refs.chartComponent.drawGraph();
+      if(val === 'map') {
+        this.oldGraphData = this.graphData;
+        this.graphData = this.averageYearData(this.graphData);
+      } else {
+        if(this.oldGraphData && this.oldGraphData.length > 0)
+          this.graphData = this.oldGraphData;
+        
+        this.$refs.chartComponent.drawGraph();
+      }
     },
     graphOpened () {
       this.graphOptions.graphType = ' '
@@ -289,7 +320,9 @@ export default {
     async getIndicatorData(indicatorCode) {
       const dimensionsString = encodeURIComponent(JSON.stringify(this.dimensions))
       const areaCodes = this.countries.map(x => x.geoAreaCode).join('&areaCode=')
-      const url = `${baseAPIUrl}/sdg/Indicator/PivotData?indicator=${indicatorCode}&areaCode=${areaCodes}&dimensions=${dimensionsString}&pageSize=500`
+      let dataType = this.getIndicatorType(indicatorCode);
+
+      const url = `${baseAPIUrl}sdg/${dataType}/PivotData?${dataType}=${indicatorCode}&areaCode=${areaCodes}&dimensions=${dimensionsString}&pageSize=500`
 
       let data = await this.$axios.$get(url);
       if(data.data[0])

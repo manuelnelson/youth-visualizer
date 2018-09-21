@@ -36,6 +36,7 @@ module.exports = {
   */
   css: [
     { src: 'vue-material/dist/vue-material.min.css', lang: 'css' },
+    { src: "leaflet/dist/leaflet.css", lang: 'css' },    
     { src: '~/assets/theme.scss', lang: 'scss' }, // include vue-material theme engine
     { src: '~/assets/main.scss', lang: 'scss' } // include vue-material theme engine
   ],
@@ -43,6 +44,7 @@ module.exports = {
     { src: '~/plugins/vue-material' },
     { src: '~/plugins/directives' },
     { src: '~/plugins/vue-clipboard' },
+    { src: '~/plugins/vue-leaflet', ssr: false },
     { src: '~/plugins/vue-echart' }
   ],
   modules: [
@@ -52,7 +54,7 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
-    vendor: ['vue-material', 'vue-echarts'],
+    vendor: ['vue-material', 'vue-echarts', 'vue2-leaflet'],
     extend (config, { isDev, isClient, isServer }) {
       // if (isDev && isClient) {
       //   config.module.rules.push({
@@ -67,7 +69,7 @@ module.exports = {
           nodeExternals({
             // default value for `whitelist` is
             // [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i]
-            whitelist: [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i, /^vue-echarts/]
+            whitelist: [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i, /^vue-echarts/, /^vue2-leaflet/]
           })
         ]
       }

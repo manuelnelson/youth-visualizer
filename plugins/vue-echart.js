@@ -10,7 +10,6 @@ import 'echarts/lib/component/timeline'
 import 'echarts/lib/chart/line'
 import 'echarts/lib/component/tooltip'
 
-console.log(blueTheme)
 ECharts.registerTheme('blue-test', blueTheme)
 ECharts.registerTheme('story-theme', storyTheme)
 // register component to use

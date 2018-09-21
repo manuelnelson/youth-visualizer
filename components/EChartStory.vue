@@ -1,6 +1,12 @@
 <template>  
   <div class="container">
     <v-chart v-if="showChart" width="100%" auto-resize theme="story-theme" :options="options" />
+    <div class="download-container">
+      <md-button class="md-primary download-button" @click="exportData">        
+        <md-icon>arrow_downward</md-icon>
+        CSV
+      </md-button>
+    </div>
   </div>
 </template>
 <script>
@@ -75,14 +81,6 @@ export default {
   mixins: [DataMixin],
   computed: {
   },
-  watch: {
-    graphOptions: function(newValue) {
-      this.drawGraph();
-    },
-    graphType: function(newValue) {
-      this.drawGraph();
-    }
-  },
   mounted () {
     this.drawGraph();
   },
@@ -91,7 +89,9 @@ export default {
       let rawData = await this.$axios.$get(this.url)
       //let areaCodes = this.countries.map(x => x.geoAreaCode).join('&areaCode=')
       this.graphData = this.graphifyData(rawData.data, this.countries);  
-      const data = this.graphifyEChartData(this.graphData);
+      console.log(this.graphData)
+      const data = this.graphifyEChartData(this.graphData, 'year', this.slide.xAxisLabel, this.slide.yAxisLabel);
+      //const data = this.graphifyEChartData(this.graphData);
       let ndx = 0;
       const graphType = this.slide.graphType || 'scatter'
 
@@ -147,6 +147,19 @@ export default {
       this.options.xAxis.min = this.findXMin(data);
       this.options.yAxis.name = this.slide.yAxisLabel;
       this.showChart = true;
+    },
+    exportData() {
+      console.log('exportt')
+      fetch(`http://localhost:4000/api/csv`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify({csvData:this.graphData})
+      }).then(()=> {
+        window.open('http://localhost:4000/api/csv')
+      })
     }
   }
 }
@@ -160,6 +173,15 @@ export default {
     .form-area__input {
       width: 50%;
       text-align: right;
+    }
+    .download-container {
+      display: flex;
+      justify-content: flex-start;
+      height: 0;
+    }
+    .download-button{
+      position: relative;
+      //top: 30px;
     }
     .echarts {
       width: 100%;

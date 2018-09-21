@@ -205,13 +205,16 @@ export default {
       },[]);
     },
     getTimeline(){
-      return this.graphData.reduce((agg,x) => {
+        let timeline = this.graphData.reduce((agg,x) => {
         x.map((y) => {
-          if(agg.indexOf(y.year) === -1)
-            agg.push(y.year);
+          if(agg.indexOf(y.year*1) === -1)
+            agg.push(y.year*1);
         })
         return agg;
-      },[]);
+      },[]).sort(function(a, b) {
+          return a - b;
+      });
+      return timeline;
     },
     getCountries(){
       return this.graphData.reduce((agg,x) => {
