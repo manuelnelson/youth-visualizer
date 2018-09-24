@@ -122,6 +122,7 @@ export default {
       xAxisLabel: 'Year',
       yAxisLabel: '',
       selectedGoal: '',
+      selectedGoalUrl: '',
       showLinearRegression: false
     },
     storyOptions: {
@@ -198,6 +199,7 @@ export default {
     showEChart() {
       return !this.showMap && !this.showTimelineChart
     }
+
   },
   methods: {
     getIndicatorType(indicatorCode) {
@@ -240,7 +242,7 @@ export default {
       } else {
         this.showDimensions = false;
         this.storyOpened = false;
-      }
+      } 
     },
     toggleDimensions() {
       this.showDimensions = !this.showDimensions;
@@ -260,7 +262,7 @@ export default {
     async goalSelected (val) {
       this.graphOptions.selectedGoal = val;
       if(val.length > 0)
-      {
+      {        
         // 1. let's store the old data - this can later be used if we do the timeline option
         this.oldGraphData = this.graphData;
         // 2. let's make the old data 1 dimension either by
@@ -281,6 +283,8 @@ export default {
         //update chart types
         this.chartTypes.push('timeline');
       } else {
+        if(this.oldGraphData && this.oldGraphData.length > 0)
+          this.graphData = this.oldGraphData;
         this.chartTypes.pop();
       }
     },
@@ -323,7 +327,7 @@ export default {
       let dataType = this.getIndicatorType(indicatorCode);
 
       const url = `${baseAPIUrl}sdg/${dataType}/PivotData?${dataType}=${indicatorCode}&areaCode=${areaCodes}&dimensions=${dimensionsString}&pageSize=500`
-
+      this.graphOptions.selectedGoalUrl = url;
       let data = await this.$axios.$get(url);
       if(data.data[0])
         this.graphOptions.xAxisLabel = data.data[0].seriesDescription;

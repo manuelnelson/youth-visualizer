@@ -20,7 +20,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Envoy of Youth SDG Indicator Visualization Tool' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/un-icon-en.png' },
       { rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,400italic|Material+Icons' }
     ],
     script: [

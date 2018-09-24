@@ -122,6 +122,11 @@ export default {
   height: 100%;
   width: 100%;
 
+  @include bp-max($bp-between) {
+    position: relative;
+    padding: 60px 40px;
+  }
+
   &__content {
     position: relative;
     z-index: 2;
@@ -165,16 +170,26 @@ export default {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 60px;
+  flex-wrap: wrap;
   &__item {
     background-color: #f6931e;
     padding: 8px;
     color: white;
     margin-right: 20px;
+    margin-bottom: 20px;
+    max-width: calc(50% - 20px);
     cursor: pointer;
     transition: background-color 0.3s;
     &:hover {
       background-color: darken(#f6931e, 10%);
     }
+  }
+  @include bp-max($bp-between) {
+    .selected-tags__item{
+      max-width: 100%;
+      //margin-right: 0;
+    }
+    width: 90vw;
   }
   i {
     color: white !important;

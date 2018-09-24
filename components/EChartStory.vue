@@ -150,7 +150,6 @@ export default {
       this.showChart = true;
     },
     exportData() {
-      console.log('exportt')
       fetch(`${apiUrl}/csv`, {
         method: "POST",
         mode: "cors",

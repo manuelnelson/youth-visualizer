@@ -13,7 +13,9 @@
             </p>
           </div>
           <div class="story-container__slide-graph transition-up" v-delay="{delay:2400,cssClass:'up'}" v-if="slide.url">
-            <e-chart-component title="title" :slide="slide" :url="slide.url" :countries="slide.countries"></e-chart-component>
+            <e-chart-component v-if="showEChart(slide)" title="title" :slide="slide" :url="slide.url" :countries="slide.countries"></e-chart-component>
+            <e-timeline-chart ref="timelineComponent" v-if="showTimelineChart(slide)" :countries="slide.countries" :slide="slide"></e-timeline-chart>
+            <e-map-component ref="mapComponent" v-if="slide.graphType === 'map'" :countries="slide.countries" :slide="slide"></e-map-component>
           </div>
           <div class="story-container__actions transition-up" v-delay="{delay:2400,cssClass:'up'}" >
             <md-button class="md-primary md-raised" @click="previousSlide" v-if="showPreviousButton">
@@ -35,7 +37,11 @@
 <script>
 import {mapMutations,mapGetters,mapActions} from 'vuex';
 import EChartComponent from '~/components/EChartStory.vue'
+import ETimelineChart from '~/components/ETimelineChartStory.vue'
+import EMapComponent from '~/components/MapStory.vue'
 import geolist from '~/assets/json/geolist.json'
+//import DataMixin from '~/mixins/dataMethods.mixin.js';
+
 export default {
   data: () => ({
     slideIndex: 0,
@@ -43,7 +49,7 @@ export default {
   }),
   layout: 'story-layout',
   components: {
-    EChartComponent
+    EChartComponent, ETimelineChart, EMapComponent
   },
   computed: {
     ...mapGetters({
@@ -87,7 +93,18 @@ export default {
     },
     onCopy() {
       this.copySuccess = true;
+    },
+    showTimelineChart(slide) {
+      return slide.graphType === 'timeline'
+    },
+    showMap(slide) { 
+      console.log(slide.graphType.trim() === 'map')     
+      return slide.graphType.trim() === 'map'
+    },
+    showEChart(slide) {
+      return !this.showMap(slide) && !this.showTimelineChart(slide)
     }
+
   }
 }
 </script>

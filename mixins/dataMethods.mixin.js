@@ -1,6 +1,8 @@
 import * as ecStat from 'echarts-stat';
 
 let DataMixin = {
+  computed: {
+  },
   methods: {
     graphifyData(data, countries) {
       //parse year data to JSON 
@@ -65,15 +67,12 @@ let DataMixin = {
         return countryData.reduce((agg,x) => {
         let countryMatch = flattenedSecondIndicator.find(y=> y.geoAreaCode === x.geoAreaCode && y.year === x.year);
         if(countryMatch){
-          console.log('countryMatch')
-          console.log(countryMatch)
           agg.push(Object.assign(x, {xValue: countryMatch.value}))
         }
         return agg;
         //return countryMatch.map(z => Object.assign(x, {xValue: z.value}))
       }, [])
       })
-      console.log(final)
       return final;
     },
     flattenDataset(dataset) {
@@ -103,6 +102,7 @@ let DataMixin = {
       },[]);
 
       var myRegression = ecStat.regression('linear', flatData);
+      console.log(myRegression)
       myRegression.points.sort(function(a, b) {
           return a[0] - b[0];
       });
