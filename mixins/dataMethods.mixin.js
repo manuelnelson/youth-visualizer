@@ -40,7 +40,27 @@ let DataMixin = {
       });
       return xMin - 1;
     },
-    //cycles through data - adding unique non null fields to dimension list
+    findMinsAndMaxs(graphData) {
+      //reset m
+      this.resetMinsAndMaxs();
+      graphData.forEach(x => {
+        x.map(datum => {
+          this.graphOptions.xMin = datum[0]*1 < this.graphOptions.xMin ? datum[0]*1 : this.graphOptions.xMin;
+          this.graphOptions.xMax = datum[0]*1 > this.graphOptions.xMax ? datum[0]*1 : this.graphOptions.xMax;
+          this.graphOptions.yMin = datum[1]*1 < this.graphOptions.yMin ? datum[1]*1 : this.graphOptions.yMin;
+          this.graphOptions.yMax = datum[1]*1 > this.graphOptions.yMax ? datum[1]*1 : this.graphOptions.yMax;
+        })      
+      });
+      console.log(this.graphOptions)
+      return;
+    },
+    resetMinsAndMaxs() {
+      this.graphOptions.xMin = 100000;
+      this.graphOptions.xMax = -100000;
+      this.graphOptions.yMin = 100000;
+      this.graphOptions.yMax = -100000;
+    },
+      //cycles through data - adding unique non null fields to dimension list
     getDimensionList(data, dimension) {
       return data.reduce((agg, dataRow) => {
         if(dataRow[dimension] && agg.indexOf(dataRow[dimension]) === -1) {

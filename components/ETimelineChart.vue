@@ -30,10 +30,10 @@ export default {
     return {
       showChart: true,
       autoResize:true,
-        xMin:10000000,
-        xMax:0,
-        yMin:10000000,
-        yMax:0,
+    xMin:10000000,
+    xMax:0,
+    yMin:10000000,
+    yMax:0,
       timeline:[],
       options: {      
         baseOption: {

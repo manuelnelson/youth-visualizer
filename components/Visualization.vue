@@ -35,18 +35,18 @@
           <md-autocomplete class="form-area__input" @md-selected="graphSelected" @md-opened="graphOpened" v-model="graphOptions.graphType" :md-options="chartTypes">
             <label>Graph Type</label>
           </md-autocomplete>
-          <md-field>
+          <md-field v-if="!showMap">
             <label>X-Axis Label</label>
             <md-input v-model="graphOptions.xAxisLabel"></md-input>
           </md-field>
-          <md-field>
+          <md-field v-if="!showMap">
             <label>Y-Axis Label</label>
             <md-input v-model="graphOptions.yAxisLabel"></md-input>
           </md-field>
-          <md-autocomplete class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="graphOptions.selectedGoal" :md-options="goalList">
+          <md-autocomplete v-if="!showMap" class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="graphOptions.selectedGoal" :md-options="goalList">
             <label>Compare Indicator</label>
           </md-autocomplete>
-          <md-switch v-model="graphOptions.showLinearRegression">Add Linear Regression Line</md-switch>
+          <md-switch v-if="!showMap" v-model="graphOptions.showLinearRegression">Add Linear Regression Line</md-switch>
           <md-button class="md-accent md-raised configure-trigger" @click="configureGraph">Update</md-button>            
         </div>
         <div v-show="storyOpened" class="configure-graph__content"> 
@@ -121,6 +121,10 @@ export default {
       graphType: 'scatter',
       xAxisLabel: 'Year',
       yAxisLabel: '',
+      xMin:100000000,
+      xMax: -1000,
+      yMin: 10000000,
+      yMax: -10000,
       selectedGoal: '',
       selectedGoalUrl: '',
       showLinearRegression: false
@@ -148,9 +152,12 @@ export default {
     GraphComponent, EChartComponent, ETimelineChart, EMapComponent
   },
   watch: {
-    sexArray: function(newValue) {
+    sexArray: function(newValue, oldValue) {
       if(newValue.length > 0) {
         if(this.dimensions) {
+          this.dimensions = this.dimensions.filter(x => x.name !== 'sex');
+          console.log(this.dimensions);
+          console.log(newValue);
           this.dimensions.push({name:'sex', values:newValue})
           this.runSearch()
         }
@@ -160,9 +167,10 @@ export default {
         this.runSearch();
       }
     },
-    ageArray: function(newValue) {
+    ageArray: function(newValue, oldValue) {
       if(newValue.length > 0) {
         if(this.dimensions) {
+          this.dimensions.filter(x => x.name !== 'age');
           this.dimensions.push({name:'age', values:newValue})
           this.runSearch()
         }
@@ -197,7 +205,7 @@ export default {
       return this.graphOptions.graphType === 'map'
     },
     showEChart() {
-      return !this.showMap && !this.showTimelineChart
+      return this.graphOptions.graphType === 'line' || this.graphOptions.graphType === 'scatter' || this.graphOptions.graphType === 'bar'
     }
 
   },
@@ -227,8 +235,6 @@ export default {
       } else {
         if(this.oldGraphData && this.oldGraphData.length > 0)
           this.graphData = this.oldGraphData;
-        
-        this.$refs.chartComponent.drawGraph();
       }
     },
     graphOpened () {
@@ -279,19 +285,18 @@ export default {
         // 4. Combine data by grouping over country.  X-value will be new indicator data
         // 5. Apply to graph!
         this.graphData = this.combineIndicators(compareData, secondCompareData); 
-
         //update chart types
         this.chartTypes.push('timeline');
       } else {
-        if(this.oldGraphData && this.oldGraphData.length > 0)
-          this.graphData = this.oldGraphData;
+        // if(this.oldGraphData && this.oldGraphData.length > 0)
+        //   this.graphData = this.oldGraphData;
         this.chartTypes.pop();
+        this.runSearch();
       }
     },
     goalOpened () {
       this.graphOptions.selectedGoal += ' '
       this.graphOptions.selectedGoal = this.graphOptions.selectedGoal.substring(0, this.graphOptions.selectedGoal.length - 1);
-      console.log('selected goal', this.graphOptions.selectedGoal)
     },
 
     openIndicator(indicator) {
@@ -310,7 +315,14 @@ export default {
     async runSearch (init) {
       this.isLoading = true;
       let data = await this.$axios.$get(this.url)
-      this.graphData = this.graphifyData(data.data, this.countries);   ///JSON.parse(data.data[0].years).filter(y => y.value.length > 0);
+      if(this.graphOptions.selectedGoal.length > 0) {
+              console.log('selected goal', this.graphOptions.selectedGoal)
+        let secondCompareData = await this.getIndicatorData(this.graphOptions.selectedGoal.split(':')[0])
+        this.graphData = this.graphifyData(data.data, this.countries);   ///JSON.parse(data.data[0].years).filter(y => y.value.length > 0);
+        this.graphData = this.combineIndicators(this.graphData, secondCompareData); 
+      } else {
+        this.graphData = this.graphifyData(data.data, this.countries);   ///JSON.parse(data.data[0].years).filter(y => y.value.length > 0);
+      }
       if(data.data[0])
         this.graphOptions.yAxisLabel = data.data[0].seriesDescription;
 

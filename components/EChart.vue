@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       autoResize:true,
+
       options: {
         title: {
             text: this.title,
@@ -22,7 +23,8 @@ export default {
             },
             formatter: function(obj){
               var value = obj.data;
-              let text = `Country: ${value[2]} <br> ${value[6]}: ${value[0]} <br> ${value[7]}: ${value[1]}%`;
+              let maxLength = 40;
+              let text = `Country: ${value[2].substring(0,maxLength)} <br> ${value[6].substring(0,maxLength)}: ${value[0]} <br> ${value[7].substring(0,maxLength)}: ${value[1]}%`;
               if(value[4])
                 text += `<br> Age: ${value[4]}`
               if(value[5])
@@ -116,10 +118,14 @@ export default {
       if(this.graphOptions.showLinearRegression) {
         let myRegression = this.getLinearRegressionData(data);
         this.options.series.push({
-          name: 'line',
+          name: myRegression.expression,
           type: 'line',
-          showSymbol: false,
+          showSymbol: true,
           data: myRegression.points,
+          label: {
+            show: true,
+            formatter: '{a}'
+          },
           markPoint: {
               itemStyle: {
                   normal: {
@@ -145,7 +151,12 @@ export default {
       }
 
       this.options.xAxis.name = this.graphOptions.xAxisLabel;
-      this.options.xAxis.min = this.findXMin(data);
+      //this.options.xAxis.min = this.findXMin(data);
+      this.findMinsAndMaxs(data);
+      this.options.xAxis.min = this.graphOptions.xMin;
+      this.options.xAxis.max = this.graphOptions.xMax;
+      this.options.yAxis.min = this.graphOptions.yMin;
+      this.options.yAxis.max = this.graphOptions.yMax;
       this.options.yAxis.name = this.graphOptions.yAxisLabel;
       this.showChart = true;
     }
