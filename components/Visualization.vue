@@ -1,5 +1,5 @@
 <template>
-    <div class="data-visualization__content" :class="{'reverse': index%2}">
+    <v-layout class="data-visualization__content" :class="{'reverse': index%2}">
       <div class="data-visualization__left" v-if="!isLoading">
         <span class="title md-title">{{indicator.code}}: {{indicator.description}}
           <span class="open-indicator" @click="openIndicator(indicator)"><v-icon>info</v-icon></span>
@@ -31,7 +31,7 @@
             <v-switch v-model="sexArray" v-for="sex in sexes" :key="sex" :label="sex" :value="sex"></v-switch>
           </div>          
         </div>
-        <div v-show="graphOptionsOpened" class="configure-graph__content"> 
+        <v-flex v-show="graphOptionsOpened" class="configure-graph__content"> 
           <v-autocomplete v-if="graphOptionsOpened" :allow-overflow="true"  v-model="graphOptions.graphType" :items="chartTypes" label="Graph Type">
           </v-autocomplete>
           <div v-if="!showMap">
@@ -44,7 +44,7 @@
           </v-autocomplete>
           <v-switch v-if="!showMap" v-model="graphOptions.showLinearRegression" label="Add Linear Regression Line"></v-switch>
           <v-btn class="btn-accent btn configure-trigger" @click="configureGraph">Update</v-btn>            
-        </div>
+        </v-flex>
         <div v-show="storyOpened" class="configure-graph__content"> 
             <v-text-field label="Story Title" v-model="storyOptions.title"></v-text-field>
             <v-textarea v-model="storyOptions.text" label="Story Text"></v-textarea>
@@ -60,7 +60,7 @@
           <div class="lds-dual-ring">
           </div>          
       </div>
-    </div>
+    </v-layout>
 </template>
 
 <script>
