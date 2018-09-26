@@ -118,7 +118,7 @@ export default {
     }
     .map-icon{
       position: relative;
-      top: 0px;
+      top: -25px;
       left: -5px;
     }
   }
