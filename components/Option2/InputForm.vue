@@ -11,15 +11,15 @@
           <label>Country or Region</label>
         </md-autocomplete>
         <div class="selected-tags">
-          <span class="selected-tags__item" @click="removeCountry(country)" v-for="country in selectedCountries" :key="country">{{country}} <md-icon>close</md-icon></span>
+          <span class="selected-tags__item" @click="removeCountry(country)" v-for="country in selectedCountries" :key="country">{{country}} <v-icon>close</v-icon></span>
         </div>
         <md-autocomplete class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="selectedGoal" :md-options="goalList">
           <label>Goals and Targets</label>
         </md-autocomplete>
         <div class="selected-tags">
-          <span class="selected-tags__item" @click="removeGoal(goal)" v-for="goal in selectedGoals" :key="goal">{{goal}} <md-icon>close</md-icon></span>
+          <span class="selected-tags__item" @click="removeGoal(goal)" v-for="goal in selectedGoals" :key="goal">{{goal}} <v-icon>close</v-icon></span>
         </div>
-        <md-button class="md-display-1 form-area__btn" @click="viewData">View <md-icon>arrow_forward</md-icon></md-button>
+        <v-btn class="md-display-1 form-area__btn" @click="viewData">View <v-icon>arrow_forward</v-icon></v-btn>
       </div>
     </div>
   </section>
@@ -139,7 +139,7 @@ export default {
       border: solid 1px #f6931e;     
       background-color: #f6931e;
     }
-    .md-button-content, i {
+    .v-btn-content, i {
       color: white !important;     
     }
   }

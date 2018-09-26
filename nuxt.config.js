@@ -35,13 +35,11 @@ module.exports = {
   ** Build configuration
   */
   css: [
-    { src: 'vue-material/dist/vue-material.min.css', lang: 'css' },
+    '@/assets/theme.scss',
     { src: "leaflet/dist/leaflet.css", lang: 'css' },    
-    { src: '~/assets/theme.scss', lang: 'scss' }, // include vue-material theme engine
-    { src: '~/assets/main.scss', lang: 'scss' } // include vue-material theme engine
   ],
   plugins: [
-    { src: '~/plugins/vue-material' },
+    '@/plugins/vuetify',
     { src: '~/plugins/directives' },
     { src: '~/plugins/vue-clipboard' },
     { src: '~/plugins/vue-leaflet', ssr: false },
@@ -59,7 +57,7 @@ module.exports = {
         ['transform-imports'],
       ],
     },
-    vendor: ['babel-polyfill', 'eventsource-polyfill','vue-material', 'vue-echarts', 'vue2-leaflet'],
+    vendor: ['babel-polyfill', 'eventsource-polyfill', 'vue-echarts', 'vue2-leaflet'],
     extend (config, { isDev, isClient, isServer }) {
       if (isDev && isClient) {
         // config.module.rules.push({

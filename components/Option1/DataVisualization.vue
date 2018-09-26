@@ -1,14 +1,14 @@
 <template>
   <section class="data-visualization">
     <div class="data-visualization__content">
-      <md-button class="md-display-1 data-visualization__btn" @click="returnBack"><md-icon>arrow_back</md-icon> Back</md-button>
+      <v-btn color="primary" flat class="flat data-visualization__btn" @click="returnBack"><v-icon>arrow_back</v-icon> Back</v-btn>
       <div class="data-visualization__content transition-up" v-delay="{delay:800,cssClass:'up'}" >
         <h3 class="md-display-2">Create Your Story</h3>        
-        <h4 class="md-headline">Regions: {{countryList}}</h4>        
+        <h4 class="headline">Regions: {{countryList}}</h4>        
       </div>
     </div>
     <visualization-component v-for="(indicator,ndx) in indicators" :ref="getReference(ndx)"  :key="ndx" :index="ndx" :indicator="indicator"></visualization-component>
-    <md-button class="md-primary md-raised configure-trigger" @click="generateStory">Generate Story</md-button>            
+    <v-btn color="primary" class="configure-trigger" @click="generateStory">Generate Story</v-btn>            
   </section>
 </template>
 
@@ -127,7 +127,7 @@ export default {
     font-weight: bold;
     display: block;
   }
-  h4.md-headline {
+  h4.headline {
     //color: #f6931e;
     text-align: center;
     margin-bottom: 20px;
@@ -152,7 +152,7 @@ export default {
     .md-ripple {
       //border: solid 1px #0099d6;     
     }
-    .md-button-content, i {
+    .v-btn-content, i {
       color: #0099d6 !important;     
     }
   }

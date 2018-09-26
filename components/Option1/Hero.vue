@@ -1,11 +1,11 @@
 <template>
   <section class="hero">
     <div class="hero-content">
-      <h1 class="md-display-3 transition-up" v-delay="{delay:800,cssClass:'up'}" >The State Of The Youth: Visualized</h1> 
+      <h1 class="display-3 transition-up" v-delay="{delay:800,cssClass:'up'}" >The State Of The Youth: Visualized</h1> 
       <p class="md-display-1 hero-intro transition-up" v-delay="{delay:2200,cssClass:'up'}">
         This application serves as a tool to facilitate the preparation of regular reports on the progress in youth development and well-being in the SDGs.  It has the aim of supporting policy makers to make timely adjustments where needed as well as advocacy efforts where progress needs to be stepped up in order to ensure that no young person will be left behind.        
       </p>
-      <md-button class="md-display-1 hero__btn transition-up" v-delay="{delay:3200,cssClass:'up'}" @click="viewForm">Start <md-icon>arrow_forward</md-icon></md-button>
+      <v-btn color="primary" class="flat hero__btn transition-up" v-delay="{delay:3200,cssClass:'up'}" @click="viewForm">Start <v-icon>arrow_forward</v-icon></v-btn>
     </div>
   </section>
 </template>
@@ -55,7 +55,7 @@ export default {
     display: block;
     margin-bottom: 40px;
     color: #ededed !important; 
-    font-size: px-to-rem(50px);
+    font-size: px-to-rem(30px);
   }
   &-intro {
     max-width: 60ch;
@@ -67,11 +67,9 @@ export default {
   
   &__btn {
     width: 30vw; 
-    .md-ripple {
+    background-color: #0099d6;
       border: solid 1px #0099d6;     
-      background-color: #0099d6;
-    }
-    .md-button-content, i {
+    .v-btn-content, i {
       color: white !important;     
     }
   }

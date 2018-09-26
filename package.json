@@ -22,8 +22,8 @@
     "nuxt": "^1.0.0",
     "vue-clipboard2": "^0.2.1",
     "vue-echarts": "^3.1.2",
-    "vue-material": "latest",
-    "vue2-leaflet": "^1.0.2"
+    "vue2-leaflet": "^1.0.2",
+    "vuetify": "^1.2.5"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -49,6 +49,7 @@
     "eventsource-polyfill": "^0.9.6",
     "node-sass": "^4.7.2",
     "push-dir": "^0.4.1",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "vuetify-scss": "^1.0.3"
   }
 }

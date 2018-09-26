@@ -2,10 +2,10 @@
   <div class="container">
     <v-chart v-if="showChart" width="100%" auto-resize theme="story-theme" :options="options" />
     <div class="download-container">
-      <md-button class="md-primary download-button" @click="exportData">        
-        <md-icon>arrow_downward</md-icon>
+      <v-btn class="md-primary download-button" @click="exportData">        
+        <v-icon>arrow_downward</v-icon>
         CSV
-      </md-button>
+      </v-btn>
     </div>
   </div>
 </template>

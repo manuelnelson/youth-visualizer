@@ -4,7 +4,7 @@
 //@import '~assets/theme';
 
 
-html.md-theme-default {
+html {
   font-size: $base-font-size;
   @include bp-max($bp-tablet) {
     font-size: $base-font-size*.95;

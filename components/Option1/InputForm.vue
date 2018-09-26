@@ -6,23 +6,21 @@
         </p>
         <p class="instruction-text instruction-text__emphasize">Hint: The more countries/regions, the better the outcome.</p>
       </div>
-      <div class="transition-up" v-delay="{delay:1600,cssClass:'up'}">
-        <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList">
-          <label>
-            Select Countries or Regions
-          </label>
-        </md-autocomplete>
-        <div class="selected-tags">
-          <span class="selected-tags__item" @click="removeCountry(country)" v-for="country in selectedCountries" :key="country">{{country}} <md-icon>close</md-icon></span>
-        </div>
-        <md-autocomplete class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="selectedGoal" :md-options="goalList">
-          <label>Select Goals, Targets, or Indicators</label>
-        </md-autocomplete>
-        <div class="selected-tags">
-          <span class="selected-tags__item" @click="removeGoal(goal)" v-for="goal in selectedGoals" :key="goal">{{goal}} <md-icon>close</md-icon></span>
-        </div>
+      <div class="transition-up form-area__content-input" v-delay="{delay:1600,cssClass:'up'}">
+        <v-autocomplete class="form-area__input" :menu-props="menuProps"  append-icon="" color="white" multiple :clearable="true" v-model="selectedCountries" label="Select Countries or Regions" :items="geoList">            
+        </v-autocomplete>
+        <!-- <div class="selected-tags">
+          <span class="selected-tags__item" @click="removeCountry(country)" v-for="country in selectedCountries" :key="country">{{country}} <v-icon>close</v-icon></span>
+        </div> -->
+        <v-autocomplete class="form-area__input" :menu-props="menuProps"  multiple color="white" append-icon="" :clearable="true" v-model="selectedGoals" :items="goalList"  label="Select Goals, Targets, or Indicators">
+        </v-autocomplete>
+        <!-- <div class="selected-tags">
+          <span class="selected-tags__item" @click="removeGoal(goal)" v-for="goal in selectedGoals" :key="goal">{{goal}} <v-icon>close</v-icon></span>
+        </div> -->
       </div>
-      <md-button class="md-display-1 md-accent md-raised form-area__btn transition-up" v-delay="{delay:3800,cssClass:'up'}" @click="runSearch">View <md-icon>arrow_forward</md-icon></md-button>
+      <div class="transition-up form-area__content-button" v-delay="{delay:2800,cssClass:'up'}">
+          <v-btn color="secondary" class="secondary form-area__btn" @click="runSearch">View <v-icon>arrow_forward</v-icon></v-btn>
+      </div>
     </div>
   </section>
 </template>
@@ -50,7 +48,16 @@ export default {
     selectedGeography: '',
     selectedGoal: '',
     selectedCountries: [],
-    selectedGoals: []
+    selectedGoals: [],
+    showAuto: false,
+    true: true,
+    false: false,
+    menuProps: {
+      absolute: true,
+      positionX: -10,
+      minWidth: "100%",
+      maxWidth: "100%"
+    }
   }),
   props: {
     startClicked: {
@@ -71,43 +78,19 @@ export default {
         this.$route.query.selectedGoals = [this.$route.query.selectedGoals];
       this.selectedGoals = this.$route.query.selectedGoals.map(x => flatGoalIndicatorList.find(y => y.code == x)).map(x => x.code + ': ' + x.description);
     }
+    let that = this;
+    setTimeout(()=>{that.showAuto = true;},3000)
   },
   methods: {
-    countrySelected (val) {
-      this.selectedCountries.push(val);
-      let that = this;
-      setTimeout(() => {
-        that.selectedGeography = ''
-      }, 20)
-    },
-    opened () {
-      this.selectedGeography += ' '
-      this.selectedGeography = this.selectedGeography.substring(0, this.selectedGeography.length - 1)
-    },
-    goalSelected (val) {
-      this.selectedGoals.push(val);
-      let that = this;
-      setTimeout(() => {
-        this.selectedGoal = ''
-      }, 20)
-    },
-    goalOpened () {
-      this.selectedGoal += ' '
-      this.selectedGoal = this.selectedGoal.substring(0, this.selectedGoal.length - 1)
-    },
-    removeCountry (country) {
-      this.selectedCountries = this.selectedCountries.filter(x => x != country);
-    },
-    removeGoal (goal) {
-      this.selectedGoals = this.selectedGoals.filter(x => x != goal);
-    },
 
     runSearch () {
       //add codes
+      console.log(this.selectedCountries)
+      console.log(this.selectedGoals)
       let goals = this.selectedGoals.map(x => x.split(':')[0]);
       this.$router.push({path: this.$route.path, query: { countries: this.selectedCountries, selectedGoals: goals, view: 'visualization'}})
       this.startClicked()
-    }
+    },
   }
 }
 </script>
@@ -142,6 +125,10 @@ export default {
     @include bp-max($bp-between) {
       width: 90vw;
     }
+    &-input {
+      position: relative;
+      z-index: 2;
+    }
   }
   h1 {
     display: block;
@@ -162,30 +149,36 @@ export default {
       //font-weight: bold;
     }
   }
+  .v-input {
+    color: white;
+    &__slot{
+      flex-wrap: wrap;
+    }
+  }
   &__input {
     margin-bottom: 20px;
-    input {
-      color: #ededed !important; 
+  }
+  .v-text-field .v-label{
+    color: white;
+  }
+  .v-select__selection--comma{
+      background-color: #f6931e !important;
+      padding: 4px;
+      border-radius: 2px;
+  }
+  .v-menu {
+    left: -10px;
+    .white--text{
+      color: #f6931e !important;
     }
   }
   &__btn {
     width: 30vw;
-    .md-ripple {
-      border: solid 1px white;     
-    }
-    .md-button-content, i {
-      color: white !important;     
-    }
-  }
-  .md-field.md-theme-default:before, .md-field.md-theme-default:after{
-    background-color: white;
-  }
-  .md-field.md-theme-default label, .md-field.md-theme-default.md-has-value .md-input{
-    color: white;
-    -webkit-text-fill-color: white;
-  }
-  .md-field.md-theme-default.md-has-value .md-input {
-
+    //border: solid 1px white;     
+    color: white !important;   
+    background-color: #f6931e;  
+    z-index: 0;
+    position: relative;
   }
 }
 .selected-tags {

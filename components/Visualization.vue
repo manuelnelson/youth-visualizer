@@ -1,10 +1,10 @@
 <template>
     <div class="data-visualization__content" :class="{'reverse': index%2}">
       <div class="data-visualization__left" v-if="!isLoading">
-        <span class="md-title">{{indicator.code}}: {{indicator.description}}
-          <span @click="openIndicator(indicator)"><md-icon>info</md-icon></span>
-          <md-dialog
-            :md-active.sync="indicator.infoOpened">
+        <span class="title md-title">{{indicator.code}}: {{indicator.description}}
+          <span class="open-indicator" @click="openIndicator(indicator)"><v-icon>info</v-icon></span>
+          <v-dialog
+            v-model="indicator.infoOpened">
             <div class="indicator-description-info"> 
               <h4>Indicator Information</h4>              
             <ul>
@@ -12,52 +12,42 @@
               <li><b>Target {{indicator.target}}:</b> {{indicator.targetDescription}}</li>
               <li><b>Indicator {{indicator.code}}:</b>{{indicator.description}}</li>
             </ul>
-            <md-button class="md-accent md-raised configure-trigger" @click="indicator.infoOpened = false">Close</md-button>            
+            <v-btn class="md-accent md-raised configure-trigger" @click="indicator.infoOpened = false">Close</v-btn>            
             </div>
-          </md-dialog>
+          </v-dialog>
         </span>
         <div class="data-visualization__buttons">
-          <md-button class="md-accent md-raised configure-trigger" v-if="showDimensionsButton" @click="toggleDimensions">Dimensions</md-button>            
-          <md-button class="md-accent md-raised configure-trigger" @click="configureGraph">Configure Graph</md-button>            
-          <md-button class="md-accent md-raised configure-trigger" @click="toggleStory">Story Text</md-button>            
+          <v-btn color="accent" class="btn btn-accent configure-trigger" v-if="showDimensionsButton" @click="toggleDimensions">Dimensions</v-btn>            
+          <v-btn class="btn btn-accent configure-trigger" @click="configureGraph">Configure Graph</v-btn>            
+          <v-btn class="btn btn-accent configure-trigger" @click="toggleStory">Story Text</v-btn>            
         </div>
         <div class="dimensions" v-show="showDimensions">
           <div class="dimensions-item" v-if="ages.length > 1">
-            <span class="md-subheading">Age</span>
-            <md-switch v-model="ageArray" v-for="age in ages" :value="age" :key="age">{{age}}</md-switch>
+            <span class="subheading">Age</span>
+            <v-switch v-model="ageArray" v-for="age in ages" :value="age" :label="age" :key="age"></v-switch>
           </div>          
           <div class="dimensions-item" v-if="sexes.length > 1">
-            <span class="md-subheading">Sex</span>
-            <md-switch v-model="sexArray" v-for="sex in sexes" :key="sex" :value="sex">{{sex}}</md-switch>
+            <span class="subheading">Sex</span>
+            <v-switch v-model="sexArray" v-for="sex in sexes" :key="sex" :label="sex" :value="sex"></v-switch>
           </div>          
         </div>
         <div v-show="graphOptionsOpened" class="configure-graph__content"> 
-          <md-autocomplete class="form-area__input" @md-selected="graphSelected" @md-opened="graphOpened" v-model="graphOptions.graphType" :md-options="chartTypes">
-            <label>Graph Type</label>
-          </md-autocomplete>
-          <md-field v-if="!showMap">
-            <label>X-Axis Label</label>
-            <md-input v-model="graphOptions.xAxisLabel"></md-input>
-          </md-field>
-          <md-field v-if="!showMap">
-            <label>Y-Axis Label</label>
-            <md-input v-model="graphOptions.yAxisLabel"></md-input>
-          </md-field>
-          <md-autocomplete v-if="!showMap" class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="graphOptions.selectedGoal" :md-options="goalList">
-            <label>Compare Indicator</label>
-          </md-autocomplete>
-          <md-switch v-if="!showMap" v-model="graphOptions.showLinearRegression">Add Linear Regression Line</md-switch>
-          <md-button class="md-accent md-raised configure-trigger" @click="configureGraph">Update</md-button>            
+          <v-autocomplete v-if="graphOptionsOpened" :allow-overflow="true"  v-model="graphOptions.graphType" :items="chartTypes" label="Graph Type">
+          </v-autocomplete>
+          <div v-if="!showMap">
+            <v-text-field label="X-Axis Label" v-model="graphOptions.xAxisLabel"></v-text-field>
+          </div>
+          <div v-if="!showMap">
+            <v-text-field label="Y-Axis Label" v-model="graphOptions.yAxisLabel"></v-text-field>
+          </div>
+          <v-autocomplete v-if="!showMap && graphOptionsOpened" class="form-area__input" :menu-props="menuProps" append-icon="" v-model="graphOptions.selectedGoal" label="Compare Indicator" :items="goalList">
+          </v-autocomplete>
+          <v-switch v-if="!showMap" v-model="graphOptions.showLinearRegression" label="Add Linear Regression Line"></v-switch>
+          <v-btn class="btn-accent btn configure-trigger" @click="configureGraph">Update</v-btn>            
         </div>
         <div v-show="storyOpened" class="configure-graph__content"> 
-          <md-field>
-            <label>Story Title</label>
-            <md-input v-model="storyOptions.title"></md-input>
-          </md-field>
-          <md-field>
-            <label>Story Text</label>
-            <md-textarea v-model="storyOptions.text"></md-textarea>
-          </md-field>
+            <v-text-field label="Story Title" v-model="storyOptions.title"></v-text-field>
+            <v-textarea v-model="storyOptions.text" label="Story Text"></v-textarea>
         </div>
       </div>
       <div class="data-visualization__right" v-if="!isLoading">      
@@ -100,6 +90,17 @@ import {mapMutations,mapGetters,mapActions} from 'vuex';
 export default {
   props: ['indicator', 'index'],
   data: () => ({
+    menuProps: {
+      bottom: true,
+      minWidth: "100%",
+      maxWidth: "100%",
+      offsetY: true,
+      nudgeTop:0,
+      absolute:true,
+      overflowY: true,
+      allowOverflow:false,
+    },
+    true: true,
     countries: [],
     codes: [],
     indicators: [],
@@ -369,6 +370,23 @@ export default {
     width: 100%;
     font-weight: bold;
   }
+  .v-input__slot {
+    flex-wrap: wrap;
+  }
+  .v-input--selection-controls{
+    margin-top: 0 !important;
+    text-align: center;
+  }
+  .subheading {
+    margin-bottom: 20px;
+  }
+  .btn-accent{
+    background-color: #f6931e;
+    color: white;
+  }
+  .theme--light .v-input--switch__track.accent--text {
+    color:#f6931e;
+  }
   &__loading {
     width: 100%;
     display: flex;
@@ -386,6 +404,9 @@ export default {
       text-align: center;
       //color: #f6931e;
     }
+  }
+  .open-indicator {
+    cursor: pointer;
   }
   &__buttons {
     margin-bottom: 20px;
@@ -411,10 +432,7 @@ export default {
     position: relative;
     top: -40px;
     left: -20px;
-    .md-ripple {
-      //border: solid 1px #0099d6;     
-    }
-    .md-button-content, i {
+    .v-btn-content, i {
       color: #0099d6 !important;     
     }
   }
@@ -438,6 +456,10 @@ export default {
   }
   .dimensions {
     display: flex;
+    .v-input__slot {
+      justify-content: center;
+    }
+
     &-item {
       justify-content: center;
       align-content: center;
@@ -484,7 +506,7 @@ export default {
 
 .configure-trigger{
   margin-top: 40px;
-  .md-button-content{
+  .v-btn-content{
     color: white;
   }
 }

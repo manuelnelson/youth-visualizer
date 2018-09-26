@@ -1,9 +1,9 @@
 <template>
-  <md-toolbar class="header">
+  <v-toolbar class="header">
       <h1 class="md-title">
         <img class="logo" src="~/assets/images/un-youth-envoy-logo-en.png" />
       </h1>
-  </md-toolbar>
+  </v-toolbar>
 </template>
 <script>
 </script>
@@ -18,6 +18,8 @@
     color:  white;
     text-align: left;
     box-shadow: none;
+    position: relative;
+    z-index: 3;
     // position: fixed;
     // top: 0;
     // left: 0;
