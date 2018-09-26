@@ -1296,6 +1296,38 @@
       "alpha_2_code": "NG"
   },
   {
+      "country": "Northern Africa",
+      "latitude_average": "23",
+      "numeric_code": "746",
+      "alpha_3_code": "NGA",
+      "longitude_average": "25",
+      "alpha_2_code": "NG"
+  },
+  {
+      "country": "Southern Africa",
+      "latitude_average": "24",
+      "numeric_code": "2",
+      "alpha_3_code": "NGA",
+      "longitude_average": "19",
+      "alpha_2_code": "NG"
+  },
+  {
+      "country": "Western Africa",
+      "latitude_average": "13.5",
+      "numeric_code": "2",
+      "alpha_3_code": "NGA",
+      "longitude_average": "2.5",
+      "alpha_2_code": "NG"
+  },
+  {
+      "country": "Eastern Africa",
+      "latitude_average": "1.9",
+      "numeric_code": "2",
+      "alpha_3_code": "NGA",
+      "longitude_average": "37.3",
+      "alpha_2_code": "NG"
+  },
+  {
       "country": "Nigeria",
       "latitude_average": "10",
       "numeric_code": "566",
@@ -1472,6 +1504,34 @@
       "alpha_2_code": "RU"
   },
   {
+    "country": "Southern Asia",
+    "latitude_average": "25",
+    "numeric_code": "34",
+    "alpha_3_code": "RUS",
+    "longitude_average": "76",
+    "alpha_2_code": "RU"
+},{
+    "country": "Eastern Asia",
+    "latitude_average": "39",
+    "numeric_code": "30",
+    "alpha_3_code": "RUS",
+    "longitude_average": "106",
+    "alpha_2_code": "RU"
+},{
+    "country": "Western Asia",
+    "latitude_average": "33",
+    "numeric_code": "145",
+    "alpha_3_code": "RUS",
+    "longitude_average": "44",
+    "alpha_2_code": "RU"
+},{
+    "country": "Central Asia",
+    "latitude_average": "45",
+    "numeric_code": "143",
+    "alpha_3_code": "RUS",
+    "longitude_average": "68",
+    "alpha_2_code": "RU"
+},{
     "country": "Asia",
     "latitude_average": "60",
     "numeric_code": "142",
@@ -1709,6 +1769,34 @@
     "numeric_code": "150",
     "alpha_3_code": "CHE",
     "longitude_average": "8",
+    "alpha_2_code": "CH"
+},  {
+    "country": "Eastern Europe",
+    "latitude_average": "52",
+    "numeric_code": "151",
+    "alpha_3_code": "CHE",
+    "longitude_average": "7",
+    "alpha_2_code": "CH"
+},  {
+    "country": "Western Europe",
+    "latitude_average": "46",
+    "numeric_code": "155",
+    "alpha_3_code": "CHE",
+    "longitude_average": "1.3",
+    "alpha_2_code": "CH"
+},  {
+    "country": "Northern Europe",
+    "latitude_average": "62",
+    "numeric_code": "154",
+    "alpha_3_code": "CHE",
+    "longitude_average": "12",
+    "alpha_2_code": "CH"
+},  {
+    "country": "Southern Europe",
+    "latitude_average": "41",
+    "numeric_code": "39",
+    "alpha_3_code": "CHE",
+    "longitude_average": "1.2",
     "alpha_2_code": "CH"
 },{
       "country": "Switzerland",
