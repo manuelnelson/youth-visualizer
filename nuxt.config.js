@@ -54,16 +54,31 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
-    vendor: ['vue-material', 'vue-echarts', 'vue2-leaflet'],
+    babel: {
+      plugins: [
+        ['transform-imports'],
+      ],
+    },
+    vendor: ['babel-polyfill', 'eventsource-polyfill','vue-material', 'vue-echarts', 'vue2-leaflet'],
     extend (config, { isDev, isClient, isServer }) {
-      // if (isDev && isClient) {
-      //   config.module.rules.push({
-      //     enforce: 'pre',
-      //     test: /\.(js|vue)$/,
-      //     loader: 'eslint-loader',
-      //     exclude: /(node_modules)/
-      //   })
-      // }
+      if (isDev && isClient) {
+        // config.module.rules.push({
+        //   test: /\.js$/,
+        //   loader: 'babel-loader',
+        //   exclude: /(node_modules)/
+        // })
+        // config.module.rules.push({
+        //   enforce: 'pre',
+        //   test: /\.(js|vue)$/,
+        //   loader: 'eslint-loader',
+        //   exclude: /(node_modules)/
+        // })
+        // if (isClient) {
+        //   config.entry.vendor.push('babel-polyfill');
+        //   config.entry.vendor.push('eventsource-polyfill');
+        // }
+        //config.entry.vendor.push('babel-polyfill')
+      }
       if (isServer) {
         config.externals = [
           nodeExternals({

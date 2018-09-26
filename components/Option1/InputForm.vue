@@ -2,20 +2,27 @@
   <section class="form-area md-accent">
     <div class="form-area__content">
       <div class="transition-up" v-delay="{delay:800,cssClass:'up'}">
+        <p class="instruction-text">To create your story, select the countries/regions and indicators of interest.  This will help generate initial visualizations to enable further configuration to begin to generate your story. 
+        </p>
+        <p class="instruction-text instruction-text__emphasize">Hint: The more countries/regions, the better the outcome.</p>
+      </div>
+      <div class="transition-up" v-delay="{delay:1600,cssClass:'up'}">
         <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList">
-          <label>Country or Region</label>
+          <label>
+            Select Countries or Regions
+          </label>
         </md-autocomplete>
         <div class="selected-tags">
           <span class="selected-tags__item" @click="removeCountry(country)" v-for="country in selectedCountries" :key="country">{{country}} <md-icon>close</md-icon></span>
         </div>
         <md-autocomplete class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="selectedGoal" :md-options="goalList">
-          <label>Gaols, Targets, Indicators</label>
+          <label>Select Goals, Targets, or Indicators</label>
         </md-autocomplete>
         <div class="selected-tags">
           <span class="selected-tags__item" @click="removeGoal(goal)" v-for="goal in selectedGoals" :key="goal">{{goal}} <md-icon>close</md-icon></span>
         </div>
       </div>
-      <md-button class="md-display-1 form-area__btn transition-up" v-delay="{delay:3800,cssClass:'up'}" @click="runSearch">View <md-icon>arrow_forward</md-icon></md-button>
+      <md-button class="md-display-1 md-accent md-raised form-area__btn transition-up" v-delay="{delay:3800,cssClass:'up'}" @click="runSearch">View <md-icon>arrow_forward</md-icon></md-button>
     </div>
   </section>
 </template>
@@ -107,6 +114,7 @@ export default {
 
 <style lang="scss" >
 @import '~assets/breakpoints';
+@import '~assets/functions';
 
 .form-area {
   min-height: calc(100vh - 40px);
@@ -116,7 +124,7 @@ export default {
   text-align: center;
   background-color: #0099d6;
   padding: 40px;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   height: 100%;
@@ -139,6 +147,20 @@ export default {
     display: block;
     margin-bottom: 40px;
     color: #ededed !important; 
+  }
+  .instruction-text {
+    color: #ededed !important; 
+    //color: #f6931e;
+    text-align: left;
+    font-size: px-to-rem(20px);
+    line-height: 1.3;
+    margin-bottom: px-to-rem(16px);
+    &__emphasize {
+      font-size: px-to-rem(18px);
+      font-style: italic;
+      margin-bottom: px-to-rem(40px);
+      //font-weight: bold;
+    }
   }
   &__input {
     margin-bottom: 20px;
@@ -169,7 +191,7 @@ export default {
 .selected-tags {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
   &__item {
     background-color: #f6931e;

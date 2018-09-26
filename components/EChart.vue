@@ -24,7 +24,8 @@ export default {
             formatter: function(obj){
               var value = obj.data;
               let maxLength = 40;
-              let text = `Country: ${value[2].substring(0,maxLength)} <br> ${value[6].substring(0,maxLength)}: ${value[0]} <br> ${value[7].substring(0,maxLength)}: ${value[1]}%`;
+              let ellipseFunction = function(val,maxLength) { return val ? val.substring(0,maxLength) : val;}
+              let text = `Country: ${ellipseFunction(value[2],maxLength)} <br> ${ellipseFunction(value[6],maxLength)}: ${value[0]} <br> ${ellipseFunction(value[7],maxLength)}: ${value[1]}%`;
               if(value[4])
                 text += `<br> Age: ${value[4]}`
               if(value[5])
@@ -153,8 +154,8 @@ export default {
       this.options.xAxis.name = this.graphOptions.xAxisLabel;
       //this.options.xAxis.min = this.findXMin(data);
       this.findMinsAndMaxs(data);
-      this.options.xAxis.min = this.graphOptions.xMin;
-      this.options.xAxis.max = this.graphOptions.xMax;
+      this.options.xAxis.min = this.graphOptions.xMin - 2;
+      this.options.xAxis.max = this.graphOptions.xMax + 2;
       this.options.yAxis.min = this.graphOptions.yMin;
       this.options.yAxis.max = this.graphOptions.yMax;
       this.options.yAxis.name = this.graphOptions.yAxisLabel;
