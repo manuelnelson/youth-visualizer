@@ -268,9 +268,10 @@ export default {
       this.graphOptions.graphType = ' '
       this.graphOptions.graphType = this.graphOptions.graphType.substring(0, this.graphOptions.graphType.length - 1)
     },
-    configureGraph() {
+    async configureGraph() {
       this.graphOptionsOpened = !this.graphOptionsOpened; 
       if(!this.graphOptionsOpened) {
+        await this.runSearch();
         this.$refs.chartComponent.drawGraph();
       } else {
         this.showDimensions = false;
@@ -496,7 +497,7 @@ export default {
     padding: 8px;
     color: white;
     margin-right: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     max-width: calc(50% - 20px);
     cursor: pointer;
     transition: background-color 0.3s;

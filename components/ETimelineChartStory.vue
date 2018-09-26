@@ -1,5 +1,10 @@
 <template>  
   <div :id='containerString' class="container">
+    <div v-if="!showChart"  class="data-visualization__loading">
+        <span class="data-visualization__loading-text">Fetching data...</span>
+        <div class="lds-dual-ring">
+        </div>          
+    </div>
     <v-chart v-if="showChart" width="100%" auto-resize theme="story-theme" :options="options" />
   </div>
 </template>
@@ -35,7 +40,7 @@ export default {
         yMin:10000000,
         yMax:0,
       timeline:[],
-        graphData: [],
+      graphData: [],
       options: {      
         baseOption: {
           timeline: {
@@ -53,7 +58,7 @@ export default {
                 label: {
                     normal: {
                         textStyle: {
-                            color: '#999'
+                            color: '#fff'
                         }
                     },
                     emphasis: {
@@ -112,18 +117,29 @@ export default {
                 type: 'value',
                 name: this.slide.xAxisLabel,
                 nameLocation: 'center',
-                nameGap: 40,
+                nameGap: 20,
+                nameTextStyle: {
+                    color: '#ffffff'
+                },
                 axisLabel: {
                   formatter: '{value}',
+                  color: '#ffffff'
                 },
             },
             yAxis: {
                 type: 'value',
                 name: this.slide.yAxisLabel,
                 nameLocation: 'center',
+                nameTextStyle: {
+                    color: '#ffffff'
+                },
                 nameGap: 40,
+                axisLabel: {
+                  color: '#ffffff'
+                },
                 splitLine: {
                     lineStyle: {
+                        color: '#ffffff',
                         type: 'dashed'
                     }
                 },
@@ -253,5 +269,52 @@ export default {
       min-height: 500px;
     }
   }
+  .data-visualization{
+    &__loading {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+      min-height: 400px;
+      &-text{
+        margin-bottom: 20px;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+        //color: #f6931e;
+      }
+    }
+  }  
+  $height: 100px;
+$width: 100px;
+.lds-dual-ring {
+  display: inline-block;
+  width: $width;
+  height: $height;
+  margin: 0 auto;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: ($width - 18px);
+  height: ($height - 18px);
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid #0099d6;
+  border-color: #0099d6 transparent #0099d6 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
   
 </style>

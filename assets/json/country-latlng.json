@@ -201,6 +201,13 @@
       "alpha_2_code": "BT"
   },
   {
+    "country": "South America",
+    "latitude_average": "-17",
+    "numeric_code": "5",
+    "alpha_3_code": "BOL",
+    "longitude_average": "-65",
+    "alpha_2_code": "BO"
+    },{
       "country": "Bolivia, Plurinational State of",
       "latitude_average": "-17",
       "numeric_code": "68",
@@ -703,6 +710,14 @@
       "alpha_3_code": "GTM",
       "longitude_average": "-90.25",
       "alpha_2_code": "GT"
+  },
+  {
+    "country": "Central America",
+    "latitude_average": "15.5",
+    "numeric_code": "13",
+    "alpha_3_code": "GTM",
+    "longitude_average": "-90.25",
+    "alpha_2_code": "GT"
   },
   {
       "country": "Guernsey",
@@ -1273,6 +1288,14 @@
       "alpha_2_code": "NE"
   },
   {
+      "country": "Africa",
+      "latitude_average": "10",
+      "numeric_code": "2",
+      "alpha_3_code": "NGA",
+      "longitude_average": "8",
+      "alpha_2_code": "NG"
+  },
+  {
       "country": "Nigeria",
       "latitude_average": "10",
       "numeric_code": "566",
@@ -1448,6 +1471,14 @@
       "longitude_average": "100",
       "alpha_2_code": "RU"
   },
+  {
+    "country": "Asia",
+    "latitude_average": "60",
+    "numeric_code": "142",
+    "alpha_3_code": "RUS",
+    "longitude_average": "100",
+    "alpha_2_code": "RU"
+},
   {
       "country": "Rwanda",
       "latitude_average": "-2",
@@ -1673,6 +1704,13 @@
       "alpha_2_code": "SE"
   },
   {
+    "country": "Europe",
+    "latitude_average": "47",
+    "numeric_code": "150",
+    "alpha_3_code": "CHE",
+    "longitude_average": "8",
+    "alpha_2_code": "CH"
+},{
       "country": "Switzerland",
       "latitude_average": "47",
       "numeric_code": "756",
@@ -1836,6 +1874,14 @@
       "country": "United States of America",
       "latitude_average": "38",
       "numeric_code": "840",
+      "alpha_3_code": "USA",
+      "longitude_average": "-97",
+      "alpha_2_code": "US"
+  },
+  {
+      "country": "Northern America",
+      "latitude_average": "38",
+      "numeric_code": "21",
       "alpha_3_code": "USA",
       "longitude_average": "-97",
       "alpha_2_code": "US"

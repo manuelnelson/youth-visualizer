@@ -121,7 +121,7 @@ export default {
         this.options.series.push({
           name: myRegression.expression,
           type: 'line',
-          showSymbol: true,
+          showSymbol: false,
           data: myRegression.points,
           label: {
             show: true,

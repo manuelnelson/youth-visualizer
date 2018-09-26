@@ -1,5 +1,10 @@
 <template>  
   <div class="container">
+    <div v-if="!showChart"  class="data-visualization__loading">
+        <span class="data-visualization__loading-text">Fetching data...</span>
+        <div class="lds-dual-ring">
+        </div>          
+    </div>
     <v-chart v-if="showChart" width="100%" auto-resize theme="story-theme" :options="options" />
     <div class="download-container">
       <md-button class="md-primary download-button" @click="exportData">        
@@ -19,6 +24,13 @@ export default {
     return {
       autoResize:true,
       graphData: [],
+      isLoading: true,
+      graphOptions: {
+        xMin:100000000,
+        xMax: -1000,
+        yMin: 10000000,
+        yMax: -10000,
+      },
       options: {
         title: {
             left: 'center'
@@ -29,6 +41,17 @@ export default {
             },
             formatter: function(obj){
               var value = obj.data;
+              let maxLength = 40;
+              let ellipseFunction = function(val,maxLength) { return val ? val.substring(0,maxLength) : val;}
+              let text = `Country: ${ellipseFunction(value[2],maxLength)} <br> ${ellipseFunction(value[6],maxLength)}: ${value[0]} <br> ${ellipseFunction(value[7],maxLength)}: ${value[1]}%`;
+              if(value[4])
+                text += `<br> Age: ${value[4]}`
+              if(value[5])
+                text += `<br> Sex: ${value[5]}`
+              if(value[8]*1 != value[1]*1)
+                text += `<br> Year: ${value[8]}`
+              return text;
+
               return `Country: ${value[2]} <br> Year: ${value[0]} <br> Value: ${value[1]}%`;
             }
         },
@@ -87,11 +110,24 @@ export default {
   },
   methods: {
     async drawGraph() {
-      let rawData = await this.$axios.$get(this.url)
-      //let areaCodes = this.countries.map(x => x.geoAreaCode).join('&areaCode=')
-      this.graphData = this.graphifyData(rawData.data, this.countries);  
-      console.log(this.graphData)
-      const data = this.graphifyEChartData(this.graphData, 'year', this.slide.xAxisLabel, this.slide.yAxisLabel);
+        let rawData = await this.$axios.$get(this.slide.url)
+        let compareData = this.graphifyData(rawData.data, this.countries);  
+        let data;
+        if(this.slide.selectedGoalUrl){
+          let secondRawData = await this.$axios.$get(this.slide.selectedGoalUrl);
+          let secondCompareData = this.graphifyData(secondRawData.data, this.countries);  
+          this.graphData = this.combineIndicators(compareData, secondCompareData); 
+          data = this.graphifyEChartData(this.graphData, 'xValue', this.slide.xAxisLabel, this.slide.yAxisLabel);
+        } else {
+          this.graphData = compareData;
+          data = this.graphifyEChartData(this.graphData, 'year', this.slide.xAxisLabel, this.slide.yAxisLabel);
+        }
+
+      // let rawData = await this.$axios.$get(this.url)
+      // //let areaCodes = this.countries.map(x => x.geoAreaCode).join('&areaCode=')
+      // this.graphData = this.graphifyData(rawData.data, this.countries);  
+      // console.log(this.graphData)
+      //const data = this.graphifyEChartData(this.graphData, 'year', this.slide.xAxisLabel, this.slide.yAxisLabel);
       //const data = this.graphifyEChartData(this.graphData);
       let ndx = 0;
       const graphType = this.slide.graphType || 'scatter'
@@ -145,7 +181,11 @@ export default {
       }
 
       this.options.xAxis.name = this.slide.xAxisLabel;
-      this.options.xAxis.min = this.findXMin(data);
+      this.findMinsAndMaxs(data);
+      this.options.xAxis.min = this.graphOptions.xMin - 2;
+      this.options.xAxis.max = this.graphOptions.xMax + 2;
+      this.options.yAxis.min = this.graphOptions.yMin;
+      this.options.yAxis.max = this.graphOptions.yMax;
       this.options.yAxis.name = this.slide.yAxisLabel;
       this.showChart = true;
     },
@@ -189,5 +229,52 @@ export default {
       margin-top: -20px;
     }
   }
-  
+  .data-visualization{
+    &__loading {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+      min-height: 400px;
+      &-text{
+        margin-bottom: 20px;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+        //color: #f6931e;
+      }
+    }
+  }  
+  $height: 100px;
+$width: 100px;
+.lds-dual-ring {
+  display: inline-block;
+  width: $width;
+  height: $height;
+  margin: 0 auto;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: ($width - 18px);
+  height: ($height - 18px);
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid #0099d6;
+  border-color: #0099d6 transparent #0099d6 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 </style>

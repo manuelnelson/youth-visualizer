@@ -46,15 +46,26 @@ export default {
     this.countries = this.$route.query.countries.map(x => geolist.find(y => y.geoAreaName === x));
     this.codes = this.$route.query.selectedGoals;
     if(this.codes) {
-      let indicators = flatGoalIndicatorList.filter(x => this.codes.indexOf(x.code) > -1);
-      this.indicators = indicators.map( x=> Object.assign(x, {
-        infoOpened: false,
-        goal: x.code.split('.')[0],
-        goalDescription: goalsAndIndicators.find(goal => goal.code === x.code.split('.')[0]).description,
-        target: this.getTargetCode(x),
-        targetDescription: flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(x)) ? flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(x)).description : '',
-      }))
+      this.codes.forEach(code => {
+        let indicator = flatGoalIndicatorList.find(x => code === x.code)
+        this.indicators.push(Object.assign(indicator, {
+          infoOpened: false,
+          goal: indicator.code.split('.')[0],
+          goalDescription: goalsAndIndicators.find(goal => goal.code === indicator.code.split('.')[0]).description,
+          target: this.getTargetCode(indicator),
+          targetDescription: flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(indicator)) ? flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(indicator)).description : '',
+        }))
+      });
     }
+    //   let indicators = flatGoalIndicatorList.filter(x => this.codes.indexOf(x.code) > -1);
+    //   this.indicators = indicators.map( x=> Object.assign(x, {
+    //     infoOpened: false,
+    //     goal: x.code.split('.')[0],
+    //     goalDescription: goalsAndIndicators.find(goal => goal.code === x.code.split('.')[0]).description,
+    //     target: this.getTargetCode(x),
+    //     targetDescription: flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(x)) ? flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(x)).description : '',
+    //   }))
+    // }
     
   },
   props: {
