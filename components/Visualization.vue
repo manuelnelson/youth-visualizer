@@ -46,6 +46,15 @@
           <md-autocomplete v-if="!showMap" class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="graphOptions.selectedGoal" :md-options="goalList">
             <label>Compare Indicator</label>
           </md-autocomplete>
+          <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList.map(x=>x.geoAreaName)">
+            <label>
+              Countries or Regions
+            </label>
+          </md-autocomplete>
+          <div class="selected-tags">
+            <span class="selected-tags__item" @click="removeCountry(country)" v-for="(country,ndx) in countries" :key="ndx">{{country.geoAreaName}} <md-icon>close</md-icon></span>
+          </div>
+
           <md-switch v-if="!showMap" v-model="graphOptions.showLinearRegression">Add Linear Regression Line</md-switch>
           <md-button class="md-accent md-raised configure-trigger" @click="configureGraph">Update</md-button>            
         </div>
@@ -101,6 +110,7 @@ export default {
   props: ['indicator', 'index'],
   data: () => ({
     countries: [],
+    selectedGeography: '',
     codes: [],
     indicators: [],
     ageArray: [],
@@ -117,6 +127,7 @@ export default {
     graphData: [],
     oldGraphData: [], //used if new comparison indicator is added
     comparisonGraphData: [],
+    geoList:geolist,
     graphOptions: {
       graphType: 'scatter',
       xAxisLabel: 'Year',
@@ -142,7 +153,7 @@ export default {
   mixins: [DataMixin],
 
   async mounted() {
-    this.countries = this.$route.query.countries.map(x => geolist.find(y => y.geoAreaName === x));
+    this.countries = this.$route.query.countries.map(x => this.geoList.find(y => y.geoAreaName === x));
     this.codes = this.$route.query.selectedGoals;
 
     //retrieve data
@@ -179,6 +190,9 @@ export default {
         this.dimensions = this.dimensions.filter(x=>x.name !== 'age');
         this.runSearch();
       }
+    },
+    countries: function(newValue) {
+      this.runSearch();
     }
 
   },
@@ -210,6 +224,19 @@ export default {
 
   },
   methods: {
+    countrySelected (val) {
+      let country = this.geoList.find(y => y.geoAreaName === val)
+      this.countries.push(country);
+      let that = this;
+      setTimeout(() => {
+        that.selectedGeography = ''
+      }, 20)
+    },
+    opened () {
+      this.selectedGeography += ' '
+      this.selectedGeography = this.selectedGeography.substring(0, this.selectedGeography.length - 1)
+    },
+
     getIndicatorType(indicatorCode) {
       switch(indicatorCode.split('.').length){
         case 1:
@@ -265,6 +292,10 @@ export default {
         this.showDimensions = false;
       }
     },
+    removeCountry (country) {
+      this.countries = this.countries.filter(x => x != country);
+    },
+
     async goalSelected (val) {
       this.graphOptions.selectedGoal = val;
       if(val.length > 0)
@@ -455,6 +486,36 @@ export default {
     }
   }
 }
+.selected-tags {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  &__item {
+    background-color: #f6931e;
+    padding: 8px;
+    color: white;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    max-width: calc(50% - 20px);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: darken(#f6931e, 10%);
+    }
+  }
+  @include bp-max($bp-between) {
+    .selected-tags__item{
+      max-width: 100%;
+      //margin-right: 0;
+    }
+    width: 90vw;
+  }
+  i {
+    color: white !important;
+  }
+}
+
 .md-menu-content-bottom-start {
   min-width: 600px;
 }
