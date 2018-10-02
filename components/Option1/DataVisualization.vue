@@ -1,14 +1,14 @@
 <template>
   <section class="data-visualization">
     <div class="data-visualization__content">
-      <md-button class="md-display-1 data-visualization__btn" @click="returnBack"><md-icon>arrow_back</md-icon> Back</md-button>
+      <md-button :md-ripple="false" class="md-display-1 data-visualization__btn" @click="returnBack"><md-icon>arrow_back</md-icon> Back</md-button>
       <div class="data-visualization__content transition-up" v-delay="{delay:800,cssClass:'up'}" >
         <h3 class="md-display-2">Create Your Story</h3>        
         <h4 class="md-headline">Regions: {{countryList}}</h4>        
       </div>
     </div>
     <visualization-component v-for="(indicator,ndx) in indicators" :ref="getReference(ndx)"  :key="ndx" :index="ndx" :indicator="indicator"></visualization-component>
-    <md-button class="md-primary md-raised configure-trigger" @click="generateStory">Generate Story</md-button>            
+    <md-button :md-ripple="false" class="md-primary md-raised configure-trigger" @click="generateStory">Generate Story</md-button>            
   </section>
 </template>
 
@@ -39,7 +39,8 @@ export default {
     codes: [],
     indicators: [],
     dimensions: [{name:'Freq', values:['Annual']}],
-    slides: []
+    slides: [], 
+    false: false
   }),
 
   async mounted() {

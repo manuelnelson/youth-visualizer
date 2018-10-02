@@ -52,20 +52,20 @@ module.exports = {
   ],  
   build: {
     transpile: [
-      ///vue-material/, 
+      /vue-material/, 
       /vue-echarts/,
       /resize-detector/
     ],
     /*
     ** Run ESLint on save
     */
-    babel: {
-      plugins: [
-        ['transform-imports'],
-      ],
-      presets:['@vue/babel-preset-app']
-    },
-    vendor: ['babel-polyfill', 'eventsource-polyfill', 'vue-echarts', 'resize-detector'],
+    // babel: {
+    //   plugins: [
+    //     ['transform-imports'],
+    //   ],
+    //   presets:['@vue/babel-preset-app']
+    // },
+    //vendor: ['babel-polyfill', 'eventsource-polyfill', 'vue-echarts', 'resize-detector'],
     //vendor: ['vue-material', 'vue-echarts', 'resize-detector'],
     extend (config, { isDev, isClient, isServer }) {
       if (isDev && isClient) {
@@ -101,7 +101,7 @@ module.exports = {
           nodeExternals({
             // default value for `whitelist` is
             // [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i]
-            whitelist: [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i,  /^vue-echarts/, /^resize-detector/, /^vue2-leaflet/]
+            whitelist: [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i,  /^vue-material/, /^vue-echarts/, /^resize-detector/, /^vue2-leaflet/]
           })
         ]
       }

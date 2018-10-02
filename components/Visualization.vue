@@ -12,14 +12,14 @@
               <li><b>Target {{indicator.target}}:</b> {{indicator.targetDescription}}</li>
               <li><b>Indicator {{indicator.code}}:</b>{{indicator.description}}</li>
             </ul>
-            <md-button class="md-accent md-raised configure-trigger" @click="indicator.infoOpened = false">Close</md-button>            
+            <md-button :md-ripple="false" class="md-accent md-raised configure-trigger" @click="indicator.infoOpened = false">Close</md-button>            
             </div>
           </md-dialog>
         </span>
         <div class="data-visualization__buttons">
-          <md-button class="md-accent md-raised configure-trigger" v-if="showDimensionsButton" @click="toggleDimensions">Dimensions</md-button>            
-          <md-button class="md-accent md-raised configure-trigger" @click="configureGraph">Configure Graph</md-button>            
-          <md-button class="md-accent md-raised configure-trigger" @click="toggleStory">Story Text</md-button>            
+          <md-button :md-ripple="false" class="md-accent md-raised configure-trigger" v-if="showDimensionsButton" @click="toggleDimensions">Dimensions</md-button>            
+          <md-button :md-ripple="false" class="md-accent md-raised configure-trigger" @click="configureGraph">Configure Graph</md-button>            
+          <md-button :md-ripple="false" class="md-accent md-raised configure-trigger" @click="toggleStory">Story Text</md-button>            
         </div>
         <div class="dimensions" v-show="showDimensions">
           <div class="dimensions-item" v-if="ages.length > 1">
@@ -56,7 +56,7 @@
           </div>
 
           <md-switch v-if="!showMap" v-model="graphOptions.showLinearRegression">Add Linear Regression Line</md-switch>
-          <md-button class="md-accent md-raised configure-trigger" @click="configureGraph">Update</md-button>            
+          <md-button :md-ripple="false" class="md-accent md-raised configure-trigger" @click="configureGraph">Update</md-button>            
         </div>
         <div v-show="storyOpened" class="configure-graph__content"> 
           <md-field>
