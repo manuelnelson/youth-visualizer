@@ -8,7 +8,7 @@
             <h2 class="transition-up" v-delay="{delay:800,cssClass:'up'}">{{slide.title}}</h2>
             <p class="transition-up" v-delay="{delay:1800,cssClass:'up'}" v-html="slide.text"></p>
             <p v-if="slide.showCopy" class="transition-up copy-area" v-delay="{delay:1800,cssClass:'up'}">
-              <md-button class="md-primary md-raised" v-clipboard:copy="copyLink" v-clipboard:success="onCopy">Copy</md-button>
+              <md-button :md-ripple="false" class="md-primary md-raised" v-clipboard:copy="copyLink" v-clipboard:success="onCopy">Copy</md-button>
               <span class="copy-success" v-if="copySuccess">Copied!</span>
             </p>
           </div>
@@ -18,11 +18,11 @@
             <e-map-component ref="mapComponent" v-if="slide.graphType === 'map'" :countries="slide.countries" :slide="slide"></e-map-component>
           </div>
           <div class="story-container__actions transition-up" v-delay="{delay:2400,cssClass:'up'}" >
-            <md-button class="md-primary md-raised" @click="previousSlide" v-if="showPreviousButton">
+            <md-button :md-ripple="false" class="md-primary md-raised" @click="previousSlide" v-if="showPreviousButton">
               <md-icon class="rotate">arrow_right_alt</md-icon>
               Previous
             </md-button>
-            <md-button class="md-primary md-raised" @click="nextSlide" v-if="showContinueButton">
+            <md-button :md-ripple="false" class="md-primary md-raised" @click="nextSlide" v-if="showContinueButton">
               Continue
               <md-icon>arrow_right_alt</md-icon>
             </md-button>
@@ -45,7 +45,8 @@ import geolist from '~/assets/json/geolist.json'
 export default {
   data: () => ({
     slideIndex: 0,
-    copySuccess:false
+    copySuccess:false,
+    false: false
   }),
   layout: 'story-layout',
   components: {

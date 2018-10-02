@@ -79,7 +79,7 @@ export default {
       let that = this;
       setTimeout(() => {
         that.selectedGeography = ''
-      }, 20)
+      }, 40)
     },
     opened () {
       this.selectedGeography += ' '
@@ -90,7 +90,7 @@ export default {
       let that = this;
       setTimeout(() => {
         this.selectedGoal = ''
-      }, 20)
+      }, 40)
     },
     goalOpened () {
       this.selectedGoal += ' '

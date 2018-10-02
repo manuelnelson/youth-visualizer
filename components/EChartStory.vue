@@ -7,7 +7,7 @@
     </div>
     <v-chart v-if="showChart" width="100%" auto-resize theme="story-theme" :options="options" />
     <div class="download-container">
-      <md-button class="md-primary download-button" @click="exportData">        
+      <md-button :md-ripple="false" class="md-primary download-button" @click="exportData">        
         <md-icon>arrow_downward</md-icon>
         CSV
       </md-button>
