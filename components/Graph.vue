@@ -189,7 +189,7 @@ export default {
     //width: 750px;
     height: 500px;
     margin: auto;
-    background-color: #2F4A6D;
+    //background-color: #2F4A6D;
   }
 
   svg {

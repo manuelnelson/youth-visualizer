@@ -2,7 +2,7 @@
   <div>
     <div class="slide-container" :class="{'slide-1':activeSlide === 0,'slide-2':activeSlide === 1,'slide-3':activeSlide === 2}">
       <transition name="fade">
-        <hero-component :startClicked="nextSlide" v-if="activeSlide === 0"></hero-component>
+        <hero-component :startClicked="nextSlide" :story-url="storyUrl" v-if="activeSlide === 0"></hero-component>
       </transition>
       <transition name="fade">
         <input-component :startClicked="nextSlide" v-if="activeSlide === 1"></input-component>
@@ -18,17 +18,24 @@
 import HeroComponent from '~/components/Option1/Hero.vue'
 import InputComponent from '~/components/Option1/InputForm.vue'
 import DataVisualizationComponent from '~/components/Option1/DataVisualization.vue'
+const apiUrl = 'https://youthindicator.herokuapp.com/api'
 
 export default {
   data: () => ({
-    activeSlide: 0
+    activeSlide: 0,
+    storyUrl: ''
   }),
   components: {
     HeroComponent,
     InputComponent,
     DataVisualizationComponent
   },
-  mounted() {
+  async mounted() {
+    const homes = await this.$axios.$get(`${apiUrl}/homes`);
+    if(homes && homes.length > 0) {
+      this.storyUrl = `/story/${homes[0].example}`
+    }
+    console.log(this.storyUrl)
     switch(this.$route.query.view) {
       case 'input':
         this.activeSlide = 1;

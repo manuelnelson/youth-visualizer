@@ -17,7 +17,7 @@
           </div>          
           <div class="dimensions-item">
             <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedSex" :md-options="sexOptions">
-              <label>Sex</label>
+              <label>Gender</label>
             </md-autocomplete>
           </div>          
           <div class="dimensions-item">
@@ -39,7 +39,7 @@
           </div>          
           <div class="dimensions-item">
             <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedSex" :md-options="sexOptions">
-              <label>Sex</label>
+              <label>Gender</label>
             </md-autocomplete>
           </div>          
           <div class="dimensions-item">
@@ -67,7 +67,7 @@
           </div>          
           <div class="dimensions-item">
             <md-autocomplete class="form-area__input" @md-selected="yearSelected" @md-opened="yearOpened" v-model="selectedSex" :md-options="sexOptions">
-              <label>Sex</label>
+              <label>Gender</label>
             </md-autocomplete>
           </div>          
           <div class="dimensions-item">

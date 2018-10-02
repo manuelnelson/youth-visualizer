@@ -35,6 +35,7 @@ export default {
         title: {
             left: 'center'
         },
+        backgroundColor: 'transparent',
         tooltip: {
             axisPointer: {
                 show:false
@@ -47,7 +48,7 @@ export default {
               if(value[4])
                 text += `<br> Age: ${value[4]}`
               if(value[5])
-                text += `<br> Sex: ${value[5]}`
+                text += `<br> Gender: ${value[5]}`
               if(value[8]*1 != value[1]*1)
                 text += `<br> Year: ${value[8]}`
               return text;
@@ -97,8 +98,8 @@ export default {
       },
       showChart: false,
       color: [
-        "#1790cf","#f6931e","#777","#88b0bb",
-        "#1c7099","#038cc4","#75abd0","#afd6dd"
+        "#feb100","#668bfc","#fc566a","#20D642",
+        "#A618E1","#EA4411","F3930A","#75abd0","06F7DD","0349FB","#afd6dd",
       ]
     }
   },
@@ -130,7 +131,7 @@ export default {
       //const data = this.graphifyEChartData(this.graphData, 'year', this.slide.xAxisLabel, this.slide.yAxisLabel);
       //const data = this.graphifyEChartData(this.graphData);
       let ndx = 0;
-      const graphType = this.slide.graphType || 'scatter'
+      const graphType = this.slide.graphType || 'line'
 
       this.options.series = [];
       data.map(z => {

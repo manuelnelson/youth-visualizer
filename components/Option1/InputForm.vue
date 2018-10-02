@@ -6,12 +6,12 @@
         </p>
         <p class="instruction-text instruction-text__emphasize">Hint: The more countries/regions, the better the outcome.</p>
       </div>
-      <div class="transition-up" v-delay="{delay:1600,cssClass:'up'}">
+      <div class="transition-up"  v-delay="{delay:1600,cssClass:'up'}">
         <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList">
           <label>
             Select Countries or Regions
           </label>
-        </md-autocomplete>
+        </md-autocomplete> 
         <div class="selected-tags">
           <span class="selected-tags__item" @click="removeCountry(country)" v-for="country in selectedCountries" :key="country">{{country}} <md-icon>close</md-icon></span>
         </div>
@@ -22,7 +22,7 @@
           <span class="selected-tags__item" @click="removeGoal(goal)" v-for="goal in selectedGoals" :key="goal">{{goal}} <md-icon>close</md-icon></span>
         </div>
       </div>
-      <md-button class="md-display-1 md-accent md-raised form-area__btn transition-up" v-delay="{delay:3800,cssClass:'up'}" @click="runSearch">View <md-icon>arrow_forward</md-icon></md-button>
+      <md-button :md-ripple="false" class="md-display-1 md-accent md-raised form-area__btn transition-up" v-delay="{delay:3800,cssClass:'up'}" @click="runSearch">View <md-icon>arrow_forward</md-icon></md-button>
     </div>
   </section>
 </template>
@@ -45,12 +45,13 @@ goalsAndIndicators.forEach(goal => {
 
 export default {
   data: () => ({
-    geoList: geolist.map(x => x.geoAreaName),
+    geoList: geolist.map(x => x.geoAreaName), 
     goalList: flatGoalIndicatorList.map(x => x.code + ': ' + x.description),
     selectedGeography: '',
     selectedGoal: '',
     selectedCountries: [],
-    selectedGoals: []
+    selectedGoals: [], 
+    false: false
   }),
   props: {
     startClicked: {
@@ -61,7 +62,7 @@ export default {
 
   components: {
   },
-  mounted () {
+  created () {
     console.log(flatGoalIndicatorList)
     if(this.$route.query.countries) {
       this.selectedCountries = this.$route.query.countries;
@@ -120,7 +121,7 @@ export default {
   min-height: calc(100vh - 40px);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: normal;
   text-align: center;
   background-color: #0099d6;
   padding: 40px;
@@ -139,6 +140,7 @@ export default {
     position: relative;
     z-index: 2;
     width: 60vw;
+    padding-top: 100px;
     @include bp-max($bp-between) {
       width: 90vw;
     }

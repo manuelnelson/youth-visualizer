@@ -10,8 +10,8 @@ export default {
   data() {
     return {
       autoResize:true,
-
       options: {
+        backgroundColor: '#efefef',
         title: {
             text: this.title,
             subtext: 'By UN Stats',
@@ -29,7 +29,7 @@ export default {
               if(value[4])
                 text += `<br> Age: ${value[4]}`
               if(value[5])
-                text += `<br> Sex: ${value[5]}`
+                text += `<br> Gender: ${value[5]}`
               if(value[8]*1 != value[1]*1)
                 text += `<br> Year: ${value[8]}`
               return text;
@@ -60,7 +60,7 @@ export default {
       },
       showChart: false,
       color: [
-        "#1790cf","#f6931e","#777","#88b0bb",
+        "#feb100","#668bfc","#fc566a","#88b0bb",
         "#1c7099","#038cc4","#75abd0","#afd6dd"
       ]
     }
@@ -96,7 +96,7 @@ export default {
         data = this.graphifyEChartData(this.graphData, 'year', this.graphOptions.xAxisLabel, this.graphOptions.yAxisLabel);
       }
       let ndx = 0;
-      const graphType = this.graphOptions.graphType || 'scatter'
+      const graphType = this.graphOptions.graphType || 'line'
       //console.log(data[0].map(x => [x[0], 1*x[1]]));
 
       this.options.series = [];

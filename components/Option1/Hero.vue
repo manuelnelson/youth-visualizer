@@ -5,17 +5,27 @@
       <p class="md-display-1 hero-intro transition-up" v-delay="{delay:2200,cssClass:'up'}">
         This application serves as a tool to facilitate the preparation of regular reports on the progress in youth development and well-being in the SDGs.  It has the aim of supporting policy makers to make timely adjustments where needed as well as advocacy efforts where progress needs to be stepped up in order to ensure that no young person will be left behind.        
       </p>
-      <md-button class="md-display-1 hero__btn transition-up" v-delay="{delay:3200,cssClass:'up'}" @click="viewForm">Start <md-icon>arrow_forward</md-icon></md-button>
+      <md-button :md-ripple="false" class="md-display-1 hero__btn transition-up" v-delay="{delay:3200,cssClass:'up'}" @click="goToStory">View Example Story <md-icon>play_arrow</md-icon></md-button>
+      <md-button :md-ripple="false" class="md-display-1 hero__btn transition-up" v-delay="{delay:3200,cssClass:'up'}" @click="viewForm">Start Your Own<md-icon>arrow_forward</md-icon></md-button>
     </div>
   </section>
 </template>
 
 <script>
+
 export default {
+  data() {
+    return {
+      false: false
+    }
+  },
   props: {
     startClicked: {
       type: Function,
       required: true
+    },
+    storyUrl: {
+      type:String
     }
   },
   components: {
@@ -24,6 +34,9 @@ export default {
     viewForm () {
       this.$router.push({path: this.$route.path, query: { view: 'input'}})
       this.startClicked()
+    },
+    goToStory() {
+      this.$router.push({path: this.storyUrl})
     }
   }
 }
@@ -61,7 +74,7 @@ export default {
     max-width: 60ch;
     line-height: 1.4;
     color: #ededed !important; 
-    margin-bottom: 40px;
+    margin: 0 auto 40px;
     font-size: px-to-rem(24px)
   }
   

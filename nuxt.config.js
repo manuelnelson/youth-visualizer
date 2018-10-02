@@ -45,12 +45,17 @@ module.exports = {
     { src: '~/plugins/directives' },
     { src: '~/plugins/vue-clipboard' },
     { src: '~/plugins/vue-leaflet', ssr: false },
-    { src: '~/plugins/vue-echart' }
+    { src: '~/plugins/vue-echart', ssr: false }
   ],
   modules: [
     '@nuxtjs/axios',
-  ],
+  ],  
   build: {
+    transpile: [
+      ///vue-material/, 
+      /vue-echarts/,
+      /resize-detector/
+    ],
     /*
     ** Run ESLint on save
     */
@@ -58,8 +63,10 @@ module.exports = {
       plugins: [
         ['transform-imports'],
       ],
+      presets:['@vue/babel-preset-app']
     },
-    vendor: ['babel-polyfill', 'eventsource-polyfill','vue-material', 'vue-echarts', 'vue2-leaflet'],
+    vendor: ['babel-polyfill', 'eventsource-polyfill', 'vue-echarts', 'resize-detector'],
+    //vendor: ['vue-material', 'vue-echarts', 'resize-detector'],
     extend (config, { isDev, isClient, isServer }) {
       if (isDev && isClient) {
         // config.module.rules.push({
@@ -79,12 +86,22 @@ module.exports = {
         // }
         //config.entry.vendor.push('babel-polyfill')
       }
-      if (isServer) {
+      config.module.rules.map(rule => {
+        if (rule.loader === 'babel-loader') {
+          console.log(rule.options)
+          rule.options.include.push('resize-detector')
+          // rule.options.include.push('vue-material')
+          // rule.options.include.push('vue-echarts')
+        }
+        return rule
+      })
+//      if (process.server) {
+        if(isServer) {
         config.externals = [
           nodeExternals({
             // default value for `whitelist` is
             // [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i]
-            whitelist: [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i, /^vue-echarts/, /^vue2-leaflet/]
+            whitelist: [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i,  /^vue-echarts/, /^resize-detector/, /^vue2-leaflet/]
           })
         ]
       }

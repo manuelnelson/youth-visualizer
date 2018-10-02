@@ -27,7 +27,7 @@
             <md-switch v-model="ageArray" v-for="age in ages" :value="age" :key="age">{{age}}</md-switch>
           </div>          
           <div class="dimensions-item" v-if="sexes.length > 1">
-            <span class="md-subheading">Sex</span>
+            <span class="md-subheading">Gender</span>
             <md-switch v-model="sexArray" v-for="sex in sexes" :key="sex" :value="sex">{{sex}}</md-switch>
           </div>          
         </div>
@@ -129,7 +129,7 @@ export default {
     comparisonGraphData: [],
     geoList:geolist,
     graphOptions: {
-      graphType: 'scatter',
+      graphType: 'line',
       xAxisLabel: 'Year',
       yAxisLabel: '',
       xMin:100000000,

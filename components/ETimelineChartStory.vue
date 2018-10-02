@@ -43,6 +43,7 @@ export default {
       graphData: [],
       options: {      
         baseOption: {
+          backgroundColor: 'transparent',
           timeline: {
                 axisType: 'category',
                 orient: 'vertical',
@@ -101,7 +102,7 @@ export default {
                   if(value[4])
                     text += `<br> Age: ${value[4]}`
                   if(value[5])
-                    text += `<br> Sex: ${value[5]}`
+                    text += `<br> Gender: ${value[5]}`
                   if(value[8]*1 != value[1]*1)
                     text += `<br> Year: ${value[8]}`
                   return text;

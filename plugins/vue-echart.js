@@ -1,5 +1,6 @@
+//import 'babel-polyfill'
 import Vue from 'vue'
-import ECharts from 'vue-echarts/components/ECharts'
+import ECharts from '~/node_modules/vue-echarts/components/ECharts'
 import blueTheme from '~/assets/json/theme.json';
 import storyTheme from '~/assets/json/story-theme.json';
 
