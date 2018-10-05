@@ -67,7 +67,7 @@ export default {
 <style lang="scss">
   .slide-container {
     min-height: calc(100vh - 40px);
-    background-image: url('~/assets/images/hero.jpg');
+    background-image: url('~assets/images/hero.jpg');
     background-size: cover;
     opacity: 1;
     position: relative;
