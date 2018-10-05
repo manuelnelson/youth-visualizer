@@ -18,7 +18,8 @@
         </span>
         <div class="data-visualization__buttons">
           <md-button :md-ripple="false" class="md-accent md-raised configure-trigger" v-if="showDimensionsButton" @click="toggleDimensions">Dimensions</md-button>            
-          <md-button :md-ripple="false" class="md-accent md-raised configure-trigger" @click="configureGraph">Configure Graph</md-button>            
+          <md-button :md-ripple="false" class="md-accent md-raised configure-trigger" @click="configureGraph">Data</md-button>            
+          <md-button :md-ripple="false" class="md-accent md-raised configure-trigger" @click="configureLabels">Labels</md-button>            
           <md-button :md-ripple="false" class="md-accent md-raised configure-trigger" @click="toggleStory">Story Text</md-button>            
         </div>
         <div class="dimensions" v-show="showDimensions">
@@ -30,6 +31,20 @@
             <span class="md-subheading">Gender</span>
             <md-switch v-model="sexArray" v-for="sex in sexes" :key="sex" :value="sex">{{sex}}</md-switch>
           </div>          
+        </div>
+        <div v-show="graphDataOpened" class="configure-graph__content"> 
+          <md-autocomplete v-if="!showMap" class="form-area__input" @md-changed="goalChanged" @md-selected="goalSelected" @md-opened="goalOpened" v-model="graphOptions.selectedGoal" :md-options="goalList">
+            <label>Add Indicator</label>
+          </md-autocomplete>
+          <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList.map(x=>x.geoAreaName)">
+            <label>
+              Modify Countries or Regions
+            </label>
+          </md-autocomplete>
+          <div class="selected-tags">
+            <span class="selected-tags__item" @click="removeCountry(country)" v-for="(country,ndx) in countries" :key="ndx">{{country.geoAreaName}} <md-icon>close</md-icon></span>
+          </div>
+          <md-switch v-if="!showMap" v-model="graphOptions.showLinearRegression">Add Linear Regression Line</md-switch>
         </div>
         <div v-show="graphOptionsOpened" class="configure-graph__content"> 
           <md-autocomplete class="form-area__input" @md-selected="graphSelected" @md-opened="graphOpened" v-model="graphOptions.graphType" :md-options="chartTypes">
@@ -43,20 +58,9 @@
             <label>Y-Axis Label</label>
             <md-input v-model="graphOptions.yAxisLabel"></md-input>
           </md-field>
-          <md-autocomplete v-if="!showMap" class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="graphOptions.selectedGoal" :md-options="goalList">
-            <label>Compare Indicator</label>
-          </md-autocomplete>
-          <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList.map(x=>x.geoAreaName)">
-            <label>
-              Countries or Regions
-            </label>
-          </md-autocomplete>
-          <div class="selected-tags">
-            <span class="selected-tags__item" @click="removeCountry(country)" v-for="(country,ndx) in countries" :key="ndx">{{country.geoAreaName}} <md-icon>close</md-icon></span>
+          <div>
+            <md-button :md-ripple="false" class="md-accent md-raised configure-trigger" @click="runSearch">Update</md-button>            
           </div>
-
-          <md-switch v-if="!showMap" v-model="graphOptions.showLinearRegression">Add Linear Regression Line</md-switch>
-          <md-button :md-ripple="false" class="md-accent md-raised configure-trigger" @click="configureGraph">Update</md-button>            
         </div>
         <div v-show="storyOpened" class="configure-graph__content"> 
           <md-field>
@@ -68,6 +72,13 @@
             <md-textarea v-model="storyOptions.text"></md-textarea>
           </md-field>
         </div>
+        <div class="data-visualization__dimensions" v-if="dimensions.length > 0">
+          <span class="data-visualization__dimensions-label">Current Dimensions:</span>
+          <div class="data-visualization__dimensions-item" v-for="(dimension,ndx) in dimensions" :key="ndx">
+            {{dimension.name}} {{dimension.values[0]}}
+          </div>
+        </div>
+
       </div>
       <div class="data-visualization__right" v-if="!isLoading">      
         <e-chart-component ref="chartComponent" v-if="showEChart" :isComparison="graphOptions.selectedGoal.length > 0" :countries="countries" :graph-data="graphData" :graph-options="graphOptions" :graph-type="graphOptions.graphType" :container-id="index"></e-chart-component>  
@@ -145,6 +156,7 @@ export default {
       text: ''
     },
     graphOptionsOpened: false,
+    graphDataOpened: false,
     storyOpened: false,
     isLoading: true,
     graphType: '',
@@ -167,9 +179,10 @@ export default {
       if(newValue.length > 0) {
         if(this.dimensions) {
           this.dimensions = this.dimensions.filter(x => x.name !== 'sex');
-          console.log(this.dimensions);
-          console.log(newValue);
-          this.dimensions.push({name:'sex', values:newValue})
+          if(newValue.length > 1) {
+            this.sexArray.splice(0,1)
+          }
+          this.dimensions.push({name:'sex', values:this.sexArray})
           this.runSearch()
         }
       }
@@ -181,8 +194,11 @@ export default {
     ageArray: function(newValue, oldValue) {
       if(newValue.length > 0) {
         if(this.dimensions) {
-          this.dimensions.filter(x => x.name !== 'age');
-          this.dimensions.push({name:'age', values:newValue})
+          this.dimensions = this.dimensions.filter(x => x.name !== 'age');
+          if(newValue.length > 1) {
+            this.ageArray.splice(0,1)
+          }
+          this.dimensions.push({name:'age', values:this.ageArray})
           this.runSearch()
         }
       }
@@ -190,6 +206,9 @@ export default {
         this.dimensions = this.dimensions.filter(x=>x.name !== 'age');
         this.runSearch();
       }
+    },
+    "graphOptions.showLinearRegression": function(newValue) {
+      this.runSearch();
     },
     countries: function(newValue) {
       this.runSearch();
@@ -269,6 +288,16 @@ export default {
       this.graphOptions.graphType = this.graphOptions.graphType.substring(0, this.graphOptions.graphType.length - 1)
     },
     async configureGraph() {
+      this.graphDataOpened = !this.graphDataOpened; 
+      if(!this.graphDataOpened) {
+        return;
+      } else {
+        this.showDimensions = false;
+        this.storyOpened = false;
+        this.graphOptionsOpened = false;
+      } 
+    },
+    async configureLabels() {
       this.graphOptionsOpened = !this.graphOptionsOpened; 
       if(!this.graphOptionsOpened) {
         await this.runSearch();
@@ -276,11 +305,11 @@ export default {
       } else {
         this.showDimensions = false;
         this.storyOpened = false;
+        this.graphDataOpened = false;
       } 
     },
     toggleDimensions() {
       this.showDimensions = !this.showDimensions;
-      console.log(this.showDimensions)
       if(this.showDimensions){
         this.graphOptionsOpened = false;
         this.storyOpened = false;
@@ -296,9 +325,15 @@ export default {
     removeCountry (country) {
       this.countries = this.countries.filter(x => x != country);
     },
-
+    async goalChanged (term) {
+      if(term.length === 0) {
+        this.chartTypes.pop();
+        this.runSearch();
+      }
+    },
     async goalSelected (val) {
       this.graphOptions.selectedGoal = val;
+      console.log(val)
       if(val.length > 0)
       {        
         // 1. let's store the old data - this can later be used if we do the timeline option
@@ -319,12 +354,7 @@ export default {
         this.graphData = this.combineIndicators(compareData, secondCompareData); 
         //update chart types
         this.chartTypes.push('timeline');
-      } else {
-        // if(this.oldGraphData && this.oldGraphData.length > 0)
-        //   this.graphData = this.oldGraphData;
-        this.chartTypes.pop();
-        this.runSearch();
-      }
+      } 
     },
     goalOpened () {
       this.graphOptions.selectedGoal += ' '
@@ -360,6 +390,9 @@ export default {
 
       if(init){
         this.ages = this.getDimensionList(data.data, 'age');
+        if(this.ages.length > 1) {
+          this.ageArray.push(this.ages[1])
+        }
         this.sexes = this.getDimensionList(data.data, 'sex');
         this.yearList = this.getDimensionList(this.graphData, 'year').sort();
       }
@@ -419,8 +452,32 @@ export default {
       //color: #f6931e;
     }
   }
+  &__dimensions {
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: baseline;
+    // align-items: baseline;
+    &-label {
+      font-weight: bold;
+      display: block;
+      //display: none;
+      margin-bottom: 2px;
+    }
+    &-item {
+      display: inline-block;
+      padding: 5px;
+      border-radius: 2px;
+      background-color: #0099d6;
+      color: white;
+      text-transform: capitalize;
+      margin-right: 8px;
+    }
+  }
   &__buttons {
     margin-bottom: 20px;
+    button:first-child{
+      margin-left: 0; 
+    }
   }
   &__content {
     position: relative;
@@ -546,6 +603,9 @@ export default {
 
 .configure-trigger{
   margin-top: 40px;
+  &:first-child {
+    margin-left: 0;
+  }
   .md-button-content{
     color: white;
   }

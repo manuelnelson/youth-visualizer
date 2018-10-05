@@ -253,10 +253,12 @@ export default {
   $height: 100px;
 $width: 100px;
 .lds-dual-ring {
-  display: inline-block;
-  width: $width;
+  display: block !important;
+  width: 100% !important;
   height: $height;
-  margin: 0 auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50px)
 }
 .lds-dual-ring:after {
   content: " ";
