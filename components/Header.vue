@@ -11,7 +11,8 @@
 <style lang="scss">
   .header {
     //opacity: 0.4;
-    background-color: rgba(0,0,0,0.1) !important;
+    //background-color: rgba(0,0,0,0.1) !important;
+    background-color: rgba(0,0,0,0) !important;
     width: 100%;
     height: 80px;
     display: block;

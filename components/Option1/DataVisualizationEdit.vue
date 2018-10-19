@@ -1,29 +1,7 @@
 <template>
   <section class="data-visualization">
-    <div class="data-visualization__content">
-      <md-button :md-ripple="false" class="md-display-1 data-visualization__btn" @click="returnBack"><md-icon>arrow_back</md-icon> Back</md-button>
-      <div class="data-visualization__content transition-up" v-delay="{delay:800,cssClass:'up'}" >
-        <h3 class="md-display-2">Create Your Story</h3>        
-        <h4 class="md-headline">Regions: {{countryList}}</h4>        
-      </div>
-    </div>
-    <visualization-component v-for="(indicator,ndx) in indicators" :ref="getReference(ndx)"  :key="ndx" :index="ndx" :indicator="indicator"></visualization-component>
-    <!-- <md-button :md-ripple="false" class="md-primary md-raised configure-trigger" @click="authorInformation">Save as a Highlight</md-button>             -->
-    <span class="headline">User Information (optional)</span>
-    <div class="user-information">
-      <md-field>
-        <label>Name</label>
-        <md-input v-model="user"></md-input>
-      </md-field>
-      <md-field>
-        <label>Position</label>
-        <md-input v-model="userPosition"></md-input>
-      </md-field>
-      <md-field>
-        <label>Email</label>
-        <md-input v-model="userEmail"></md-input>
-      </md-field>
-    </div>
+    <visualization-component v-for="(slide,ndx) in graphSlides" v-if="story && story.slides" :ref="getReference(ndx)"  :key="ndx" :indicator="getSlideIndicator(slide)" :index="ndx" :slide="slide"></visualization-component>
+    <span class="headline">About You (optional)</span>
     <md-button :md-ripple="false" class="md-primary md-raised configure-trigger" @click="generateStory">Generate Story</md-button>            
   </section>
 </template>
@@ -46,9 +24,6 @@ goalsAndIndicators.forEach(goal => {
   });
 });
 
-// const targetList = goalsAndIndicators.reduce((acc, x) => {acc.push(...x.targets); return acc;}, [] )
-// const fullIndicatorList = targetList.reduce( (acc, y) => {acc.push(...y.indicators);return acc},[]);
-
 export default {
   data: () => ({
     countries: [],
@@ -57,33 +32,10 @@ export default {
     dimensions: [{name:'Freq', values:['Annual']}],
     slides: [], 
     false: false,
-    user: '',
-    userPosition: '',
-    userEmail: ''
-
   }),
 
   async mounted() {
-    this.countries = this.$route.query.countries.map(x => geolist.find(y => y.geoAreaName === x));
-    this.codes = this.$route.query.selectedGoals;
-    if(this.codes) {
-      this.codes.forEach(code => {
-        let indicator = flatGoalIndicatorList.find(x => code === x.code)
-        this.indicators.push(Object.assign(indicator, {
-          infoOpened: false,
-          goal: indicator.code.split('.')[0],
-          goalDescription: goalsAndIndicators.find(goal => goal.code === indicator.code.split('.')[0]).description,
-          target: this.getTargetCode(indicator),
-          targetDescription: flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(indicator)) ? flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(indicator)).description : '',
-        }))
-      });
-    }  
-  },
-  props: {
-    prevClicked: {
-      type: Function,
-      required: true
-    }
+
   },
   components: {
     VisualizationComponent
@@ -92,36 +44,42 @@ export default {
     ...mapGetters({
       story: 'story/story'
     }),
+    graphSlides() {
+      return this.story && this.story.slides ? this.story.slides.filter(x=>!x.showCopy).map(y=> Object.assign(y,{})) : []
+    },
+    
     countryList() {
       return this.countries.map(x => x.geoAreaName).join(', ')
     }
   },
   methods: {
     ...mapActions({
-      saveStory: 'story/saveStory'
+      updateStory: 'story/updateStory',
     }),
     getTargetCode(indicator) {
       if(indicator.code.split('.').length > 0)
         return `${indicator.code.split('.')[0]}.${indicator.code.split('.')[1]}`
       return '';
     },
-    returnBack () {
-      // let query = Object.assign({},this.$route.query)
-      // query.view = 'input'
-      this.$router.push({path: this.$route.path, query: { view: 'input', countries: this.$route.query.countries, selectedGoals: this.$route.query.selectedGoals}})
-
-      // this.$router.push({path: this.$route.path, query})
-      this.prevClicked()
-    }, 
+    getSlideIndicator(slide) {
+      let dataType = slide.url.split('sdg/').splice(1)[0].split('/Pivot')[0];
+      let code = slide.url.split(`?${dataType}=`).splice(1)[0].split('&')[0];
+      let indicator = flatGoalIndicatorList.find(x => code === x.code)
+      return Object.assign(indicator, {
+        infoOpened: false,
+        goal: indicator.code.split('.')[0],
+        goalDescription: goalsAndIndicators.find(goal => goal.code === indicator.code.split('.')[0]).description,
+        target: this.getTargetCode(indicator),
+        targetDescription: flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(indicator)) ? flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(indicator)).description : '',
+      }); 
+    },
     async generateStory() {
       Object.keys(this.$refs).forEach(component => {
         this.slides.push(this.$refs[component][0].exportData());
       });
-      await this.saveStory({
-        slides: this.slides,
-        user:this.user,
-        userEmail: this.userEmail,
-        userPosition: this.userPosition
+      await this.updateStory({
+        _id: this.story._id,
+        slides: this.slides
       })
       this.$router.push(`/story/${this.story._id}`)
     },
@@ -217,13 +175,6 @@ export default {
     }
   }
 
-}
-
-.user-information {
-  display: flex;
-  .md-field {
-    margin-right: 30px;
-  }
 }
 @include bp-max($bp-between) {
   .data-visualization {

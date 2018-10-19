@@ -15,6 +15,19 @@ function addSlide(axios, slide) {
         resolve(data)
     })
 }
+function updateSlide(axios, slide) {
+    let id = slide._id;
+    delete slide._id;
+    delete slide.xMin;
+    delete slide.xMax;
+    delete slide.yMin;
+    delete slide.yMax;
+    delete slide.selectedGoal;
+    return new Promise(async (resolve,reject) => {
+        let data = await axios.$put(`${apiUrl}/slides/${id}`,slide)
+        resolve(data)
+    })
+}
 
 export const actions = {
     async getStory({commit},payload) {
@@ -44,10 +57,30 @@ export const actions = {
 
         //commit
         let data = await this.$axios.$post(`${apiUrl}/stories`,{
-            slides: dbSlides.map(x=>x._id)
+            slides: dbSlides.map(x=>x._id),
+            user: story.user,
+            userEmail: story.userEmail,
+            userPosition: story.userPosition
         })  
         commit('setStory', data);
         return data;            
+    },
+    async updateStory({commit}, story){
+        //first post slides
+        //let slides = []
+        let slidePromises = []
+        story.slides.forEach(slide => {
+            let flatSlide = flattenSlide(slide);
+            slidePromises.push(updateSlide(this.$axios,flatSlide))
+        })
+        let dbSlides = await Promise.all(slidePromises)
+
+        //commit
+        // let data = await this.$axios.$put(`${apiUrl}/stories/${story._id}`,{
+        //     slides: dbSlides.map(x=>x._id)
+        // })  
+        // commit('setStory', data);
+        return story;            
     },
 
 }

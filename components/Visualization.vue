@@ -118,7 +118,7 @@ goalsAndIndicators.forEach(goal => {
 import {mapMutations,mapGetters,mapActions} from 'vuex';
 
 export default {
-  props: ['indicator', 'index'],
+  props: ['indicator', 'index', 'slide'],
   data: () => ({
     countries: [],
     selectedGeography: '',
@@ -165,8 +165,12 @@ export default {
   mixins: [DataMixin],
 
   async mounted() {
-    this.countries = this.$route.query.countries.map(x => this.geoList.find(y => y.geoAreaName === x));
-    this.codes = this.$route.query.selectedGoals;
+    if(this.slide) {
+      this.importSlideData()
+    } else {
+      this.countries = this.$route.query.countries.map(x => this.geoList.find(y => y.geoAreaName === x));
+      this.codes = this.$route.query.selectedGoals;
+    }
 
     //retrieve data
     this.runSearch(true);
@@ -183,6 +187,7 @@ export default {
             this.sexArray.splice(0,1)
           }
           this.dimensions.push({name:'sex', values:this.sexArray})
+          console.log('run sex')
           this.runSearch()
         }
       }
@@ -199,6 +204,7 @@ export default {
             this.ageArray.splice(0,1)
           }
           this.dimensions.push({name:'age', values:this.ageArray})
+          console.log('run age')
           this.runSearch()
         }
       }
@@ -243,6 +249,35 @@ export default {
 
   },
   methods: {
+    importSlideData() {
+      this.countries = this.slide.countries;
+      this.code = this.indicator
+      this.storyOptions.title = this.slide.title;
+      this.storyOptions.text = this.slide.text;
+      this.graphOptions.graphType = this.slide.graphType;
+      this.graphOptions.xAxisLabel = this.slide.xAxisLabel;
+      this.graphOptions.yAxisLabel = this.slide.yAxisLabel;
+      this.graphOptions.showLinearRegression = this.slide.showLinearRegression;
+      if(this.slide.selectedGoalUrl && this.slide.selectedGoalUrl.length > 0) {
+        this.graphOptions.selectedGoal = this.getIndicatorFromUrl(this.slide.selectedGoalUrl).code;
+      }
+      let dimensions = this.getDimensionsFromUrl(this.slide.url);
+      if(dimensions && dimensions.length > 0) {
+        dimensions.map(x => {
+          let name = `${x.name}Array`;
+          this[name] = x.values;
+        })
+      }
+      setTimeout(()=>{},1000)
+    },
+    getIndicatorFromUrl(url) {
+      let dataType = url.split('sdg/').splice(1)[0].split('/Pivot')[0];
+      let code = url.split(`?${dataType}=`).splice(1)[0].split('&')[0];
+      return flatGoalIndicatorList.find(x => code === x.code)
+    },
+    getDimensionsFromUrl(url) {
+      return JSON.parse(decodeURIComponent(url.split('dimensions=').splice(1)[0]).split('&')[0])
+    },
     countrySelected (val) {
       let country = this.geoList.find(y => y.geoAreaName === val)
       this.countries.push(country);
@@ -365,7 +400,7 @@ export default {
       indicator.infoOpened = true;
     },
     exportData() {
-      return {
+      let data = {    
         url: this.url,
         graphOptions: this.graphOptions,
         storyOptions: this.storyOptions,
@@ -373,9 +408,14 @@ export default {
         //determines if slide is active in story mode
         active: false
       };
+      if(this.slide)
+        data._id = this.slide._id;
+      return data;
     },
     async runSearch (init) {
       this.isLoading = true;
+      console.log('run search')
+      console.log(init)
       let data = await this.$axios.$get(this.url)
       if(this.graphOptions.selectedGoal.length > 0) {
               console.log('selected goal', this.graphOptions.selectedGoal)
@@ -390,7 +430,7 @@ export default {
 
       if(init){
         this.ages = this.getDimensionList(data.data, 'age');
-        if(this.ages.length > 1) {
+        if(this.ages.length > 1 && !this.slide) {
           this.ageArray.push(this.ages[1])
         }
         this.sexes = this.getDimensionList(data.data, 'sex');
