@@ -1,7 +1,7 @@
 <template>
   <section class="hero">
     <div class="hero-content transition-up" v-delay="{delay:800,cssClass:'up'}">
-      <h1 class="md-display-2 "  >Highlights</h1> 
+      <h1 class="md-display-2">Highlights</h1> 
       <md-list dark>
         <md-list-item @click="goToHighlight(highlight)" v-for="highlight in highlights" :key="highlight._id">
            <md-icon class="md-primary">timeline</md-icon>
@@ -22,10 +22,9 @@
     </div>
     <div class="hero-secondary">
       <div class="hero-secondary__text">
-        <h2 class="md-headline">About</h2>
-        <p>
-          Here's some text about the list to the left.  It is a curated list of our favorite visualizations hand selected to show the benefits of using the visualization tool.  We hope it will help aid you think about different ways to use the data available.
-        </p>
+        <h2 class="md-headline">{{aboutTitle}}</h2>
+        <div v-html="aboutText">          
+        </div>
       </div>
     </div>
   </section>
@@ -36,7 +35,9 @@ const apiUrl = 'https://youthindicator.herokuapp.com/api'
 const Months = ['January','February','March','April','June','July','August','September','October','November','December'];
 export default {
   data: () => ({
-    highlights: []
+    highlights: [],
+    aboutTitle:'',
+    aboutText:''
   }),
   components: {
   },
@@ -44,6 +45,8 @@ export default {
     const highlightArray = await this.$axios.$get(`${apiUrl}/highlights`);
     if(highlightArray && highlightArray.length > 0) {
       this.highlights = highlightArray[0].stories;
+      this.aboutTitle = highlightArray[0].aboutTitle;
+      this.aboutText = highlightArray[0].aboutText;
     }
     console.log(this.highlights)
   },

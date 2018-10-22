@@ -33,14 +33,19 @@
           </div>          
         </div>
         <div v-show="graphDataOpened" class="configure-graph__content"> 
-          <md-autocomplete v-if="!showMap" class="form-area__input" @md-changed="goalChanged" @md-selected="goalSelected" @md-opened="goalOpened" v-model="graphOptions.selectedGoal" :md-options="goalList">
+          <multiselect v-model="graphOptions.selectedGoal" :options="goalList" @select="goalSelected" :multiple="false" :close-on-select="true" :clear-on-select="true"  placeholder="Add Indicator" :preselect-first="false">          
+          </multiselect>
+          <!-- <md-autocomplete v-if="!showMap" class="form-area__input" @md-changed="goalChanged" @md-selected="goalSelected" @md-opened="goalOpened" v-model="graphOptions.selectedGoal" :md-options="goalList">
             <label>Add Indicator</label>
-          </md-autocomplete>
-          <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList.map(x=>x.geoAreaName)">
+          </md-autocomplete> -->
+          <multiselect v-model="selectedGeography" :options="geoList.map(x=> {return {name:x.geoAreaName}})" @select="countrySelected" :multiple="true" :close-on-select="true" :clear-on-select="true"  placeholder="Select Countries or Regions" label="name" track-by="name" :preselect-first="false">          
+          </multiselect>
+
+          <!-- <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList.map(x=> {return {name:x.geoAreaName}})">
             <label>
               Modify Countries or Regions
             </label>
-          </md-autocomplete>
+          </md-autocomplete> -->
           <div class="selected-tags">
             <span class="selected-tags__item" @click="removeCountry(country)" v-for="(country,ndx) in countries" :key="ndx">{{country.geoAreaName}} <md-icon>close</md-icon></span>
           </div>
@@ -279,17 +284,26 @@ export default {
       return JSON.parse(decodeURIComponent(url.split('dimensions=').splice(1)[0]).split('&')[0])
     },
     countrySelected (val) {
-      let country = this.geoList.find(y => y.geoAreaName === val)
+      let country = this.geoList.find(y => y.geoAreaName === val.name)
       this.countries.push(country);
+      // this.countries.push(val.name);
       let that = this;
-      setTimeout(() => {
-        that.selectedGeography = ''
-      }, 20)
+      setTimeout(() => {  
+        that.selectedGeography = []
+      }, 40)
     },
-    opened () {
-      this.selectedGeography += ' '
-      this.selectedGeography = this.selectedGeography.substring(0, this.selectedGeography.length - 1)
+    removeCountry (country) {
+      this.selectedCountries = this.selectedCountries.filter(x => x != country);
     },
+
+    // countrySelected (val) {
+    //   let country = this.geoList.find(y => y.geoAreaName === val)
+    //   this.countries.push(country);
+    //   let that = this;
+    //   setTimeout(() => {
+    //     that.selectedGeography = ''
+    //   }, 20)
+    // },
 
     getIndicatorType(indicatorCode) {
       switch(indicatorCode.split('.').length){
@@ -301,13 +315,6 @@ export default {
           return 'Indicator';
       }
     },
-    yearSelected (val) {
-      this.selectedYear = val
-    },
-    yearOpened () {
-      this.selectedYear += ' '
-      this.selectedYear = this.selectedYear.substring(0, this.selectedYear.length - 1)
-    },
     graphSelected (val) {
       this.graphOptions.graphType = val;
       if(val === 'map') {
@@ -318,10 +325,10 @@ export default {
           this.graphData = this.oldGraphData;
       }
     },
-    graphOpened () {
-      this.graphOptions.graphType = ' '
-      this.graphOptions.graphType = this.graphOptions.graphType.substring(0, this.graphOptions.graphType.length - 1)
-    },
+    // graphOpened () {
+    //   this.graphOptions.graphType = ' '
+    //   this.graphOptions.graphType = this.graphOptions.graphType.substring(0, this.graphOptions.graphType.length - 1)
+    // },
     async configureGraph() {
       this.graphDataOpened = !this.graphDataOpened; 
       if(!this.graphDataOpened) {
@@ -360,12 +367,22 @@ export default {
     removeCountry (country) {
       this.countries = this.countries.filter(x => x != country);
     },
-    async goalChanged (term) {
-      if(term.length === 0) {
-        this.chartTypes.pop();
-        this.runSearch();
-      }
+    goalSelected (val) {
+      this.selectedGoals.push(val.name);
+      let that = this;
+      setTimeout(() => {
+        this.selectedGoal = []
+      }, 40)
     },
+    removeGoal (goal) {
+      this.selectedGoals = this.selectedGoals.filter(x => x != goal);
+    },
+    // async goalChanged (term) {
+    //   if(term.length === 0) {
+    //     this.chartTypes.pop();
+    //     this.runSearch();
+    //   }
+    // },
     async goalSelected (val) {
       this.graphOptions.selectedGoal = val;
       console.log(val)
@@ -391,10 +408,10 @@ export default {
         this.chartTypes.push('timeline');
       } 
     },
-    goalOpened () {
-      this.graphOptions.selectedGoal += ' '
-      this.graphOptions.selectedGoal = this.graphOptions.selectedGoal.substring(0, this.graphOptions.selectedGoal.length - 1);
-    },
+    // goalOpened () {
+    //   this.graphOptions.selectedGoal += ' '
+    //   this.graphOptions.selectedGoal = this.graphOptions.selectedGoal.substring(0, this.graphOptions.selectedGoal.length - 1);
+    // },
 
     openIndicator(indicator) {
       indicator.infoOpened = true;
@@ -414,8 +431,6 @@ export default {
     },
     async runSearch (init) {
       this.isLoading = true;
-      console.log('run search')
-      console.log(init)
       let data = await this.$axios.$get(this.url)
       if(this.graphOptions.selectedGoal.length > 0) {
               console.log('selected goal', this.graphOptions.selectedGoal)
@@ -556,6 +571,16 @@ export default {
       margin-bottom: 20px;
     }
   }
+  .multiselect {
+    margin-bottom: 20px;
+    .multiselect__content-wrapper {
+      z-index: 1000;
+    }
+    &__option--highlight {
+      background-color: #f6931e;
+    }
+  }
+
   &__right {
     width: 56%;
   }

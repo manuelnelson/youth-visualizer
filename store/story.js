@@ -53,15 +53,18 @@ export const actions = {
             let flatSlide = flattenSlide(slide);
             slidePromises.push(addSlide(this.$axios,flatSlide))
         })
-        let dbSlides = await Promise.all(slidePromises)
-
+        let dbSlides = await Promise.all(slidePromises);
+        var data;
+        if(story.slides.length > 0) {
+            data = await this.$axios.$post(`${apiUrl}/stories`,{
+                name: `${story.slides[0].title} - ${new Date().toLocaleDateString()}`,
+                slides: dbSlides.map(x=>x._id),
+                "user.first": story.user,
+                userEmail: story.userEmail,
+                userPosition: story.userPosition
+            })                  
+        }
         //commit
-        let data = await this.$axios.$post(`${apiUrl}/stories`,{
-            slides: dbSlides.map(x=>x._id),
-            user: story.user,
-            userEmail: story.userEmail,
-            userPosition: story.userPosition
-        })  
         commit('setStory', data);
         return data;            
     },

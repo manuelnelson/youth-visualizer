@@ -37,12 +37,14 @@ module.exports = {
   css: [
     { src: 'vue-material/dist/vue-material.min.css', lang: 'css' },
     { src: "leaflet/dist/leaflet.css", lang: 'css' },    
+    { src: "vue-multiselect/dist/vue-multiselect.min.css", lang: 'css' },    
     { src: '~/assets/theme.scss', lang: 'scss' }, // include vue-material theme engine
     { src: '~/assets/main.scss', lang: 'scss' } // include vue-material theme engine
   ],
   plugins: [
     { src: '~/plugins/vue-material' },
     { src: '~/plugins/directives' },
+    { src: '~/plugins/vue-multiselect' },
     { src: '~/plugins/vue-clipboard' },
     { src: '~/plugins/vue-leaflet', ssr: false },
     { src: '~/plugins/vue-echart', ssr: false }

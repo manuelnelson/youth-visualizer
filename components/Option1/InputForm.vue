@@ -7,22 +7,26 @@
         <p class="instruction-text instruction-text__emphasize">Hint: The more countries/regions, the better the outcome.</p>
       </div>
       <div class="transition-up"  v-delay="{delay:1600,cssClass:'up'}">
-        <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList">
+        <multiselect v-model="selectedGeography" :options="geoList" @select="countrySelected" :multiple="true" :close-on-select="true" :clear-on-select="true"  placeholder="Select Countries or Regions" label="name" track-by="name" :preselect-first="false">          
+        </multiselect>
+        <!-- <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList">
           <label>
             Select Countries or Regions
           </label>
-        </md-autocomplete> 
+        </md-autocomplete>  -->
         <div class="selected-tags">
           <span class="selected-tags__item" @click="removeCountry(country)" v-for="country in selectedCountries" :key="country">{{country}} <md-icon>close</md-icon></span>
         </div>
-        <md-autocomplete class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="selectedGoal" :md-options="goalList">
+        <multiselect v-model="selectedGoal" :options="goalList" @select="goalSelected" :multiple="true" :close-on-select="true" :clear-on-select="true"  placeholder="Select Goals, Targets, or Indicators" label="name" track-by="name" :preselect-first="false">          
+        </multiselect>
+        <!-- <md-autocomplete class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="selectedGoal" :md-options="goalList">
           <label>Select Goals, Targets, or Indicators</label>
-        </md-autocomplete>
+        </md-autocomplete> -->
         <div class="selected-tags">
           <span class="selected-tags__item" @click="removeGoal(goal)" v-for="goal in selectedGoals" :key="goal">{{goal}} <md-icon>close</md-icon></span>
         </div>
+        <md-button :md-ripple="false" class="md-display-1 md-accent md-raised form-area__btn transition-up" v-delay="{delay:3800,cssClass:'up'}" @click="runSearch">View <md-icon>arrow_forward</md-icon></md-button>
       </div>
-      <md-button :md-ripple="false" class="md-display-1 md-accent md-raised form-area__btn transition-up" v-delay="{delay:3800,cssClass:'up'}" @click="runSearch">View <md-icon>arrow_forward</md-icon></md-button>
     </div>
   </section>
 </template>
@@ -31,6 +35,7 @@
 import geolist from '~/assets/json/geolist.json'
 // import goalList from '~/assets/json/goallist.json'
 import goalsAndIndicators from '~/assets/json/YouthGoalsAndndicators.json'
+import IEMixin from '~/mixins/IsIe.mixin.js';
 
 let flatGoalIndicatorList = [];
 goalsAndIndicators.forEach(goal => {
@@ -45,13 +50,14 @@ goalsAndIndicators.forEach(goal => {
 
 export default {
   data: () => ({
-    geoList: geolist.map(x => x.geoAreaName), 
-    goalList: flatGoalIndicatorList.map(x => x.code + ': ' + x.description),
+    geoList: geolist.map(x => { return {name:x.geoAreaName, value: x.geoAreaName}}), 
+    goalList: flatGoalIndicatorList.map(x => { return {name: x.code + ': ' + x.description}}),
     selectedGeography: '',
     selectedGoal: '',
     selectedCountries: [],
     selectedGoals: [], 
-    false: false
+    false: false,
+    true: true
   }),
   props: {
     startClicked: {
@@ -59,11 +65,10 @@ export default {
       required: true
     }
   },
-
+  mixins: [IEMixin],
   components: {
   },
   created () {
-    console.log(flatGoalIndicatorList)
     if(this.$route.query.countries) {
       this.selectedCountries = this.$route.query.countries;
     }
@@ -75,26 +80,18 @@ export default {
   },
   methods: {
     countrySelected (val) {
-      this.selectedCountries.push(val);
+      this.selectedCountries.push(val.name);
       let that = this;
-      setTimeout(() => {
-        that.selectedGeography = ''
+      setTimeout(() => {  
+        that.selectedGeography = []
       }, 40)
-    },
-    opened () {
-      this.selectedGeography += ' '
-      this.selectedGeography = this.selectedGeography.substring(0, this.selectedGeography.length - 1)
     },
     goalSelected (val) {
-      this.selectedGoals.push(val);
+      this.selectedGoals.push(val.name);
       let that = this;
       setTimeout(() => {
-        this.selectedGoal = ''
+        this.selectedGoal = []
       }, 40)
-    },
-    goalOpened () {
-      this.selectedGoal += ' '
-      this.selectedGoal = this.selectedGoal.substring(0, this.selectedGoal.length - 1)
     },
     removeCountry (country) {
       this.selectedCountries = this.selectedCountries.filter(x => x != country);
@@ -164,6 +161,18 @@ export default {
       //font-weight: bold;
     }
   }
+  .multiselect {
+    margin-bottom: 20px;
+    .multiselect__content-wrapper {
+      z-index: 1000;
+    }
+    &__option--highlight {
+      background-color: #f6931e;
+    }
+    .multiselect__option--highlight:after{
+      background: #f6931e;      
+    }
+  }
   &__input {
     margin-bottom: 20px;
     input {
@@ -172,6 +181,8 @@ export default {
   }
   &__btn {
     width: 30vw;
+    // position: relative;
+    // z-index: 1;
     .md-ripple {
       border: solid 1px white;     
     }

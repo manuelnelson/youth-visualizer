@@ -1,7 +1,6 @@
 <template>
   <section class="data-visualization">
     <visualization-component v-for="(slide,ndx) in graphSlides" v-if="story && story.slides" :ref="getReference(ndx)"  :key="ndx" :indicator="getSlideIndicator(slide)" :index="ndx" :slide="slide"></visualization-component>
-    <span class="headline">About You (optional)</span>
     <md-button :md-ripple="false" class="md-primary md-raised configure-trigger" @click="generateStory">Generate Story</md-button>            
   </section>
 </template>

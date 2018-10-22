@@ -66,17 +66,29 @@ export default {
   async mounted() {
     this.countries = this.$route.query.countries.map(x => geolist.find(y => y.geoAreaName === x));
     this.codes = this.$route.query.selectedGoals;
-    if(this.codes) {
-      this.codes.forEach(code => {
-        let indicator = flatGoalIndicatorList.find(x => code === x.code)
-        this.indicators.push(Object.assign(indicator, {
-          infoOpened: false,
-          goal: indicator.code.split('.')[0],
-          goalDescription: goalsAndIndicators.find(goal => goal.code === indicator.code.split('.')[0]).description,
-          target: this.getTargetCode(indicator),
-          targetDescription: flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(indicator)) ? flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(indicator)).description : '',
-        }))
-      });
+    if(this.codes) {      
+      if (Array.isArray(this.codes)) {
+        this.codes.forEach(code => {
+          let indicator = flatGoalIndicatorList.find(x => code === x.code)
+          this.indicators.push(Object.assign(indicator, {
+            infoOpened: false,
+            goal: indicator.code.split('.')[0],
+            goalDescription: goalsAndIndicators.find(goal => goal.code === indicator.code.split('.')[0]).description,
+            target: this.getTargetCode(indicator),
+            targetDescription: flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(indicator)) ? flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(indicator)).description : '',
+          }))
+        });
+      }
+      else {
+          let indicator = flatGoalIndicatorList.find(x => code === this.codes)
+          this.indicators.push(Object.assign(indicator, {
+            infoOpened: false,
+            goal: indicator.code.split('.')[0],
+            goalDescription: goalsAndIndicators.find(goal => goal.code === indicator.code.split('.')[0]).description,
+            target: this.getTargetCode(indicator),
+            targetDescription: flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(indicator)) ? flatGoalIndicatorList.find(goal => goal.code === this.getTargetCode(indicator)).description : '',
+          }))
+      }
     }  
   },
   props: {

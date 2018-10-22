@@ -1,9 +1,8 @@
 <template>
   <section class="hero">
     <div class="hero-content">
-      <h1 class="md-display-3 transition-up" v-delay="{delay:800,cssClass:'up'}" >The State Of The Youth: Visualized</h1> 
-      <p class="md-display-1 hero-intro transition-up" v-delay="{delay:2200,cssClass:'up'}">
-        This application serves as a tool to facilitate the preparation of regular reports on the progress in youth development and well-being in the SDGs.  It has the aim of supporting policy makers to make timely adjustments where needed as well as advocacy efforts where progress needs to be stepped up in order to ensure that no young person will be left behind.        
+      <h1 class="md-display-3 transition-up" v-delay="{delay:800,cssClass:'up'}" >{{heroTitle}}</h1> 
+      <p class="md-display-1 hero-intro transition-up" v-delay="{delay:2200,cssClass:'up'}" v-html="heroText">        
       </p>
       <md-button :md-ripple="false" class="md-display-1 hero__btn transition-up" v-delay="{delay:3200,cssClass:'up'}" @click="goToStory">View Example Story <md-icon>play_arrow</md-icon></md-button>
       <md-button :md-ripple="false" class="md-display-1 hero__btn transition-up" v-delay="{delay:3200,cssClass:'up'}" @click="viewForm">Start Your Own<md-icon>arrow_forward</md-icon></md-button>
@@ -26,7 +25,13 @@ export default {
     },
     storyUrl: {
       type:String
-    }
+    },
+    heroTitle: {
+      type:String
+    },
+    heroText: {
+      type:String
+    },
   },
   components: {
   },
