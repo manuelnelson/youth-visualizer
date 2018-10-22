@@ -113,7 +113,11 @@ export default {
     &-content {
       padding-bottom: 20px;
     }
-
+    .hero__btn {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 
 }

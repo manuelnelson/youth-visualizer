@@ -64,7 +64,13 @@ export default {
   }),
 
   async mounted() {
-    this.countries = this.$route.query.countries.map(x => geolist.find(y => y.geoAreaName === x));
+    let countries = this.$route.query.countries;
+      if(Array.isArray(countries)){
+        this.countries = countries.map(x => geolist.find(y => y.geoAreaName === x));
+      } else {
+        let country = geolist.find(y => y.geoAreaName === countries);
+        this.countries = [country];
+      }
     this.codes = this.$route.query.selectedGoals;
     if(this.codes) {      
       if (Array.isArray(this.codes)) {
@@ -80,7 +86,7 @@ export default {
         });
       }
       else {
-          let indicator = flatGoalIndicatorList.find(x => code === this.codes)
+          let indicator = flatGoalIndicatorList.find(x => this.codes === x.code)
           this.indicators.push(Object.assign(indicator, {
             infoOpened: false,
             goal: indicator.code.split('.')[0],
@@ -105,7 +111,7 @@ export default {
       story: 'story/story'
     }),
     countryList() {
-      return this.countries.map(x => x.geoAreaName).join(', ')
+      return Array.isArray(this.countries) ? this.countries.map(x => x.geoAreaName).join(', ') : ""
     }
   },
   methods: {
@@ -241,12 +247,15 @@ export default {
   .data-visualization {
     &__content {
       flex-wrap: wrap;
-      &__left {
-        width: 100%;
-      }
-      &__right {
-        width: 100%;
-      }
+    }
+    &__left {
+      width: 100% !important;
+    }
+    &__right {
+      width: 100% !important;
+    }
+    .user-information {
+      flex-wrap: wrap;    
     }
   }
 }

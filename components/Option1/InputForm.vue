@@ -9,19 +9,11 @@
       <div class="transition-up"  v-delay="{delay:1600,cssClass:'up'}">
         <multiselect v-model="selectedGeography" :options="geoList" @select="countrySelected" :multiple="true" :close-on-select="true" :clear-on-select="true"  placeholder="Select Countries or Regions" label="name" track-by="name" :preselect-first="false">          
         </multiselect>
-        <!-- <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList">
-          <label>
-            Select Countries or Regions
-          </label>
-        </md-autocomplete>  -->
         <div class="selected-tags">
           <span class="selected-tags__item" @click="removeCountry(country)" v-for="country in selectedCountries" :key="country">{{country}} <md-icon>close</md-icon></span>
         </div>
         <multiselect v-model="selectedGoal" :options="goalList" @select="goalSelected" :multiple="true" :close-on-select="true" :clear-on-select="true"  placeholder="Select Goals, Targets, or Indicators" label="name" track-by="name" :preselect-first="false">          
         </multiselect>
-        <!-- <md-autocomplete class="form-area__input" @md-selected="goalSelected" @md-opened="goalOpened" v-model="selectedGoal" :md-options="goalList">
-          <label>Select Goals, Targets, or Indicators</label>
-        </md-autocomplete> -->
         <div class="selected-tags">
           <span class="selected-tags__item" @click="removeGoal(goal)" v-for="goal in selectedGoals" :key="goal">{{goal}} <md-icon>close</md-icon></span>
         </div>

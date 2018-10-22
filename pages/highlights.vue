@@ -138,6 +138,7 @@ export default {
     top: 40px;
     align-items: flex-start;
     position: relative;
+    flex-wrap: wrap;
     h1 {
       margin-bottom: 20px;
       font-size: px-to-rem(40px);
@@ -145,8 +146,13 @@ export default {
     }
     &-content {
       padding-bottom: 20px;
+      width: 100%;
+      padding: 80px 0px 20px;
     }
-
+    &-secondary {
+      width: 100%;
+      padding: 80px 0px 20px;
+    }
   }
 
     .fade-enter-active, .fade-leave-active {

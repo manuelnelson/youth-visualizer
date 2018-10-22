@@ -35,17 +35,9 @@
         <div v-show="graphDataOpened" class="configure-graph__content"> 
           <multiselect v-model="graphOptions.selectedGoal" :options="goalList" @select="goalSelected" :multiple="false" :close-on-select="true" :clear-on-select="true"  placeholder="Add Indicator" :preselect-first="false">          
           </multiselect>
-          <!-- <md-autocomplete v-if="!showMap" class="form-area__input" @md-changed="goalChanged" @md-selected="goalSelected" @md-opened="goalOpened" v-model="graphOptions.selectedGoal" :md-options="goalList">
-            <label>Add Indicator</label>
-          </md-autocomplete> -->
           <multiselect v-model="selectedGeography" :options="geoList.map(x=> {return {name:x.geoAreaName}})" @select="countrySelected" :multiple="true" :close-on-select="true" :clear-on-select="true"  placeholder="Select Countries or Regions" label="name" track-by="name" :preselect-first="false">          
           </multiselect>
 
-          <!-- <md-autocomplete class="form-area__input" @md-selected="countrySelected" @md-opened="opened" v-model="selectedGeography" :md-options="geoList.map(x=> {return {name:x.geoAreaName}})">
-            <label>
-              Modify Countries or Regions
-            </label>
-          </md-autocomplete> -->
           <div class="selected-tags">
             <span class="selected-tags__item" @click="removeCountry(country)" v-for="(country,ndx) in countries" :key="ndx">{{country.geoAreaName}} <md-icon>close</md-icon></span>
           </div>
@@ -173,8 +165,14 @@ export default {
     if(this.slide) {
       this.importSlideData()
     } else {
-      this.countries = this.$route.query.countries.map(x => this.geoList.find(y => y.geoAreaName === x));
-      this.codes = this.$route.query.selectedGoals;
+      let countries = this.$route.query.countries;
+      if(Array.isArray(countries)){
+        this.countries = countries.map(x => geolist.find(y => y.geoAreaName === x));
+      } else {
+        let country = geolist.find(y => y.geoAreaName === countries);
+        this.countries = [country];
+      }
+      this.codes = Array.isArray(this.$route.query.selectedGoals) ? this.$route.query.selectedGoals : new Array().push(this.$route.query.selectedGoals);
     }
 
     //retrieve data
@@ -228,7 +226,7 @@ export default {
   },
   computed: {
     countryList() {
-      return this.countries.map(x => x.geoAreaName).join(', ')
+      return Array.isArray(this.countries) ? this.countries.map(x => x.geoAreaName).join(', ') : ""
     },
     configureButtonText(){
       return this.graphOptionsOpened ? 'Update' : 'Configure Graph'
@@ -325,10 +323,10 @@ export default {
           this.graphData = this.oldGraphData;
       }
     },
-    // graphOpened () {
-    //   this.graphOptions.graphType = ' '
-    //   this.graphOptions.graphType = this.graphOptions.graphType.substring(0, this.graphOptions.graphType.length - 1)
-    // },
+    graphOpened () {
+      this.graphOptions.graphType = ' '
+      this.graphOptions.graphType = this.graphOptions.graphType.substring(0, this.graphOptions.graphType.length - 1)
+    },
     async configureGraph() {
       this.graphDataOpened = !this.graphDataOpened; 
       if(!this.graphDataOpened) {
@@ -649,10 +647,10 @@ export default {
       &.reverse {
         flex-direction: row;
         .data-visualization__left {
-          width: 100%;
+          width: 100% !important;
         }
         .data-visualization__right {
-          width: 100%;
+          width: 100% !important;
         }
       }
     }

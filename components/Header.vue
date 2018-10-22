@@ -14,6 +14,9 @@
 </script>
 
 <style lang="scss">
+  @import '~assets/functions';
+  @import '~assets/breakpoints'; 
+
   .header {
     //opacity: 0.4;
     //background-color: rgba(0,0,0,0.1) !important;
@@ -48,6 +51,11 @@
     .logo {
       max-height: 100%;
       margin-top: 8px;
+    }
+    @include bp-max($bp-between) {
+      .nav-area {
+        padding-right: 10px;
+      }
     }
   }
 </style>
